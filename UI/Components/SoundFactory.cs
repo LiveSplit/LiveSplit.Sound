@@ -1,5 +1,4 @@
-﻿using LiveSplit.Delta;
-using LiveSplit.Model;
+﻿using LiveSplit.Model;
 using LiveSplit.UI.Components;
 using System;
 using System.Collections.Generic;
@@ -9,7 +8,7 @@ using System.Threading.Tasks;
 
 [assembly: ComponentFactory(typeof(SoundFactory))]
 
-namespace LiveSplit.Delta
+namespace LiveSplit.UI.Components
 {
     public class SoundFactory : IComponentFactory
     {

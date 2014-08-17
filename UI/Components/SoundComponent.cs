@@ -14,12 +14,13 @@ using System.Windows.Forms;
 
 namespace LiveSplit.UI.Components
 {
-    public class SoundComponent : LogicComponent
+    public class SoundComponent : LogicComponent, IDeactivatableComponent
     {
         public LiveSplitState State { get; set; }
         public MediaPlayer.IMediaPlayer Player { get; set; }
         public SoundSettings Settings { get; set; }
 
+        public bool Activated { get; set; }
 
         public override string ComponentName
         {
@@ -31,6 +32,7 @@ namespace LiveSplit.UI.Components
             Settings = new SoundSettings();
             State = state;
             Player = new MediaPlayer.MediaPlayer();
+            Activated = true;
 
             State.OnStart += State_OnStart;
             State.OnSplit += State_OnSplit;
@@ -39,14 +41,12 @@ namespace LiveSplit.UI.Components
             State.OnPause += State_OnPause;
             State.OnResume += State_OnResume;
             State.OnReset += State_OnReset;
-
-            Settings.Split = @"D:\Musik\Speedrun Sounds\Time.mp3";
-            Settings.Reset = @"D:\Musik\Speedrun Sounds\Well_shit.mp3";
         }
 
-        void State_OnReset(object sender, EventArgs e)
+        void State_OnReset(object sender, TimerPhase e)
         {
-            PlaySound(Settings.Reset);
+            if (e != TimerPhase.Ended)
+                PlaySound(Settings.Reset);
         }
 
         void State_OnResume(object sender, EventArgs e)
@@ -73,12 +73,51 @@ namespace LiveSplit.UI.Components
         {
             if (State.CurrentPhase == TimerPhase.Ended)
             {
-                PlaySound(Settings.PersonalBest);
+                if (State.Run.Last().PersonalBestSplitTime[State.CurrentTimingMethod] == null
+                    || State.Run.Last().SplitTime[State.CurrentTimingMethod] < State.Run.Last().PersonalBestSplitTime[State.CurrentTimingMethod])
+                    PlaySound(Settings.PersonalBest);
+                else
+                    PlaySound(Settings.NotAPersonalBest);
             }
             else
             {
-                PlaySound(Settings.Split);
+                var path = Settings.Split;
+                var newPath = GetSoundPathForSplit();
+                if (!String.IsNullOrEmpty(newPath))
+                    path = newPath;
+                PlaySound(path);
             }
+        }
+
+        public String GetSoundPathForSplit()
+        {
+            var splitIndex = State.CurrentSplitIndex - 1;
+            var timeDifference = State.Run[State.CurrentSplitIndex - 1].SplitTime[State.CurrentTimingMethod] - State.Run[State.CurrentSplitIndex - 1].Comparisons[State.CurrentComparison][State.CurrentTimingMethod];
+            String soundPath = null;
+            if (timeDifference != null)
+            {
+                if (timeDifference < TimeSpan.Zero)
+                {
+                    soundPath = Settings.SplitAheadGaining;
+                    if (LiveSplitStateHelper.GetPreviousSegment(State, splitIndex, false, false, true, State.CurrentComparison, State.CurrentTimingMethod) > TimeSpan.Zero)
+                        soundPath = Settings.SplitAheadLosing;
+                }
+                else
+                {
+                    soundPath = Settings.SplitBehindLosing;
+                    if (LiveSplitStateHelper.GetPreviousSegment(State, splitIndex, false, false, true, State.CurrentComparison, State.CurrentTimingMethod) < TimeSpan.Zero)
+                        soundPath = Settings.SplitBehindGaining;
+                }
+            }
+            //Check for best segment
+            TimeSpan? curSegment;
+            curSegment = LiveSplitStateHelper.GetPreviousSegment(State, splitIndex, false, true, true, State.CurrentComparison, State.CurrentTimingMethod);
+            if (curSegment != null)
+            {
+                if (State.Run[splitIndex].BestSegmentTime[State.CurrentTimingMethod] == null || curSegment < State.Run[splitIndex].BestSegmentTime[State.CurrentTimingMethod])
+                    soundPath = Settings.BestSegment;
+            }
+            return soundPath;
         }
 
         void State_OnStart(object sender, EventArgs e)
@@ -88,16 +127,17 @@ namespace LiveSplit.UI.Components
 
         public override Control GetSettingsControl(LayoutMode mode)
         {
-            return null;
+            return Settings;
         }
 
         public override System.Xml.XmlNode GetSettings(System.Xml.XmlDocument document)
         {
-            return document.CreateElement("x");
+            return Settings.GetSettings(document);
         }
 
         public override void SetSettings(System.Xml.XmlNode settings)
         {
+            Settings.SetSettings(settings);
         }
 
         public override void RenameComparison(string oldName, string newName)
@@ -110,7 +150,7 @@ namespace LiveSplit.UI.Components
 
         public void PlaySound(String location)
         {
-            if (!String.IsNullOrEmpty(location))
+            if (Activated && !String.IsNullOrEmpty(location))
             {
                 Task.Factory.StartNew(() =>
                 {
@@ -118,5 +158,19 @@ namespace LiveSplit.UI.Components
                 });
             }
         }
+
+        public override void Dispose()
+        {
+            State.OnStart -= State_OnStart;
+            State.OnSplit -= State_OnSplit;
+            State.OnSkipSplit -= State_OnSkipSplit;
+            State.OnUndoSplit -= State_OnUndoSplit;
+            State.OnPause -= State_OnPause;
+            State.OnResume -= State_OnResume;
+            State.OnReset -= State_OnReset;
+            Player.Stop();
+        }
+
+        
     }
 }
