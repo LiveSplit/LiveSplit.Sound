@@ -12,6 +12,7 @@ using System.Globalization;
 using LiveSplit.TimeFormatters;
 using LiveSplit.Model;
 using LiveSplit.Model.Comparisons;
+using NAudio.Wave;
 
 namespace LiveSplit.UI.Components
 {
@@ -31,6 +32,22 @@ namespace LiveSplit.UI.Components
         public String Pause { get; set; }
         public String Resume { get; set; }
         public String StartTimer { get; set; }
+        public int OutputDevice { get; set; }
+        public int SplitVolume { get; set; }
+        public int SplitAheadGainingVolume { get; set; }
+        public int SplitAheadLosingVolume { get; set; }
+        public int SplitBehindGainingVolume { get; set; }
+        public int SplitBehindLosingVolume { get; set; }
+        public int BestSegmentVolume { get; set; }
+        public int UndoSplitVolume { get; set; }
+        public int SkipSplitVolume { get; set; }
+        public int PersonalBestVolume { get; set; }
+        public int NotAPersonalBestVolume { get; set; }
+        public int ResetVolume { get; set; }
+        public int PauseVolume { get; set; }
+        public int ResumeVolume { get; set; }
+        public int StartTimerVolume { get; set; }
+        public int GeneralVolume { get; set; }
 
         public SoundSettings()
         {
@@ -51,6 +68,27 @@ namespace LiveSplit.UI.Components
             Resume =
             StartTimer = "";
 
+            OutputDevice = 0;
+
+            SplitVolume =
+            SplitAheadGainingVolume =
+            SplitAheadLosingVolume =
+            SplitBehindGainingVolume =
+            SplitBehindLosingVolume =
+            BestSegmentVolume =
+            UndoSplitVolume =
+            SkipSplitVolume =
+            PersonalBestVolume =
+            NotAPersonalBestVolume =
+            ResetVolume =
+            PauseVolume =
+            ResumeVolume =
+            StartTimerVolume =
+            GeneralVolume = 100;
+
+            for (int i = 0; i < WaveOut.DeviceCount; ++i)
+                cbOutputDevice.Items.Add(WaveOut.GetCapabilities(i));
+
             txtSplitPath.DataBindings.Add("Text", this, "Split");
             txtSplitAheadGaining.DataBindings.Add("Text", this, "SplitAheadGaining");
             txtSplitAheadLosing.DataBindings.Add("Text", this, "SplitAheadLosing");
@@ -65,12 +103,26 @@ namespace LiveSplit.UI.Components
             txtPause.DataBindings.Add("Text", this, "Pause");
             txtResume.DataBindings.Add("Text", this, "Resume");
             txtStartTimer.DataBindings.Add("Text", this, "StartTimer");
+
+            cbOutputDevice.DataBindings.Add("SelectedIndex", this, "OutputDevice");
+            tbSplitVolume.DataBindings.Add("Value", this, "SplitVolume");
+            tbSplitAheadGainingVolume.DataBindings.Add("Value", this, "SplitAheadGainingVolume");
+            tbSplitAheadLosingVolume.DataBindings.Add("Value", this, "SplitAheadLosingVolume");
+            tbSplitBehindGainingVolume.DataBindings.Add("Value", this, "SplitBehindGainingVolume");
+            tbSplitBehindLosingVolume.DataBindings.Add("Value", this, "SplitBehindLosingVolume");
+            tbBestSegmentVolume.DataBindings.Add("Value", this, "BestSegmentVolume");
+            tbUndoVolume.DataBindings.Add("Value", this, "UndoSplitVolume");
+            tbSkipVolume.DataBindings.Add("Value", this, "SkipSplitVolume");
+            tbPersonalBestVolume.DataBindings.Add("Value", this, "PersonalBestVolume");
+            tbNotAPersonalBestVolume.DataBindings.Add("Value", this, "NotAPersonalBestVolume");
+            tbResetVolume.DataBindings.Add("Value", this, "ResetVolume");
+            tbPauseVolume.DataBindings.Add("Value", this, "PauseVolume");
+            tbResumeVolume.DataBindings.Add("Value", this, "ResumeVolume");
+            tbStartTimerVolume.DataBindings.Add("Value", this, "StartTimerVolume");
+            tbGeneralVolume.DataBindings.Add("Value", this, "GeneralVolume");
         }
 
-        void DeltaSettings_Load(object sender, EventArgs e)
-        {
-        }
-
+        void DeltaSettings_Load(object sender, EventArgs e) { }
 
         private T ParseEnum<T>(XmlElement element)
         {
@@ -85,6 +137,7 @@ namespace LiveSplit.UI.Components
                 version = Version.Parse(element["Version"].InnerText);
             else
                 version = new Version(1, 0, 0, 0);
+
             Split = element["Split"].InnerText;
             SplitAheadGaining = element["SplitAheadGaining"].InnerText;
             SplitAheadLosing = element["SplitAheadLosing"].InnerText;
@@ -99,12 +152,31 @@ namespace LiveSplit.UI.Components
             Pause = element["Pause"].InnerText;
             Resume = element["Resume"].InnerText;
             StartTimer = element["StartTimer"].InnerText;
+
+            OutputDevice = int.Parse(element["OutputDevice"].InnerText);
+
+            SplitVolume = int.Parse(element["SplitVolume"].InnerText);
+            SplitAheadGainingVolume = int.Parse(element["SplitAheadGainingVolume"].InnerText);
+            SplitAheadLosingVolume = int.Parse(element["SplitAheadLosingVolume"].InnerText);
+            SplitBehindGainingVolume = int.Parse(element["SplitBehindGainingVolume"].InnerText);
+            SplitBehindLosingVolume = int.Parse(element["SplitBehindLosingVolume"].InnerText);
+            BestSegmentVolume = int.Parse(element["BestSegmentVolume"].InnerText);
+            UndoSplitVolume = int.Parse(element["UndoSplitVolume"].InnerText);
+            SkipSplitVolume = int.Parse(element["SkipSplitVolume"].InnerText);
+            PersonalBestVolume = int.Parse(element["PersonalBestVolume"].InnerText);
+            NotAPersonalBestVolume = int.Parse(element["NotAPersonalBestVolume"].InnerText);
+            ResetVolume = int.Parse(element["ResetVolume"].InnerText);
+            PauseVolume = int.Parse(element["PauseVolume"].InnerText);
+            ResumeVolume = int.Parse(element["ResumeVolume"].InnerText);
+            StartTimerVolume = int.Parse(element["StartTimerVolume"].InnerText);
+            GeneralVolume = int.Parse(element["GeneralVolume"].InnerText);
         }
 
         public XmlNode GetSettings(XmlDocument document)
         {
             var parent = document.CreateElement("Settings");
             parent.AppendChild(ToElement(document, "Version", "1.4"));
+
             parent.AppendChild(ToElement(document, "Split", Split));
             parent.AppendChild(ToElement(document, "SplitAheadGaining", SplitAheadGaining));
             parent.AppendChild(ToElement(document, "SplitAheadLosing", SplitAheadLosing));
@@ -119,6 +191,25 @@ namespace LiveSplit.UI.Components
             parent.AppendChild(ToElement(document, "Pause", Pause));
             parent.AppendChild(ToElement(document, "Resume", Resume));
             parent.AppendChild(ToElement(document, "StartTimer", StartTimer));
+
+            parent.AppendChild(ToElement(document, "OutputDevice", OutputDevice));
+
+            parent.AppendChild(ToElement(document, "SplitVolume", SplitVolume));
+            parent.AppendChild(ToElement(document, "SplitAheadGainingVolume", SplitAheadGainingVolume));
+            parent.AppendChild(ToElement(document, "SplitAheadLosingVolume", SplitAheadLosingVolume));
+            parent.AppendChild(ToElement(document, "SplitBehindGainingVolume", SplitBehindGainingVolume));
+            parent.AppendChild(ToElement(document, "SplitBehindLosingVolume", SplitBehindLosingVolume));
+            parent.AppendChild(ToElement(document, "BestSegmentVolume", BestSegmentVolume));
+            parent.AppendChild(ToElement(document, "UndoSplitVolume", UndoSplitVolume));
+            parent.AppendChild(ToElement(document, "SkipSplitVolume", SkipSplitVolume));
+            parent.AppendChild(ToElement(document, "PersonalBestVolume", PersonalBestVolume));
+            parent.AppendChild(ToElement(document, "NotAPersonalBestVolume", NotAPersonalBestVolume));
+            parent.AppendChild(ToElement(document, "ResetVolume", ResetVolume));
+            parent.AppendChild(ToElement(document, "PauseVolume", PauseVolume));
+            parent.AppendChild(ToElement(document, "ResumeVolume", ResumeVolume));
+            parent.AppendChild(ToElement(document, "StartTimerVolume", StartTimerVolume));
+            parent.AppendChild(ToElement(document, "GeneralVolume", GeneralVolume));
+
             return parent;
         }
 
@@ -148,9 +239,12 @@ namespace LiveSplit.UI.Components
                 FileName = path ?? "",
                 Filter = "Media Files|*.avi;*.mp3;*.wav;*.mid;*.midi;*.mpeg;*.mpg;*.mp4;*.m4a;*.aac;*.m4v;*.mov;*.wmv;|All Files (*.*)|*.*"
             };
+
             var result = fileDialog.ShowDialog();
+
             if (result == DialogResult.OK)
                 path = fileDialog.FileName;
+
             return path;
         }
 
@@ -213,7 +307,6 @@ namespace LiveSplit.UI.Components
         {
             txtPause.Text = Pause = BrowseForPath(Pause);
         }
-
 
         private void btnResume_Click(object sender, EventArgs e)
         {
