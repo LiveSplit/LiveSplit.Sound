@@ -180,7 +180,7 @@
             this.txtSplitPath.Location = new System.Drawing.Point(149, 4);
             this.txtSplitPath.Name = "txtSplitPath";
             this.txtSplitPath.Size = new System.Drawing.Size(227, 20);
-            this.txtSplitPath.TabIndex = 2;
+            this.txtSplitPath.TabIndex = 0;
             // 
             // btnAheadGaining
             // 
@@ -197,7 +197,7 @@
             this.btnAheadLosing.Location = new System.Drawing.Point(382, 61);
             this.btnAheadLosing.Name = "btnAheadLosing";
             this.btnAheadLosing.Size = new System.Drawing.Size(75, 23);
-            this.btnAheadLosing.TabIndex = 4;
+            this.btnAheadLosing.TabIndex = 5;
             this.btnAheadLosing.Text = "Browse...";
             this.btnAheadLosing.UseVisualStyleBackColor = true;
             this.btnAheadLosing.Click += new System.EventHandler(this.btnAheadLosing_Click);
@@ -207,7 +207,7 @@
             this.btnBehindGaining.Location = new System.Drawing.Point(382, 90);
             this.btnBehindGaining.Name = "btnBehindGaining";
             this.btnBehindGaining.Size = new System.Drawing.Size(75, 23);
-            this.btnBehindGaining.TabIndex = 5;
+            this.btnBehindGaining.TabIndex = 7;
             this.btnBehindGaining.Text = "Browse...";
             this.btnBehindGaining.UseVisualStyleBackColor = true;
             this.btnBehindGaining.Click += new System.EventHandler(this.btnBehindGaining_Click);
@@ -217,7 +217,7 @@
             this.btnBehindLosing.Location = new System.Drawing.Point(382, 119);
             this.btnBehindLosing.Name = "btnBehindLosing";
             this.btnBehindLosing.Size = new System.Drawing.Size(75, 23);
-            this.btnBehindLosing.TabIndex = 6;
+            this.btnBehindLosing.TabIndex = 9;
             this.btnBehindLosing.Text = "Browse...";
             this.btnBehindLosing.UseVisualStyleBackColor = true;
             this.btnBehindLosing.Click += new System.EventHandler(this.btnBehindLosing_Click);
@@ -227,7 +227,7 @@
             this.btnBestSegment.Location = new System.Drawing.Point(382, 148);
             this.btnBestSegment.Name = "btnBestSegment";
             this.btnBestSegment.Size = new System.Drawing.Size(75, 23);
-            this.btnBestSegment.TabIndex = 7;
+            this.btnBestSegment.TabIndex = 11;
             this.btnBestSegment.Text = "Browse...";
             this.btnBestSegment.UseVisualStyleBackColor = true;
             this.btnBestSegment.Click += new System.EventHandler(this.btnBestSegment_Click);
@@ -237,7 +237,7 @@
             this.btnUndo.Location = new System.Drawing.Point(382, 177);
             this.btnUndo.Name = "btnUndo";
             this.btnUndo.Size = new System.Drawing.Size(75, 23);
-            this.btnUndo.TabIndex = 8;
+            this.btnUndo.TabIndex = 13;
             this.btnUndo.Text = "Browse...";
             this.btnUndo.UseVisualStyleBackColor = true;
             this.btnUndo.Click += new System.EventHandler(this.btnUndo_Click);
@@ -247,7 +247,7 @@
             this.btnSkipSplit.Location = new System.Drawing.Point(382, 206);
             this.btnSkipSplit.Name = "btnSkipSplit";
             this.btnSkipSplit.Size = new System.Drawing.Size(75, 23);
-            this.btnSkipSplit.TabIndex = 9;
+            this.btnSkipSplit.TabIndex = 15;
             this.btnSkipSplit.Text = "Browse...";
             this.btnSkipSplit.UseVisualStyleBackColor = true;
             this.btnSkipSplit.Click += new System.EventHandler(this.btnSkipSplit_Click);
@@ -257,7 +257,7 @@
             this.btnPersonalBest.Location = new System.Drawing.Point(382, 235);
             this.btnPersonalBest.Name = "btnPersonalBest";
             this.btnPersonalBest.Size = new System.Drawing.Size(75, 23);
-            this.btnPersonalBest.TabIndex = 10;
+            this.btnPersonalBest.TabIndex = 17;
             this.btnPersonalBest.Text = "Browse...";
             this.btnPersonalBest.UseVisualStyleBackColor = true;
             this.btnPersonalBest.Click += new System.EventHandler(this.btnPersonalBest_Click);
@@ -267,7 +267,7 @@
             this.btnNotAPersonalBest.Location = new System.Drawing.Point(382, 264);
             this.btnNotAPersonalBest.Name = "btnNotAPersonalBest";
             this.btnNotAPersonalBest.Size = new System.Drawing.Size(75, 23);
-            this.btnNotAPersonalBest.TabIndex = 11;
+            this.btnNotAPersonalBest.TabIndex = 19;
             this.btnNotAPersonalBest.Text = "Browse...";
             this.btnNotAPersonalBest.UseVisualStyleBackColor = true;
             this.btnNotAPersonalBest.Click += new System.EventHandler(this.btnNotAPersonalBest_Click);
@@ -277,7 +277,7 @@
             this.btnReset.Location = new System.Drawing.Point(382, 293);
             this.btnReset.Name = "btnReset";
             this.btnReset.Size = new System.Drawing.Size(75, 23);
-            this.btnReset.TabIndex = 12;
+            this.btnReset.TabIndex = 21;
             this.btnReset.Text = "Browse...";
             this.btnReset.UseVisualStyleBackColor = true;
             this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
@@ -287,7 +287,7 @@
             this.btnPause.Location = new System.Drawing.Point(382, 322);
             this.btnPause.Name = "btnPause";
             this.btnPause.Size = new System.Drawing.Size(75, 23);
-            this.btnPause.TabIndex = 13;
+            this.btnPause.TabIndex = 23;
             this.btnPause.Text = "Browse...";
             this.btnPause.UseVisualStyleBackColor = true;
             this.btnPause.Click += new System.EventHandler(this.btnPause_Click);
@@ -297,7 +297,7 @@
             this.btnResume.Location = new System.Drawing.Point(382, 351);
             this.btnResume.Name = "btnResume";
             this.btnResume.Size = new System.Drawing.Size(75, 23);
-            this.btnResume.TabIndex = 14;
+            this.btnResume.TabIndex = 25;
             this.btnResume.Text = "Browse...";
             this.btnResume.UseVisualStyleBackColor = true;
             this.btnResume.Click += new System.EventHandler(this.btnResume_Click);
@@ -307,7 +307,7 @@
             this.btnStartTimer.Location = new System.Drawing.Point(382, 380);
             this.btnStartTimer.Name = "btnStartTimer";
             this.btnStartTimer.Size = new System.Drawing.Size(75, 23);
-            this.btnStartTimer.TabIndex = 15;
+            this.btnStartTimer.TabIndex = 27;
             this.btnStartTimer.Text = "Browse...";
             this.btnStartTimer.UseVisualStyleBackColor = true;
             this.btnStartTimer.Click += new System.EventHandler(this.btnStartTimer_Click);
@@ -318,7 +318,7 @@
             this.txtSplitAheadGaining.Location = new System.Drawing.Point(149, 33);
             this.txtSplitAheadGaining.Name = "txtSplitAheadGaining";
             this.txtSplitAheadGaining.Size = new System.Drawing.Size(227, 20);
-            this.txtSplitAheadGaining.TabIndex = 16;
+            this.txtSplitAheadGaining.TabIndex = 2;
             // 
             // txtSplitAheadLosing
             // 
@@ -326,7 +326,7 @@
             this.txtSplitAheadLosing.Location = new System.Drawing.Point(149, 62);
             this.txtSplitAheadLosing.Name = "txtSplitAheadLosing";
             this.txtSplitAheadLosing.Size = new System.Drawing.Size(227, 20);
-            this.txtSplitAheadLosing.TabIndex = 17;
+            this.txtSplitAheadLosing.TabIndex = 4;
             // 
             // txtSplitBehindGaining
             // 
@@ -334,7 +334,7 @@
             this.txtSplitBehindGaining.Location = new System.Drawing.Point(149, 91);
             this.txtSplitBehindGaining.Name = "txtSplitBehindGaining";
             this.txtSplitBehindGaining.Size = new System.Drawing.Size(227, 20);
-            this.txtSplitBehindGaining.TabIndex = 18;
+            this.txtSplitBehindGaining.TabIndex = 6;
             // 
             // txtSplitBehindLosing
             // 
@@ -342,7 +342,7 @@
             this.txtSplitBehindLosing.Location = new System.Drawing.Point(149, 120);
             this.txtSplitBehindLosing.Name = "txtSplitBehindLosing";
             this.txtSplitBehindLosing.Size = new System.Drawing.Size(227, 20);
-            this.txtSplitBehindLosing.TabIndex = 19;
+            this.txtSplitBehindLosing.TabIndex = 8;
             // 
             // txtBestSegment
             // 
@@ -350,7 +350,7 @@
             this.txtBestSegment.Location = new System.Drawing.Point(149, 149);
             this.txtBestSegment.Name = "txtBestSegment";
             this.txtBestSegment.Size = new System.Drawing.Size(227, 20);
-            this.txtBestSegment.TabIndex = 20;
+            this.txtBestSegment.TabIndex = 10;
             // 
             // txtUndo
             // 
@@ -358,7 +358,7 @@
             this.txtUndo.Location = new System.Drawing.Point(149, 178);
             this.txtUndo.Name = "txtUndo";
             this.txtUndo.Size = new System.Drawing.Size(227, 20);
-            this.txtUndo.TabIndex = 21;
+            this.txtUndo.TabIndex = 12;
             // 
             // txtSkip
             // 
@@ -366,7 +366,7 @@
             this.txtSkip.Location = new System.Drawing.Point(149, 207);
             this.txtSkip.Name = "txtSkip";
             this.txtSkip.Size = new System.Drawing.Size(227, 20);
-            this.txtSkip.TabIndex = 22;
+            this.txtSkip.TabIndex = 14;
             // 
             // txtPersonalBest
             // 
@@ -374,7 +374,7 @@
             this.txtPersonalBest.Location = new System.Drawing.Point(149, 236);
             this.txtPersonalBest.Name = "txtPersonalBest";
             this.txtPersonalBest.Size = new System.Drawing.Size(227, 20);
-            this.txtPersonalBest.TabIndex = 23;
+            this.txtPersonalBest.TabIndex = 16;
             // 
             // txtNotAPersonalBest
             // 
@@ -382,7 +382,7 @@
             this.txtNotAPersonalBest.Location = new System.Drawing.Point(149, 265);
             this.txtNotAPersonalBest.Name = "txtNotAPersonalBest";
             this.txtNotAPersonalBest.Size = new System.Drawing.Size(227, 20);
-            this.txtNotAPersonalBest.TabIndex = 24;
+            this.txtNotAPersonalBest.TabIndex = 18;
             // 
             // txtReset
             // 
@@ -390,7 +390,7 @@
             this.txtReset.Location = new System.Drawing.Point(149, 294);
             this.txtReset.Name = "txtReset";
             this.txtReset.Size = new System.Drawing.Size(227, 20);
-            this.txtReset.TabIndex = 25;
+            this.txtReset.TabIndex = 20;
             // 
             // txtPause
             // 
@@ -398,7 +398,7 @@
             this.txtPause.Location = new System.Drawing.Point(149, 323);
             this.txtPause.Name = "txtPause";
             this.txtPause.Size = new System.Drawing.Size(227, 20);
-            this.txtPause.TabIndex = 26;
+            this.txtPause.TabIndex = 22;
             // 
             // txtResume
             // 
@@ -406,7 +406,7 @@
             this.txtResume.Location = new System.Drawing.Point(149, 352);
             this.txtResume.Name = "txtResume";
             this.txtResume.Size = new System.Drawing.Size(227, 20);
-            this.txtResume.TabIndex = 27;
+            this.txtResume.TabIndex = 24;
             // 
             // txtStartTimer
             // 
@@ -414,7 +414,7 @@
             this.txtStartTimer.Location = new System.Drawing.Point(149, 382);
             this.txtStartTimer.Name = "txtStartTimer";
             this.txtStartTimer.Size = new System.Drawing.Size(227, 20);
-            this.txtStartTimer.TabIndex = 28;
+            this.txtStartTimer.TabIndex = 26;
             // 
             // label2
             // 
