@@ -1,18 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
+﻿using NAudio.Wave;
+using System;
 using System.Drawing;
-using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Globalization;
 using System.Windows.Forms;
 using System.Xml;
-using System.Globalization;
-using LiveSplit.TimeFormatters;
-using LiveSplit.Model;
-using LiveSplit.Model.Comparisons;
-using NAudio.Wave;
 
 namespace LiveSplit.UI.Components
 {
@@ -32,7 +23,9 @@ namespace LiveSplit.UI.Components
         public String Pause { get; set; }
         public String Resume { get; set; }
         public String StartTimer { get; set; }
+
         public int OutputDevice { get; set; }
+
         public int SplitVolume { get; set; }
         public int SplitAheadGainingVolume { get; set; }
         public int SplitAheadLosingVolume { get; set; }
@@ -105,6 +98,7 @@ namespace LiveSplit.UI.Components
             txtStartTimer.DataBindings.Add("Text", this, "StartTimer");
 
             cbOutputDevice.DataBindings.Add("SelectedIndex", this, "OutputDevice");
+
             tbSplitVolume.DataBindings.Add("Value", this, "SplitVolume");
             tbSplitAheadGainingVolume.DataBindings.Add("Value", this, "SplitAheadGainingVolume");
             tbSplitAheadLosingVolume.DataBindings.Add("Value", this, "SplitAheadLosingVolume");
