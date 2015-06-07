@@ -237,7 +237,7 @@ namespace LiveSplit.UI.Components
             var fileDialog = new OpenFileDialog()
             {
                 FileName = path ?? "",
-                Filter = "Media Files|*.avi;*.mp3;*.wav;*.mid;*.midi;*.mpeg;*.mpg;*.mp4;*.m4a;*.aac;*.m4v;*.mov;*.wmv;|All Files (*.*)|*.*"
+                Filter = "Audio Files|*.mp3;*.wav;*.aiff;*.wma|All Files|*.*"
             };
 
             var result = fileDialog.ShowDialog();
