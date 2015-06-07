@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tpSoundFiles = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
@@ -107,6 +108,7 @@
             this.tbGeneralVolume = new System.Windows.Forms.TrackBar();
             this.label30 = new System.Windows.Forms.Label();
             this.cbOutputDevice = new System.Windows.Forms.ComboBox();
+            this.ttVolume = new System.Windows.Forms.ToolTip(this.components);
             this.tabControl1.SuspendLayout();
             this.tpSoundFiles.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -698,6 +700,7 @@
             this.tbStartTimerVolume.Size = new System.Drawing.Size(279, 23);
             this.tbStartTimerVolume.TabIndex = 74;
             this.tbStartTimerVolume.TickFrequency = 10;
+            this.tbStartTimerVolume.Scroll += new System.EventHandler(this.VolumeTrackBarScrollHandler);
             // 
             // tbResumeVolume
             // 
@@ -709,6 +712,7 @@
             this.tbResumeVolume.Size = new System.Drawing.Size(279, 23);
             this.tbResumeVolume.TabIndex = 29;
             this.tbResumeVolume.TickFrequency = 10;
+            this.tbResumeVolume.Scroll += new System.EventHandler(this.VolumeTrackBarScrollHandler);
             // 
             // tbPauseVolume
             // 
@@ -720,6 +724,7 @@
             this.tbPauseVolume.Size = new System.Drawing.Size(279, 23);
             this.tbPauseVolume.TabIndex = 27;
             this.tbPauseVolume.TickFrequency = 10;
+            this.tbPauseVolume.Scroll += new System.EventHandler(this.VolumeTrackBarScrollHandler);
             // 
             // tbResetVolume
             // 
@@ -731,6 +736,7 @@
             this.tbResetVolume.Size = new System.Drawing.Size(279, 23);
             this.tbResetVolume.TabIndex = 25;
             this.tbResetVolume.TickFrequency = 10;
+            this.tbResetVolume.Scroll += new System.EventHandler(this.VolumeTrackBarScrollHandler);
             // 
             // tbNotAPersonalBestVolume
             // 
@@ -742,6 +748,7 @@
             this.tbNotAPersonalBestVolume.Size = new System.Drawing.Size(279, 23);
             this.tbNotAPersonalBestVolume.TabIndex = 23;
             this.tbNotAPersonalBestVolume.TickFrequency = 10;
+            this.tbNotAPersonalBestVolume.Scroll += new System.EventHandler(this.VolumeTrackBarScrollHandler);
             // 
             // tbPersonalBestVolume
             // 
@@ -753,6 +760,7 @@
             this.tbPersonalBestVolume.Size = new System.Drawing.Size(279, 23);
             this.tbPersonalBestVolume.TabIndex = 21;
             this.tbPersonalBestVolume.TickFrequency = 10;
+            this.tbPersonalBestVolume.Scroll += new System.EventHandler(this.VolumeTrackBarScrollHandler);
             // 
             // tbSkipVolume
             // 
@@ -764,6 +772,7 @@
             this.tbSkipVolume.Size = new System.Drawing.Size(279, 23);
             this.tbSkipVolume.TabIndex = 19;
             this.tbSkipVolume.TickFrequency = 10;
+            this.tbSkipVolume.Scroll += new System.EventHandler(this.VolumeTrackBarScrollHandler);
             // 
             // tbUndoVolume
             // 
@@ -775,6 +784,7 @@
             this.tbUndoVolume.Size = new System.Drawing.Size(279, 23);
             this.tbUndoVolume.TabIndex = 17;
             this.tbUndoVolume.TickFrequency = 10;
+            this.tbUndoVolume.Scroll += new System.EventHandler(this.VolumeTrackBarScrollHandler);
             // 
             // tbBestSegmentVolume
             // 
@@ -786,6 +796,7 @@
             this.tbBestSegmentVolume.Size = new System.Drawing.Size(279, 23);
             this.tbBestSegmentVolume.TabIndex = 15;
             this.tbBestSegmentVolume.TickFrequency = 10;
+            this.tbBestSegmentVolume.Scroll += new System.EventHandler(this.VolumeTrackBarScrollHandler);
             // 
             // tbSplitBehindLosingVolume
             // 
@@ -797,6 +808,7 @@
             this.tbSplitBehindLosingVolume.Size = new System.Drawing.Size(279, 23);
             this.tbSplitBehindLosingVolume.TabIndex = 13;
             this.tbSplitBehindLosingVolume.TickFrequency = 10;
+            this.tbSplitBehindLosingVolume.Scroll += new System.EventHandler(this.VolumeTrackBarScrollHandler);
             // 
             // tbSplitBehindGainingVolume
             // 
@@ -808,6 +820,7 @@
             this.tbSplitBehindGainingVolume.Size = new System.Drawing.Size(279, 23);
             this.tbSplitBehindGainingVolume.TabIndex = 11;
             this.tbSplitBehindGainingVolume.TickFrequency = 10;
+            this.tbSplitBehindGainingVolume.Scroll += new System.EventHandler(this.VolumeTrackBarScrollHandler);
             // 
             // tbSplitAheadLosingVolume
             // 
@@ -819,6 +832,7 @@
             this.tbSplitAheadLosingVolume.Size = new System.Drawing.Size(279, 23);
             this.tbSplitAheadLosingVolume.TabIndex = 9;
             this.tbSplitAheadLosingVolume.TickFrequency = 10;
+            this.tbSplitAheadLosingVolume.Scroll += new System.EventHandler(this.VolumeTrackBarScrollHandler);
             // 
             // tbSplitAheadGainingVolume
             // 
@@ -830,6 +844,7 @@
             this.tbSplitAheadGainingVolume.Size = new System.Drawing.Size(279, 23);
             this.tbSplitAheadGainingVolume.TabIndex = 7;
             this.tbSplitAheadGainingVolume.TickFrequency = 10;
+            this.tbSplitAheadGainingVolume.Scroll += new System.EventHandler(this.VolumeTrackBarScrollHandler);
             // 
             // tbSplitVolume
             // 
@@ -841,6 +856,7 @@
             this.tbSplitVolume.Size = new System.Drawing.Size(279, 23);
             this.tbSplitVolume.TabIndex = 5;
             this.tbSplitVolume.TickFrequency = 10;
+            this.tbSplitVolume.Scroll += new System.EventHandler(this.VolumeTrackBarScrollHandler);
             // 
             // label16
             // 
@@ -1002,6 +1018,7 @@
             this.tbGeneralVolume.Size = new System.Drawing.Size(279, 23);
             this.tbGeneralVolume.TabIndex = 3;
             this.tbGeneralVolume.TickFrequency = 10;
+            this.tbGeneralVolume.Scroll += new System.EventHandler(this.VolumeTrackBarScrollHandler);
             // 
             // label30
             // 
@@ -1024,6 +1041,13 @@
             this.cbOutputDevice.Size = new System.Drawing.Size(279, 21);
             this.cbOutputDevice.TabIndex = 1;
             this.cbOutputDevice.ValueMember = "ProductName";
+            // 
+            // ttVolume
+            // 
+            this.ttVolume.AutoPopDelay = 5000;
+            this.ttVolume.InitialDelay = 1000;
+            this.ttVolume.ReshowDelay = 500;
+            this.ttVolume.ShowAlways = true;
             // 
             // SoundSettings
             // 
@@ -1141,6 +1165,7 @@
         private System.Windows.Forms.TrackBar tbGeneralVolume;
         private System.Windows.Forms.Label label30;
         private System.Windows.Forms.ComboBox cbOutputDevice;
+        private System.Windows.Forms.ToolTip ttVolume;
 
     }
 }

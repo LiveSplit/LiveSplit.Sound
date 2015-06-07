@@ -311,5 +311,12 @@ namespace LiveSplit.UI.Components
         {
             txtStartTimer.Text = StartTimer = BrowseForPath(StartTimer);
         }
+
+        private void VolumeTrackBarScrollHandler(object sender, EventArgs e)
+        {
+            TrackBar trackBar = (TrackBar)sender;
+
+            ttVolume.SetToolTip(trackBar, trackBar.Value.ToString());
+        }
     }
 }
