@@ -1,7 +1,5 @@
 ﻿using NAudio.Wave;
 using System;
-using System.Drawing;
-using System.Globalization;
 using System.Windows.Forms;
 using System.Xml;
 
@@ -26,6 +24,7 @@ namespace LiveSplit.UI.Components
 
         public int OutputDevice { get; set; }
 
+        public int GeneralVolume { get; set; }
         public int SplitVolume { get; set; }
         public int SplitAheadGainingVolume { get; set; }
         public int SplitAheadLosingVolume { get; set; }
@@ -40,7 +39,6 @@ namespace LiveSplit.UI.Components
         public int PauseVolume { get; set; }
         public int ResumeVolume { get; set; }
         public int StartTimerVolume { get; set; }
-        public int GeneralVolume { get; set; }
 
         public SoundSettings()
         {
@@ -63,6 +61,7 @@ namespace LiveSplit.UI.Components
 
             OutputDevice = 0;
 
+            GeneralVolume =
             SplitVolume =
             SplitAheadGainingVolume =
             SplitAheadLosingVolume =
@@ -76,8 +75,7 @@ namespace LiveSplit.UI.Components
             ResetVolume =
             PauseVolume =
             ResumeVolume =
-            StartTimerVolume =
-            GeneralVolume = 100;
+            StartTimerVolume = 100;
 
             for (int i = 0; i < WaveOut.DeviceCount; ++i)
                 cbOutputDevice.Items.Add(WaveOut.GetCapabilities(i));
@@ -99,6 +97,7 @@ namespace LiveSplit.UI.Components
 
             cbOutputDevice.DataBindings.Add("SelectedIndex", this, "OutputDevice");
 
+            tbGeneralVolume.DataBindings.Add("Value", this, "GeneralVolume");
             tbSplitVolume.DataBindings.Add("Value", this, "SplitVolume");
             tbSplitAheadGainingVolume.DataBindings.Add("Value", this, "SplitAheadGainingVolume");
             tbSplitAheadLosingVolume.DataBindings.Add("Value", this, "SplitAheadLosingVolume");
@@ -113,10 +112,7 @@ namespace LiveSplit.UI.Components
             tbPauseVolume.DataBindings.Add("Value", this, "PauseVolume");
             tbResumeVolume.DataBindings.Add("Value", this, "ResumeVolume");
             tbStartTimerVolume.DataBindings.Add("Value", this, "StartTimerVolume");
-            tbGeneralVolume.DataBindings.Add("Value", this, "GeneralVolume");
         }
-
-        void DeltaSettings_Load(object sender, EventArgs e) { }
 
         private T ParseEnum<T>(XmlElement element)
         {
@@ -126,6 +122,7 @@ namespace LiveSplit.UI.Components
         public void SetSettings(XmlNode node)
         {
             var element = (XmlElement)node;
+
             Version version;
             if (element["Version"] != null)
                 version = Version.Parse(element["Version"].InnerText);
@@ -169,6 +166,7 @@ namespace LiveSplit.UI.Components
         public XmlNode GetSettings(XmlDocument document)
         {
             var parent = document.CreateElement("Settings");
+
             parent.AppendChild(ToElement(document, "Version", "1.4"));
 
             parent.AppendChild(ToElement(document, "Split", Split));
@@ -207,30 +205,21 @@ namespace LiveSplit.UI.Components
             return parent;
         }
 
-        private Color ParseColor(XmlElement colorElement)
-        {
-            return Color.FromArgb(Int32.Parse(colorElement.InnerText, NumberStyles.HexNumber));
-        }
-
-        private XmlElement ToElement(XmlDocument document, Color color, string name)
-        {
-            var element = document.CreateElement(name);
-            element.InnerText = color.ToArgb().ToString("X8");
-            return element;
-        }
-
         private XmlElement ToElement<T>(XmlDocument document, String name, T value)
         {
             var element = document.CreateElement(name);
+
             element.InnerText = value.ToString();
+
             return element;
         }
 
-        protected String BrowseForPath(String path)
+        protected String BrowseForPath(TextBox textBox, Action<string> callback)
         {
+            var path = textBox.Text;
             var fileDialog = new OpenFileDialog()
             {
-                FileName = path ?? "",
+                FileName = path,
                 Filter = "Audio Files|*.mp3;*.wav;*.aiff;*.wma|All Files|*.*"
             };
 
@@ -239,77 +228,80 @@ namespace LiveSplit.UI.Components
             if (result == DialogResult.OK)
                 path = fileDialog.FileName;
 
+            textBox.Text = path;
+            callback(path);
+
             return path;
         }
 
         private void btnSplit_Click(object sender, EventArgs e)
         {
-            txtSplitPath.Text = Split = BrowseForPath(Split);
+            BrowseForPath(txtSplitPath, (x) => Split = x);
         }
 
         private void btnAheadGaining_Click(object sender, EventArgs e)
         {
-            txtSplitAheadGaining.Text = SplitAheadGaining = BrowseForPath(SplitAheadGaining);
+            BrowseForPath(txtSplitAheadGaining, (x) => SplitAheadGaining = x);
         }
 
         private void btnAheadLosing_Click(object sender, EventArgs e)
         {
-            txtSplitAheadLosing.Text = SplitAheadLosing = BrowseForPath(SplitAheadLosing);
+            BrowseForPath(txtSplitAheadLosing, (x) => SplitAheadLosing = x);
         }
 
         private void btnBehindGaining_Click(object sender, EventArgs e)
         {
-            txtSplitBehindGaining.Text = SplitBehindGaining = BrowseForPath(SplitBehindGaining);
+            BrowseForPath(txtSplitBehindGaining, (x) => SplitBehindGaining = x);
         }
 
         private void btnBehindLosing_Click(object sender, EventArgs e)
         {
-            txtSplitBehindLosing.Text = SplitBehindLosing = BrowseForPath(SplitBehindLosing);
+            BrowseForPath(txtSplitBehindLosing, (x) => SplitBehindLosing = x);
         }
 
         private void btnBestSegment_Click(object sender, EventArgs e)
         {
-            txtBestSegment.Text = BestSegment = BrowseForPath(BestSegment);
+            BrowseForPath(txtBestSegment, (x) => BestSegment = x);
         }
 
         private void btnUndo_Click(object sender, EventArgs e)
         {
-            txtUndo.Text = UndoSplit = BrowseForPath(UndoSplit);
+            BrowseForPath(txtUndo, (x) => UndoSplit = x);
         }
 
         private void btnSkipSplit_Click(object sender, EventArgs e)
         {
-            txtSkip.Text = SkipSplit = BrowseForPath(SkipSplit);
+            BrowseForPath(txtSkip, (x) => SkipSplit = x);
         }
 
         private void btnPersonalBest_Click(object sender, EventArgs e)
         {
-            txtPersonalBest.Text = PersonalBest = BrowseForPath(PersonalBest);
+            BrowseForPath(txtPersonalBest, (x) => PersonalBest = x);
         }
 
         private void btnNotAPersonalBest_Click(object sender, EventArgs e)
         {
-            txtNotAPersonalBest.Text = NotAPersonalBest = BrowseForPath(NotAPersonalBest);
+            BrowseForPath(txtNotAPersonalBest, (x) => NotAPersonalBest = x);
         }
 
         private void btnReset_Click(object sender, EventArgs e)
         {
-            txtReset.Text = Reset = BrowseForPath(Reset);
+            BrowseForPath(txtReset, (x) => Reset = x);
         }
 
         private void btnPause_Click(object sender, EventArgs e)
         {
-            txtPause.Text = Pause = BrowseForPath(Pause);
+            BrowseForPath(txtPause, (x) => Pause = x);
         }
 
         private void btnResume_Click(object sender, EventArgs e)
         {
-            txtResume.Text = Resume = BrowseForPath(Resume);
+            BrowseForPath(txtResume, (x) => Resume = x);
         }
 
         private void btnStartTimer_Click(object sender, EventArgs e)
         {
-            txtStartTimer.Text = StartTimer = BrowseForPath(StartTimer);
+            BrowseForPath(txtStartTimer, (x) => StartTimer = x);
         }
 
         private void VolumeTrackBarScrollHandler(object sender, EventArgs e)
