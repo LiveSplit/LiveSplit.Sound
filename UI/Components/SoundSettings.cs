@@ -167,7 +167,7 @@ namespace LiveSplit.UI.Components
         {
             var parent = document.CreateElement("Settings");
 
-            parent.AppendChild(ToElement(document, "Version", "1.4"));
+            parent.AppendChild(ToElement(document, "Version", "1.5"));
 
             parent.AppendChild(ToElement(document, "Split", Split));
             parent.AppendChild(ToElement(document, "SplitAheadGaining", SplitAheadGaining));
