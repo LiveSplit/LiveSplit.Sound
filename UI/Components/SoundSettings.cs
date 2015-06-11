@@ -36,19 +36,19 @@ namespace LiveSplit.UI.Components
         {
             InitializeComponent();
 
-            Split =
-            SplitAheadGaining =
-            SplitAheadLosing =
-            SplitBehindGaining =
-            SplitBehindLosing =
-            BestSegment =
-            UndoSplit =
-            SkipSplit =
-            PersonalBest =
-            NotAPersonalBest =
-            Reset = 
-            Pause =
-            Resume =
+            Split = "";
+            SplitAheadGaining = "";
+            SplitAheadLosing = "";
+            SplitBehindGaining = "";
+            SplitBehindLosing = "";
+            BestSegment = "";
+            UndoSplit = "";
+            SkipSplit = "";
+            PersonalBest = "";
+            NotAPersonalBest = "";
+            Reset = "";
+            Pause = "";
+            Resume = "";
             StartTimer = "";
 
             txtSplitPath.DataBindings.Add("Text", this, "Split");
@@ -67,78 +67,44 @@ namespace LiveSplit.UI.Components
             txtStartTimer.DataBindings.Add("Text", this, "StartTimer");
         }
 
-        void DeltaSettings_Load(object sender, EventArgs e)
-        {
-        }
-
-
-        private T ParseEnum<T>(XmlElement element)
-        {
-            return (T)Enum.Parse(typeof(T), element.InnerText);
-        }
-
         public void SetSettings(XmlNode node)
         {
             var element = (XmlElement)node;
-            Version version;
-            if (element["Version"] != null)
-                version = Version.Parse(element["Version"].InnerText);
-            else
-                version = new Version(1, 0, 0, 0);
-            Split = element["Split"].InnerText;
-            SplitAheadGaining = element["SplitAheadGaining"].InnerText;
-            SplitAheadLosing = element["SplitAheadLosing"].InnerText;
-            SplitBehindGaining = element["SplitBehindGaining"].InnerText;
-            SplitBehindLosing = element["SplitBehindLosing"].InnerText;
-            BestSegment = element["BestSegment"].InnerText;
-            UndoSplit = element["UndoSplit"].InnerText;
-            SkipSplit = element["SkipSplit"].InnerText;
-            PersonalBest = element["PersonalBest"].InnerText;
-            NotAPersonalBest = element["NotAPersonalBest"].InnerText;
-            Reset = element["Reset"].InnerText;
-            Pause = element["Pause"].InnerText;
-            Resume = element["Resume"].InnerText;
-            StartTimer = element["StartTimer"].InnerText;
+            Split = SettingsHelper.ParseString(element["Split"]);
+            SplitAheadGaining = SettingsHelper.ParseString(element["SplitAheadGaining"]);
+            SplitAheadLosing = SettingsHelper.ParseString(element["SplitAheadLosing"]);
+            SplitBehindGaining = SettingsHelper.ParseString(element["SplitBehindGaining"]);
+            SplitBehindLosing = SettingsHelper.ParseString(element["SplitBehindLosing"]);
+            BestSegment = SettingsHelper.ParseString(element["BestSegment"]);
+            UndoSplit = SettingsHelper.ParseString(element["UndoSplit"]);
+            SkipSplit = SettingsHelper.ParseString(element["SkipSplit"]);
+            PersonalBest = SettingsHelper.ParseString(element["PersonalBest"]);
+            NotAPersonalBest = SettingsHelper.ParseString(element["NotAPersonalBest"]);
+            Reset = SettingsHelper.ParseString(element["Reset"]);
+            Pause = SettingsHelper.ParseString(element["Pause"]);
+            Resume = SettingsHelper.ParseString(element["Resume"]);
+            StartTimer = SettingsHelper.ParseString(element["StartTimer"]);
         }
 
         public XmlNode GetSettings(XmlDocument document)
         {
             var parent = document.CreateElement("Settings");
-            parent.AppendChild(ToElement(document, "Version", "1.4"));
-            parent.AppendChild(ToElement(document, "Split", Split));
-            parent.AppendChild(ToElement(document, "SplitAheadGaining", SplitAheadGaining));
-            parent.AppendChild(ToElement(document, "SplitAheadLosing", SplitAheadLosing));
-            parent.AppendChild(ToElement(document, "SplitBehindGaining", SplitBehindGaining));
-            parent.AppendChild(ToElement(document, "SplitBehindLosing", SplitBehindLosing));
-            parent.AppendChild(ToElement(document, "BestSegment", BestSegment));
-            parent.AppendChild(ToElement(document, "UndoSplit", UndoSplit));
-            parent.AppendChild(ToElement(document, "SkipSplit", SkipSplit));
-            parent.AppendChild(ToElement(document, "PersonalBest", PersonalBest));
-            parent.AppendChild(ToElement(document, "NotAPersonalBest", NotAPersonalBest));
-            parent.AppendChild(ToElement(document, "Reset", Reset));
-            parent.AppendChild(ToElement(document, "Pause", Pause));
-            parent.AppendChild(ToElement(document, "Resume", Resume));
-            parent.AppendChild(ToElement(document, "StartTimer", StartTimer));
+            parent.AppendChild(SettingsHelper.ToElement(document, "Version", "1.4"));
+            parent.AppendChild(SettingsHelper.ToElement(document, "Split", Split));
+            parent.AppendChild(SettingsHelper.ToElement(document, "SplitAheadGaining", SplitAheadGaining));
+            parent.AppendChild(SettingsHelper.ToElement(document, "SplitAheadLosing", SplitAheadLosing));
+            parent.AppendChild(SettingsHelper.ToElement(document, "SplitBehindGaining", SplitBehindGaining));
+            parent.AppendChild(SettingsHelper.ToElement(document, "SplitBehindLosing", SplitBehindLosing));
+            parent.AppendChild(SettingsHelper.ToElement(document, "BestSegment", BestSegment));
+            parent.AppendChild(SettingsHelper.ToElement(document, "UndoSplit", UndoSplit));
+            parent.AppendChild(SettingsHelper.ToElement(document, "SkipSplit", SkipSplit));
+            parent.AppendChild(SettingsHelper.ToElement(document, "PersonalBest", PersonalBest));
+            parent.AppendChild(SettingsHelper.ToElement(document, "NotAPersonalBest", NotAPersonalBest));
+            parent.AppendChild(SettingsHelper.ToElement(document, "Reset", Reset));
+            parent.AppendChild(SettingsHelper.ToElement(document, "Pause", Pause));
+            parent.AppendChild(SettingsHelper.ToElement(document, "Resume", Resume));
+            parent.AppendChild(SettingsHelper.ToElement(document, "StartTimer", StartTimer));
             return parent;
-        }
-
-        private Color ParseColor(XmlElement colorElement)
-        {
-            return Color.FromArgb(Int32.Parse(colorElement.InnerText, NumberStyles.HexNumber));
-        }
-
-        private XmlElement ToElement(XmlDocument document, Color color, string name)
-        {
-            var element = document.CreateElement(name);
-            element.InnerText = color.ToArgb().ToString("X8");
-            return element;
-        }
-
-        private XmlElement ToElement<T>(XmlDocument document, String name, T value)
-        {
-            var element = document.CreateElement(name);
-            element.InnerText = value.ToString();
-            return element;
         }
 
         protected String BrowseForPath(String path)
@@ -213,7 +179,6 @@ namespace LiveSplit.UI.Components
         {
             txtPause.Text = Pause = BrowseForPath(Pause);
         }
-
 
         private void btnResume_Click(object sender, EventArgs e)
         {
