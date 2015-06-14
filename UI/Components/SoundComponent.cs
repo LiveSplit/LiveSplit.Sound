@@ -99,19 +99,19 @@ namespace LiveSplit.UI.Components
                 if (timeDifference < TimeSpan.Zero)
                 {
                     soundPath = Settings.SplitAheadGaining;
-                    if (LiveSplitStateHelper.GetPreviousSegment(State, splitIndex, false, false, State.CurrentComparison, State.CurrentTimingMethod) > TimeSpan.Zero)
+                    if (LiveSplitStateHelper.GetPreviousSegmentDelta(State, splitIndex, State.CurrentComparison, State.CurrentTimingMethod) > TimeSpan.Zero)
                         soundPath = Settings.SplitAheadLosing;
                 }
                 else
                 {
                     soundPath = Settings.SplitBehindLosing;
-                    if (LiveSplitStateHelper.GetPreviousSegment(State, splitIndex, false, false, State.CurrentComparison, State.CurrentTimingMethod) < TimeSpan.Zero)
+                    if (LiveSplitStateHelper.GetPreviousSegmentDelta(State, splitIndex, State.CurrentComparison, State.CurrentTimingMethod) < TimeSpan.Zero)
                         soundPath = Settings.SplitBehindGaining;
                 }
             }
             //Check for best segment
             TimeSpan? curSegment;
-            curSegment = LiveSplitStateHelper.GetPreviousSegment(State, splitIndex, false, true, State.CurrentComparison, State.CurrentTimingMethod);
+            curSegment = LiveSplitStateHelper.GetPreviousSegmentTime(State, splitIndex, State.CurrentComparison, State.CurrentTimingMethod);
             if (curSegment != null)
             {
                 if (State.Run[splitIndex].BestSegmentTime[State.CurrentTimingMethod] == null || curSegment < State.Run[splitIndex].BestSegmentTime[State.CurrentTimingMethod])
