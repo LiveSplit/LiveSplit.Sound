@@ -86,7 +86,7 @@ namespace LiveSplit.UI.Components
             }
             else
             {
-                var path = Settings.Split;
+                var path = String.Empty;
                 int volume = Settings.SplitVolume;
 
                 var splitIndex = State.CurrentSplitIndex - 1;
@@ -129,6 +129,9 @@ namespace LiveSplit.UI.Components
                         volume = Settings.BestSegmentVolume;
                     }
                 }
+
+                if (String.IsNullOrEmpty(path))
+                    path = Settings.Split;
 
                 PlaySound(path, volume);
             }
