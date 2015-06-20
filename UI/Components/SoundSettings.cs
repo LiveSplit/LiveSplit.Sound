@@ -54,7 +54,7 @@ namespace LiveSplit.UI.Components
             SkipSplit =
             PersonalBest =
             NotAPersonalBest =
-            Reset = 
+            Reset =
             Pause =
             Resume =
             StartTimer = "";
@@ -114,104 +114,84 @@ namespace LiveSplit.UI.Components
             tbStartTimerVolume.DataBindings.Add("Value", this, "StartTimerVolume");
         }
 
-        private T ParseEnum<T>(XmlElement element)
-        {
-            return (T)Enum.Parse(typeof(T), element.InnerText);
-        }
-
         public void SetSettings(XmlNode node)
         {
             var element = (XmlElement)node;
 
-            Version version;
-            if (element["Version"] != null)
-                version = Version.Parse(element["Version"].InnerText);
-            else
-                version = new Version(1, 0, 0, 0);
+            Split = SettingsHelper.ParseString(element["Split"]);
+            SplitAheadGaining = SettingsHelper.ParseString(element["SplitAheadGaining"]);
+            SplitAheadLosing = SettingsHelper.ParseString(element["SplitAheadLosing"]);
+            SplitBehindGaining = SettingsHelper.ParseString(element["SplitBehindGaining"]);
+            SplitBehindLosing = SettingsHelper.ParseString(element["SplitBehindLosing"]);
+            BestSegment = SettingsHelper.ParseString(element["BestSegment"]);
+            UndoSplit = SettingsHelper.ParseString(element["UndoSplit"]);
+            SkipSplit = SettingsHelper.ParseString(element["SkipSplit"]);
+            PersonalBest = SettingsHelper.ParseString(element["PersonalBest"]);
+            NotAPersonalBest = SettingsHelper.ParseString(element["NotAPersonalBest"]);
+            Reset = SettingsHelper.ParseString(element["Reset"]);
+            Pause = SettingsHelper.ParseString(element["Pause"]);
+            Resume = SettingsHelper.ParseString(element["Resume"]);
+            StartTimer = SettingsHelper.ParseString(element["StartTimer"]);
 
-            Split = element["Split"].InnerText;
-            SplitAheadGaining = element["SplitAheadGaining"].InnerText;
-            SplitAheadLosing = element["SplitAheadLosing"].InnerText;
-            SplitBehindGaining = element["SplitBehindGaining"].InnerText;
-            SplitBehindLosing = element["SplitBehindLosing"].InnerText;
-            BestSegment = element["BestSegment"].InnerText;
-            UndoSplit = element["UndoSplit"].InnerText;
-            SkipSplit = element["SkipSplit"].InnerText;
-            PersonalBest = element["PersonalBest"].InnerText;
-            NotAPersonalBest = element["NotAPersonalBest"].InnerText;
-            Reset = element["Reset"].InnerText;
-            Pause = element["Pause"].InnerText;
-            Resume = element["Resume"].InnerText;
-            StartTimer = element["StartTimer"].InnerText;
+            OutputDevice = SettingsHelper.ParseInt(element["OutputDevice"]);
 
-            OutputDevice = int.Parse(element["OutputDevice"].InnerText);
-
-            SplitVolume = int.Parse(element["SplitVolume"].InnerText);
-            SplitAheadGainingVolume = int.Parse(element["SplitAheadGainingVolume"].InnerText);
-            SplitAheadLosingVolume = int.Parse(element["SplitAheadLosingVolume"].InnerText);
-            SplitBehindGainingVolume = int.Parse(element["SplitBehindGainingVolume"].InnerText);
-            SplitBehindLosingVolume = int.Parse(element["SplitBehindLosingVolume"].InnerText);
-            BestSegmentVolume = int.Parse(element["BestSegmentVolume"].InnerText);
-            UndoSplitVolume = int.Parse(element["UndoSplitVolume"].InnerText);
-            SkipSplitVolume = int.Parse(element["SkipSplitVolume"].InnerText);
-            PersonalBestVolume = int.Parse(element["PersonalBestVolume"].InnerText);
-            NotAPersonalBestVolume = int.Parse(element["NotAPersonalBestVolume"].InnerText);
-            ResetVolume = int.Parse(element["ResetVolume"].InnerText);
-            PauseVolume = int.Parse(element["PauseVolume"].InnerText);
-            ResumeVolume = int.Parse(element["ResumeVolume"].InnerText);
-            StartTimerVolume = int.Parse(element["StartTimerVolume"].InnerText);
-            GeneralVolume = int.Parse(element["GeneralVolume"].InnerText);
+            SplitVolume = SettingsHelper.ParseInt(element["SplitVolume"], 100);
+            SplitAheadGainingVolume = SettingsHelper.ParseInt(element["SplitAheadGainingVolume"], 100);
+            SplitAheadLosingVolume = SettingsHelper.ParseInt(element["SplitAheadLosingVolume"], 100);
+            SplitBehindGainingVolume = SettingsHelper.ParseInt(element["SplitBehindGainingVolume"], 100);
+            SplitBehindLosingVolume = SettingsHelper.ParseInt(element["SplitBehindLosingVolume"], 100);
+            BestSegmentVolume = SettingsHelper.ParseInt(element["BestSegmentVolume"], 100);
+            UndoSplitVolume = SettingsHelper.ParseInt(element["UndoSplitVolume"], 100);
+            SkipSplitVolume = SettingsHelper.ParseInt(element["SkipSplitVolume"], 100);
+            PersonalBestVolume = SettingsHelper.ParseInt(element["PersonalBestVolume"], 100);
+            NotAPersonalBestVolume = SettingsHelper.ParseInt(element["NotAPersonalBestVolume"], 100);
+            ResetVolume = SettingsHelper.ParseInt(element["ResetVolume"], 100);
+            PauseVolume = SettingsHelper.ParseInt(element["PauseVolume"], 100);
+            ResumeVolume = SettingsHelper.ParseInt(element["ResumeVolume"], 100);
+            StartTimerVolume = SettingsHelper.ParseInt(element["StartTimerVolume"], 100);
+            GeneralVolume = SettingsHelper.ParseInt(element["GeneralVolume"], 100);
         }
 
         public XmlNode GetSettings(XmlDocument document)
         {
             var parent = document.CreateElement("Settings");
 
-            parent.AppendChild(ToElement(document, "Version", "1.5"));
+            parent.AppendChild(SettingsHelper.ToElement(document, "Version", "1.5"));
 
-            parent.AppendChild(ToElement(document, "Split", Split));
-            parent.AppendChild(ToElement(document, "SplitAheadGaining", SplitAheadGaining));
-            parent.AppendChild(ToElement(document, "SplitAheadLosing", SplitAheadLosing));
-            parent.AppendChild(ToElement(document, "SplitBehindGaining", SplitBehindGaining));
-            parent.AppendChild(ToElement(document, "SplitBehindLosing", SplitBehindLosing));
-            parent.AppendChild(ToElement(document, "BestSegment", BestSegment));
-            parent.AppendChild(ToElement(document, "UndoSplit", UndoSplit));
-            parent.AppendChild(ToElement(document, "SkipSplit", SkipSplit));
-            parent.AppendChild(ToElement(document, "PersonalBest", PersonalBest));
-            parent.AppendChild(ToElement(document, "NotAPersonalBest", NotAPersonalBest));
-            parent.AppendChild(ToElement(document, "Reset", Reset));
-            parent.AppendChild(ToElement(document, "Pause", Pause));
-            parent.AppendChild(ToElement(document, "Resume", Resume));
-            parent.AppendChild(ToElement(document, "StartTimer", StartTimer));
+            parent.AppendChild(SettingsHelper.ToElement(document, "Split", Split));
+            parent.AppendChild(SettingsHelper.ToElement(document, "SplitAheadGaining", SplitAheadGaining));
+            parent.AppendChild(SettingsHelper.ToElement(document, "SplitAheadLosing", SplitAheadLosing));
+            parent.AppendChild(SettingsHelper.ToElement(document, "SplitBehindGaining", SplitBehindGaining));
+            parent.AppendChild(SettingsHelper.ToElement(document, "SplitBehindLosing", SplitBehindLosing));
+            parent.AppendChild(SettingsHelper.ToElement(document, "BestSegment", BestSegment));
+            parent.AppendChild(SettingsHelper.ToElement(document, "UndoSplit", UndoSplit));
+            parent.AppendChild(SettingsHelper.ToElement(document, "SkipSplit", SkipSplit));
+            parent.AppendChild(SettingsHelper.ToElement(document, "PersonalBest", PersonalBest));
+            parent.AppendChild(SettingsHelper.ToElement(document, "NotAPersonalBest", NotAPersonalBest));
+            parent.AppendChild(SettingsHelper.ToElement(document, "Reset", Reset));
+            parent.AppendChild(SettingsHelper.ToElement(document, "Pause", Pause));
+            parent.AppendChild(SettingsHelper.ToElement(document, "Resume", Resume));
+            parent.AppendChild(SettingsHelper.ToElement(document, "StartTimer", StartTimer));
 
-            parent.AppendChild(ToElement(document, "OutputDevice", OutputDevice));
+            parent.AppendChild(SettingsHelper.ToElement(document, "OutputDevice", OutputDevice));
 
-            parent.AppendChild(ToElement(document, "SplitVolume", SplitVolume));
-            parent.AppendChild(ToElement(document, "SplitAheadGainingVolume", SplitAheadGainingVolume));
-            parent.AppendChild(ToElement(document, "SplitAheadLosingVolume", SplitAheadLosingVolume));
-            parent.AppendChild(ToElement(document, "SplitBehindGainingVolume", SplitBehindGainingVolume));
-            parent.AppendChild(ToElement(document, "SplitBehindLosingVolume", SplitBehindLosingVolume));
-            parent.AppendChild(ToElement(document, "BestSegmentVolume", BestSegmentVolume));
-            parent.AppendChild(ToElement(document, "UndoSplitVolume", UndoSplitVolume));
-            parent.AppendChild(ToElement(document, "SkipSplitVolume", SkipSplitVolume));
-            parent.AppendChild(ToElement(document, "PersonalBestVolume", PersonalBestVolume));
-            parent.AppendChild(ToElement(document, "NotAPersonalBestVolume", NotAPersonalBestVolume));
-            parent.AppendChild(ToElement(document, "ResetVolume", ResetVolume));
-            parent.AppendChild(ToElement(document, "PauseVolume", PauseVolume));
-            parent.AppendChild(ToElement(document, "ResumeVolume", ResumeVolume));
-            parent.AppendChild(ToElement(document, "StartTimerVolume", StartTimerVolume));
-            parent.AppendChild(ToElement(document, "GeneralVolume", GeneralVolume));
+            parent.AppendChild(SettingsHelper.ToElement(document, "SplitVolume", SplitVolume));
+            parent.AppendChild(SettingsHelper.ToElement(document, "SplitAheadGainingVolume", SplitAheadGainingVolume));
+            parent.AppendChild(SettingsHelper.ToElement(document, "SplitAheadLosingVolume", SplitAheadLosingVolume));
+            parent.AppendChild(SettingsHelper.ToElement(document, "SplitBehindGainingVolume", SplitBehindGainingVolume));
+            parent.AppendChild(SettingsHelper.ToElement(document, "SplitBehindLosingVolume", SplitBehindLosingVolume));
+            parent.AppendChild(SettingsHelper.ToElement(document, "BestSegmentVolume", BestSegmentVolume));
+            parent.AppendChild(SettingsHelper.ToElement(document, "UndoSplitVolume", UndoSplitVolume));
+            parent.AppendChild(SettingsHelper.ToElement(document, "SkipSplitVolume", SkipSplitVolume));
+            parent.AppendChild(SettingsHelper.ToElement(document, "PersonalBestVolume", PersonalBestVolume));
+            parent.AppendChild(SettingsHelper.ToElement(document, "NotAPersonalBestVolume", NotAPersonalBestVolume));
+            parent.AppendChild(SettingsHelper.ToElement(document, "ResetVolume", ResetVolume));
+            parent.AppendChild(SettingsHelper.ToElement(document, "PauseVolume", PauseVolume));
+            parent.AppendChild(SettingsHelper.ToElement(document, "ResumeVolume", ResumeVolume));
+            parent.AppendChild(SettingsHelper.ToElement(document, "StartTimerVolume", StartTimerVolume));
+            parent.AppendChild(SettingsHelper.ToElement(document, "GeneralVolume", GeneralVolume));
 
             return parent;
-        }
-
-        private XmlElement ToElement<T>(XmlDocument document, String name, T value)
-        {
-            var element = document.CreateElement(name);
-
-            element.InnerText = value.ToString();
-
-            return element;
         }
 
         protected String BrowseForPath(TextBox textBox, Action<string> callback)
