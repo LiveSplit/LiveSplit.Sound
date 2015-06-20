@@ -1028,7 +1028,7 @@
             this.label30.Name = "label30";
             this.label30.Size = new System.Drawing.Size(140, 13);
             this.label30.TabIndex = 0;
-            this.label30.Text = "Output device:";
+            this.label30.Text = "Output Device:";
             // 
             // cbOutputDevice
             // 
