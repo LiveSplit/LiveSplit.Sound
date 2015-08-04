@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SoundSettings));
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tpSoundFiles = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
@@ -133,33 +134,24 @@
             // 
             // tabControl1
             // 
+            resources.ApplyResources(this.tabControl1, "tabControl1");
             this.tabControl1.Controls.Add(this.tpSoundFiles);
             this.tabControl1.Controls.Add(this.tpVolumeMixer);
-            this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tabControl1.Location = new System.Drawing.Point(7, 7);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(462, 439);
-            this.tabControl1.TabIndex = 0;
+            this.ttVolume.SetToolTip(this.tabControl1, resources.GetString("tabControl1.ToolTip"));
             // 
             // tpSoundFiles
             // 
+            resources.ApplyResources(this.tpSoundFiles, "tpSoundFiles");
             this.tpSoundFiles.Controls.Add(this.tableLayoutPanel1);
-            this.tpSoundFiles.Location = new System.Drawing.Point(4, 22);
             this.tpSoundFiles.Name = "tpSoundFiles";
-            this.tpSoundFiles.Padding = new System.Windows.Forms.Padding(3);
-            this.tpSoundFiles.Size = new System.Drawing.Size(454, 413);
-            this.tpSoundFiles.TabIndex = 0;
-            this.tpSoundFiles.Text = "Sound Files";
+            this.ttVolume.SetToolTip(this.tpSoundFiles, resources.GetString("tpSoundFiles.ToolTip"));
             this.tpSoundFiles.UseVisualStyleBackColor = true;
             // 
             // tableLayoutPanel1
             // 
-            this.tableLayoutPanel1.ColumnCount = 3;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 146F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            resources.ApplyResources(this.tableLayoutPanel1, "tableLayoutPanel1");
             this.tableLayoutPanel1.Controls.Add(this.txtStartTimer, 1, 13);
             this.tableLayoutPanel1.Controls.Add(this.label14, 0, 13);
             this.tableLayoutPanel1.Controls.Add(this.label13, 0, 12);
@@ -202,439 +194,301 @@
             this.tableLayoutPanel1.Controls.Add(this.btnAheadGaining, 2, 1);
             this.tableLayoutPanel1.Controls.Add(this.btnSplit, 2, 0);
             this.tableLayoutPanel1.Controls.Add(this.btnStartTimer, 2, 13);
-            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(3, 3);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 15;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 29F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 29F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 29F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 29F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 29F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 29F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 29F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 29F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 29F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 29F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 29F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 29F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 29F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 29F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(448, 407);
-            this.tableLayoutPanel1.TabIndex = 0;
+            this.ttVolume.SetToolTip(this.tableLayoutPanel1, resources.GetString("tableLayoutPanel1.ToolTip"));
             // 
             // txtStartTimer
             // 
-            this.txtStartTimer.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtStartTimer.Location = new System.Drawing.Point(149, 381);
+            resources.ApplyResources(this.txtStartTimer, "txtStartTimer");
             this.txtStartTimer.Name = "txtStartTimer";
-            this.txtStartTimer.Size = new System.Drawing.Size(215, 20);
-            this.txtStartTimer.TabIndex = 40;
+            this.ttVolume.SetToolTip(this.txtStartTimer, resources.GetString("txtStartTimer.ToolTip"));
             // 
             // label14
             // 
-            this.label14.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(3, 385);
+            resources.ApplyResources(this.label14, "label14");
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(140, 13);
-            this.label14.TabIndex = 39;
-            this.label14.Text = "Start Timer:";
+            this.ttVolume.SetToolTip(this.label14, resources.GetString("label14.ToolTip"));
             // 
             // label13
             // 
-            this.label13.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(3, 356);
+            resources.ApplyResources(this.label13, "label13");
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(140, 13);
-            this.label13.TabIndex = 36;
-            this.label13.Text = "Resume:";
+            this.ttVolume.SetToolTip(this.label13, resources.GetString("label13.ToolTip"));
             // 
             // label12
             // 
-            this.label12.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(3, 327);
+            resources.ApplyResources(this.label12, "label12");
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(140, 13);
-            this.label12.TabIndex = 33;
-            this.label12.Text = "Pause:";
+            this.ttVolume.SetToolTip(this.label12, resources.GetString("label12.ToolTip"));
             // 
             // label11
             // 
-            this.label11.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(3, 298);
+            resources.ApplyResources(this.label11, "label11");
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(140, 13);
-            this.label11.TabIndex = 30;
-            this.label11.Text = "Reset:";
+            this.ttVolume.SetToolTip(this.label11, resources.GetString("label11.ToolTip"));
             // 
             // label10
             // 
-            this.label10.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(3, 269);
+            resources.ApplyResources(this.label10, "label10");
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(140, 13);
-            this.label10.TabIndex = 27;
-            this.label10.Text = "Not a Personal Best:";
+            this.ttVolume.SetToolTip(this.label10, resources.GetString("label10.ToolTip"));
             // 
             // label9
             // 
-            this.label9.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(3, 240);
+            resources.ApplyResources(this.label9, "label9");
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(140, 13);
-            this.label9.TabIndex = 24;
-            this.label9.Text = "Personal Best:";
+            this.ttVolume.SetToolTip(this.label9, resources.GetString("label9.ToolTip"));
             // 
             // label8
             // 
-            this.label8.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(3, 211);
+            resources.ApplyResources(this.label8, "label8");
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(140, 13);
-            this.label8.TabIndex = 21;
-            this.label8.Text = "Skip Split:";
+            this.ttVolume.SetToolTip(this.label8, resources.GetString("label8.ToolTip"));
             // 
             // label7
             // 
-            this.label7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(3, 182);
+            resources.ApplyResources(this.label7, "label7");
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(140, 13);
-            this.label7.TabIndex = 18;
-            this.label7.Text = "Undo Split:";
+            this.ttVolume.SetToolTip(this.label7, resources.GetString("label7.ToolTip"));
             // 
             // label5
             // 
-            this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(3, 153);
+            resources.ApplyResources(this.label5, "label5");
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(140, 13);
-            this.label5.TabIndex = 15;
-            this.label5.Text = "Split (Best Segment):";
+            this.ttVolume.SetToolTip(this.label5, resources.GetString("label5.ToolTip"));
             // 
             // label6
             // 
-            this.label6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(3, 124);
+            resources.ApplyResources(this.label6, "label6");
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(140, 13);
-            this.label6.TabIndex = 12;
-            this.label6.Text = "Split (Behind, Losing Time):";
+            this.ttVolume.SetToolTip(this.label6, resources.GetString("label6.ToolTip"));
             // 
             // label4
             // 
-            this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(3, 95);
+            resources.ApplyResources(this.label4, "label4");
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(140, 13);
-            this.label4.TabIndex = 9;
-            this.label4.Text = "Split (Behind, Gaining Time):";
+            this.ttVolume.SetToolTip(this.label4, resources.GetString("label4.ToolTip"));
             // 
             // label3
             // 
-            this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(3, 66);
+            resources.ApplyResources(this.label3, "label3");
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(140, 13);
-            this.label3.TabIndex = 6;
-            this.label3.Text = "Split (Ahead, Losing Time):";
+            this.ttVolume.SetToolTip(this.label3, resources.GetString("label3.ToolTip"));
             // 
             // label2
             // 
-            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(3, 37);
+            resources.ApplyResources(this.label2, "label2");
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(140, 13);
-            this.label2.TabIndex = 3;
-            this.label2.Text = "Split (Ahead, Gaining Time):";
+            this.ttVolume.SetToolTip(this.label2, resources.GetString("label2.ToolTip"));
             // 
             // label1
             // 
-            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(3, 8);
+            resources.ApplyResources(this.label1, "label1");
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(140, 13);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Split:";
+            this.ttVolume.SetToolTip(this.label1, resources.GetString("label1.ToolTip"));
             // 
             // txtResume
             // 
-            this.txtResume.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtResume.Location = new System.Drawing.Point(149, 352);
+            resources.ApplyResources(this.txtResume, "txtResume");
             this.txtResume.Name = "txtResume";
-            this.txtResume.Size = new System.Drawing.Size(215, 20);
-            this.txtResume.TabIndex = 37;
+            this.ttVolume.SetToolTip(this.txtResume, resources.GetString("txtResume.ToolTip"));
             // 
             // txtPause
             // 
-            this.txtPause.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtPause.Location = new System.Drawing.Point(149, 323);
+            resources.ApplyResources(this.txtPause, "txtPause");
             this.txtPause.Name = "txtPause";
-            this.txtPause.Size = new System.Drawing.Size(215, 20);
-            this.txtPause.TabIndex = 34;
+            this.ttVolume.SetToolTip(this.txtPause, resources.GetString("txtPause.ToolTip"));
             // 
             // txtReset
             // 
-            this.txtReset.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtReset.Location = new System.Drawing.Point(149, 294);
+            resources.ApplyResources(this.txtReset, "txtReset");
             this.txtReset.Name = "txtReset";
-            this.txtReset.Size = new System.Drawing.Size(215, 20);
-            this.txtReset.TabIndex = 31;
+            this.ttVolume.SetToolTip(this.txtReset, resources.GetString("txtReset.ToolTip"));
             // 
             // txtNotAPersonalBest
             // 
-            this.txtNotAPersonalBest.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtNotAPersonalBest.Location = new System.Drawing.Point(149, 265);
+            resources.ApplyResources(this.txtNotAPersonalBest, "txtNotAPersonalBest");
             this.txtNotAPersonalBest.Name = "txtNotAPersonalBest";
-            this.txtNotAPersonalBest.Size = new System.Drawing.Size(215, 20);
-            this.txtNotAPersonalBest.TabIndex = 28;
+            this.ttVolume.SetToolTip(this.txtNotAPersonalBest, resources.GetString("txtNotAPersonalBest.ToolTip"));
             // 
             // txtPersonalBest
             // 
-            this.txtPersonalBest.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtPersonalBest.Location = new System.Drawing.Point(149, 236);
+            resources.ApplyResources(this.txtPersonalBest, "txtPersonalBest");
             this.txtPersonalBest.Name = "txtPersonalBest";
-            this.txtPersonalBest.Size = new System.Drawing.Size(215, 20);
-            this.txtPersonalBest.TabIndex = 25;
+            this.ttVolume.SetToolTip(this.txtPersonalBest, resources.GetString("txtPersonalBest.ToolTip"));
             // 
             // txtSkip
             // 
-            this.txtSkip.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtSkip.Location = new System.Drawing.Point(149, 207);
+            resources.ApplyResources(this.txtSkip, "txtSkip");
             this.txtSkip.Name = "txtSkip";
-            this.txtSkip.Size = new System.Drawing.Size(215, 20);
-            this.txtSkip.TabIndex = 22;
+            this.ttVolume.SetToolTip(this.txtSkip, resources.GetString("txtSkip.ToolTip"));
             // 
             // txtUndo
             // 
-            this.txtUndo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtUndo.Location = new System.Drawing.Point(149, 178);
+            resources.ApplyResources(this.txtUndo, "txtUndo");
             this.txtUndo.Name = "txtUndo";
-            this.txtUndo.Size = new System.Drawing.Size(215, 20);
-            this.txtUndo.TabIndex = 19;
+            this.ttVolume.SetToolTip(this.txtUndo, resources.GetString("txtUndo.ToolTip"));
             // 
             // txtBestSegment
             // 
-            this.txtBestSegment.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtBestSegment.Location = new System.Drawing.Point(149, 149);
+            resources.ApplyResources(this.txtBestSegment, "txtBestSegment");
             this.txtBestSegment.Name = "txtBestSegment";
-            this.txtBestSegment.Size = new System.Drawing.Size(215, 20);
-            this.txtBestSegment.TabIndex = 16;
+            this.ttVolume.SetToolTip(this.txtBestSegment, resources.GetString("txtBestSegment.ToolTip"));
             // 
             // txtSplitBehindLosing
             // 
-            this.txtSplitBehindLosing.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtSplitBehindLosing.Location = new System.Drawing.Point(149, 120);
+            resources.ApplyResources(this.txtSplitBehindLosing, "txtSplitBehindLosing");
             this.txtSplitBehindLosing.Name = "txtSplitBehindLosing";
-            this.txtSplitBehindLosing.Size = new System.Drawing.Size(215, 20);
-            this.txtSplitBehindLosing.TabIndex = 13;
+            this.ttVolume.SetToolTip(this.txtSplitBehindLosing, resources.GetString("txtSplitBehindLosing.ToolTip"));
             // 
             // txtSplitBehindGaining
             // 
-            this.txtSplitBehindGaining.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtSplitBehindGaining.Location = new System.Drawing.Point(149, 91);
+            resources.ApplyResources(this.txtSplitBehindGaining, "txtSplitBehindGaining");
             this.txtSplitBehindGaining.Name = "txtSplitBehindGaining";
-            this.txtSplitBehindGaining.Size = new System.Drawing.Size(215, 20);
-            this.txtSplitBehindGaining.TabIndex = 10;
+            this.ttVolume.SetToolTip(this.txtSplitBehindGaining, resources.GetString("txtSplitBehindGaining.ToolTip"));
             // 
             // txtSplitAheadLosing
             // 
-            this.txtSplitAheadLosing.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtSplitAheadLosing.Location = new System.Drawing.Point(149, 62);
+            resources.ApplyResources(this.txtSplitAheadLosing, "txtSplitAheadLosing");
             this.txtSplitAheadLosing.Name = "txtSplitAheadLosing";
-            this.txtSplitAheadLosing.Size = new System.Drawing.Size(215, 20);
-            this.txtSplitAheadLosing.TabIndex = 7;
+            this.ttVolume.SetToolTip(this.txtSplitAheadLosing, resources.GetString("txtSplitAheadLosing.ToolTip"));
             // 
             // txtSplitAheadGaining
             // 
-            this.txtSplitAheadGaining.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtSplitAheadGaining.Location = new System.Drawing.Point(149, 33);
+            resources.ApplyResources(this.txtSplitAheadGaining, "txtSplitAheadGaining");
             this.txtSplitAheadGaining.Name = "txtSplitAheadGaining";
-            this.txtSplitAheadGaining.Size = new System.Drawing.Size(215, 20);
-            this.txtSplitAheadGaining.TabIndex = 4;
+            this.ttVolume.SetToolTip(this.txtSplitAheadGaining, resources.GetString("txtSplitAheadGaining.ToolTip"));
             // 
             // txtSplitPath
             // 
-            this.txtSplitPath.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtSplitPath.Location = new System.Drawing.Point(149, 4);
+            resources.ApplyResources(this.txtSplitPath, "txtSplitPath");
             this.txtSplitPath.Name = "txtSplitPath";
-            this.txtSplitPath.Size = new System.Drawing.Size(215, 20);
-            this.txtSplitPath.TabIndex = 1;
+            this.ttVolume.SetToolTip(this.txtSplitPath, resources.GetString("txtSplitPath.ToolTip"));
             // 
             // btnResume
             // 
-            this.btnResume.Location = new System.Drawing.Point(370, 351);
+            resources.ApplyResources(this.btnResume, "btnResume");
             this.btnResume.Name = "btnResume";
-            this.btnResume.Size = new System.Drawing.Size(75, 23);
-            this.btnResume.TabIndex = 38;
-            this.btnResume.Text = "Browse...";
+            this.ttVolume.SetToolTip(this.btnResume, resources.GetString("btnResume.ToolTip"));
             this.btnResume.UseVisualStyleBackColor = true;
             this.btnResume.Click += new System.EventHandler(this.btnResume_Click);
             // 
             // btnPause
             // 
-            this.btnPause.Location = new System.Drawing.Point(370, 322);
+            resources.ApplyResources(this.btnPause, "btnPause");
             this.btnPause.Name = "btnPause";
-            this.btnPause.Size = new System.Drawing.Size(75, 23);
-            this.btnPause.TabIndex = 35;
-            this.btnPause.Text = "Browse...";
+            this.ttVolume.SetToolTip(this.btnPause, resources.GetString("btnPause.ToolTip"));
             this.btnPause.UseVisualStyleBackColor = true;
             this.btnPause.Click += new System.EventHandler(this.btnPause_Click);
             // 
             // btnReset
             // 
-            this.btnReset.Location = new System.Drawing.Point(370, 293);
+            resources.ApplyResources(this.btnReset, "btnReset");
             this.btnReset.Name = "btnReset";
-            this.btnReset.Size = new System.Drawing.Size(75, 23);
-            this.btnReset.TabIndex = 32;
-            this.btnReset.Text = "Browse...";
+            this.ttVolume.SetToolTip(this.btnReset, resources.GetString("btnReset.ToolTip"));
             this.btnReset.UseVisualStyleBackColor = true;
             this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
             // 
             // btnNotAPersonalBest
             // 
-            this.btnNotAPersonalBest.Location = new System.Drawing.Point(370, 264);
+            resources.ApplyResources(this.btnNotAPersonalBest, "btnNotAPersonalBest");
             this.btnNotAPersonalBest.Name = "btnNotAPersonalBest";
-            this.btnNotAPersonalBest.Size = new System.Drawing.Size(75, 23);
-            this.btnNotAPersonalBest.TabIndex = 29;
-            this.btnNotAPersonalBest.Text = "Browse...";
+            this.ttVolume.SetToolTip(this.btnNotAPersonalBest, resources.GetString("btnNotAPersonalBest.ToolTip"));
             this.btnNotAPersonalBest.UseVisualStyleBackColor = true;
             this.btnNotAPersonalBest.Click += new System.EventHandler(this.btnNotAPersonalBest_Click);
             // 
             // btnPersonalBest
             // 
-            this.btnPersonalBest.Location = new System.Drawing.Point(370, 235);
+            resources.ApplyResources(this.btnPersonalBest, "btnPersonalBest");
             this.btnPersonalBest.Name = "btnPersonalBest";
-            this.btnPersonalBest.Size = new System.Drawing.Size(75, 23);
-            this.btnPersonalBest.TabIndex = 26;
-            this.btnPersonalBest.Text = "Browse...";
+            this.ttVolume.SetToolTip(this.btnPersonalBest, resources.GetString("btnPersonalBest.ToolTip"));
             this.btnPersonalBest.UseVisualStyleBackColor = true;
             this.btnPersonalBest.Click += new System.EventHandler(this.btnPersonalBest_Click);
             // 
             // btnSkipSplit
             // 
-            this.btnSkipSplit.Location = new System.Drawing.Point(370, 206);
+            resources.ApplyResources(this.btnSkipSplit, "btnSkipSplit");
             this.btnSkipSplit.Name = "btnSkipSplit";
-            this.btnSkipSplit.Size = new System.Drawing.Size(75, 23);
-            this.btnSkipSplit.TabIndex = 23;
-            this.btnSkipSplit.Text = "Browse...";
+            this.ttVolume.SetToolTip(this.btnSkipSplit, resources.GetString("btnSkipSplit.ToolTip"));
             this.btnSkipSplit.UseVisualStyleBackColor = true;
             this.btnSkipSplit.Click += new System.EventHandler(this.btnSkipSplit_Click);
             // 
             // btnUndo
             // 
-            this.btnUndo.Location = new System.Drawing.Point(370, 177);
+            resources.ApplyResources(this.btnUndo, "btnUndo");
             this.btnUndo.Name = "btnUndo";
-            this.btnUndo.Size = new System.Drawing.Size(75, 23);
-            this.btnUndo.TabIndex = 20;
-            this.btnUndo.Text = "Browse...";
+            this.ttVolume.SetToolTip(this.btnUndo, resources.GetString("btnUndo.ToolTip"));
             this.btnUndo.UseVisualStyleBackColor = true;
             this.btnUndo.Click += new System.EventHandler(this.btnUndo_Click);
             // 
             // btnBestSegment
             // 
-            this.btnBestSegment.Location = new System.Drawing.Point(370, 148);
+            resources.ApplyResources(this.btnBestSegment, "btnBestSegment");
             this.btnBestSegment.Name = "btnBestSegment";
-            this.btnBestSegment.Size = new System.Drawing.Size(75, 23);
-            this.btnBestSegment.TabIndex = 17;
-            this.btnBestSegment.Text = "Browse...";
+            this.ttVolume.SetToolTip(this.btnBestSegment, resources.GetString("btnBestSegment.ToolTip"));
             this.btnBestSegment.UseVisualStyleBackColor = true;
             this.btnBestSegment.Click += new System.EventHandler(this.btnBestSegment_Click);
             // 
             // btnBehindLosing
             // 
-            this.btnBehindLosing.Location = new System.Drawing.Point(370, 119);
+            resources.ApplyResources(this.btnBehindLosing, "btnBehindLosing");
             this.btnBehindLosing.Name = "btnBehindLosing";
-            this.btnBehindLosing.Size = new System.Drawing.Size(75, 23);
-            this.btnBehindLosing.TabIndex = 14;
-            this.btnBehindLosing.Text = "Browse...";
+            this.ttVolume.SetToolTip(this.btnBehindLosing, resources.GetString("btnBehindLosing.ToolTip"));
             this.btnBehindLosing.UseVisualStyleBackColor = true;
             this.btnBehindLosing.Click += new System.EventHandler(this.btnBehindLosing_Click);
             // 
             // btnBehindGaining
             // 
-            this.btnBehindGaining.Location = new System.Drawing.Point(370, 90);
+            resources.ApplyResources(this.btnBehindGaining, "btnBehindGaining");
             this.btnBehindGaining.Name = "btnBehindGaining";
-            this.btnBehindGaining.Size = new System.Drawing.Size(75, 23);
-            this.btnBehindGaining.TabIndex = 11;
-            this.btnBehindGaining.Text = "Browse...";
+            this.ttVolume.SetToolTip(this.btnBehindGaining, resources.GetString("btnBehindGaining.ToolTip"));
             this.btnBehindGaining.UseVisualStyleBackColor = true;
             this.btnBehindGaining.Click += new System.EventHandler(this.btnBehindGaining_Click);
             // 
             // btnAheadLosing
             // 
-            this.btnAheadLosing.Location = new System.Drawing.Point(370, 61);
+            resources.ApplyResources(this.btnAheadLosing, "btnAheadLosing");
             this.btnAheadLosing.Name = "btnAheadLosing";
-            this.btnAheadLosing.Size = new System.Drawing.Size(75, 23);
-            this.btnAheadLosing.TabIndex = 8;
-            this.btnAheadLosing.Text = "Browse...";
+            this.ttVolume.SetToolTip(this.btnAheadLosing, resources.GetString("btnAheadLosing.ToolTip"));
             this.btnAheadLosing.UseVisualStyleBackColor = true;
             this.btnAheadLosing.Click += new System.EventHandler(this.btnAheadLosing_Click);
             // 
             // btnAheadGaining
             // 
-            this.btnAheadGaining.Location = new System.Drawing.Point(370, 32);
+            resources.ApplyResources(this.btnAheadGaining, "btnAheadGaining");
             this.btnAheadGaining.Name = "btnAheadGaining";
-            this.btnAheadGaining.Size = new System.Drawing.Size(75, 23);
-            this.btnAheadGaining.TabIndex = 5;
-            this.btnAheadGaining.Text = "Browse...";
+            this.ttVolume.SetToolTip(this.btnAheadGaining, resources.GetString("btnAheadGaining.ToolTip"));
             this.btnAheadGaining.UseVisualStyleBackColor = true;
             this.btnAheadGaining.Click += new System.EventHandler(this.btnAheadGaining_Click);
             // 
             // btnSplit
             // 
-            this.btnSplit.Location = new System.Drawing.Point(370, 3);
+            resources.ApplyResources(this.btnSplit, "btnSplit");
             this.btnSplit.Name = "btnSplit";
-            this.btnSplit.Size = new System.Drawing.Size(75, 23);
-            this.btnSplit.TabIndex = 2;
-            this.btnSplit.Text = "Browse...";
+            this.ttVolume.SetToolTip(this.btnSplit, resources.GetString("btnSplit.ToolTip"));
             this.btnSplit.UseVisualStyleBackColor = true;
             this.btnSplit.Click += new System.EventHandler(this.btnSplit_Click);
             // 
             // btnStartTimer
             // 
-            this.btnStartTimer.Location = new System.Drawing.Point(370, 380);
+            resources.ApplyResources(this.btnStartTimer, "btnStartTimer");
             this.btnStartTimer.Name = "btnStartTimer";
-            this.btnStartTimer.Size = new System.Drawing.Size(75, 23);
-            this.btnStartTimer.TabIndex = 41;
-            this.btnStartTimer.Text = "Browse...";
+            this.ttVolume.SetToolTip(this.btnStartTimer, resources.GetString("btnStartTimer.ToolTip"));
             this.btnStartTimer.UseVisualStyleBackColor = true;
             this.btnStartTimer.Click += new System.EventHandler(this.btnStartTimer_Click);
             // 
             // tpVolumeMixer
             // 
-            this.tpVolumeMixer.AutoScroll = true;
+            resources.ApplyResources(this.tpVolumeMixer, "tpVolumeMixer");
             this.tpVolumeMixer.Controls.Add(this.tableLayoutPanel2);
-            this.tpVolumeMixer.Location = new System.Drawing.Point(4, 22);
             this.tpVolumeMixer.Name = "tpVolumeMixer";
-            this.tpVolumeMixer.Padding = new System.Windows.Forms.Padding(3);
-            this.tpVolumeMixer.Size = new System.Drawing.Size(454, 413);
-            this.tpVolumeMixer.TabIndex = 1;
-            this.tpVolumeMixer.Text = "Volume Mixer";
+            this.ttVolume.SetToolTip(this.tpVolumeMixer, resources.GetString("tpVolumeMixer.ToolTip"));
             this.tpVolumeMixer.UseVisualStyleBackColor = true;
             // 
             // tableLayoutPanel2
             // 
-            this.tableLayoutPanel2.AutoSize = true;
+            resources.ApplyResources(this.tableLayoutPanel2, "tableLayoutPanel2");
             this.tableLayoutPanel2.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.tableLayoutPanel2.ColumnCount = 2;
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 146F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel2.Controls.Add(this.tbStartTimerVolume, 1, 15);
             this.tableLayoutPanel2.Controls.Add(this.tbResumeVolume, 1, 14);
             this.tableLayoutPanel2.Controls.Add(this.tbPauseVolume, 1, 13);
@@ -667,379 +521,263 @@
             this.tableLayoutPanel2.Controls.Add(this.tbGeneralVolume, 1, 1);
             this.tableLayoutPanel2.Controls.Add(this.label30, 0, 0);
             this.tableLayoutPanel2.Controls.Add(this.cbOutputDevice, 1, 0);
-            this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 3);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
-            this.tableLayoutPanel2.RowCount = 16;
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 29F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 29F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 29F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 29F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 29F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 29F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 29F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 29F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 29F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 29F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 29F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 29F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 29F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 29F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 29F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 29F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(431, 464);
-            this.tableLayoutPanel2.TabIndex = 3;
+            this.ttVolume.SetToolTip(this.tableLayoutPanel2, resources.GetString("tableLayoutPanel2.ToolTip"));
             // 
             // tbStartTimerVolume
             // 
+            resources.ApplyResources(this.tbStartTimerVolume, "tbStartTimerVolume");
             this.tbStartTimerVolume.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.tbStartTimerVolume.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tbStartTimerVolume.Location = new System.Drawing.Point(149, 438);
             this.tbStartTimerVolume.Maximum = 100;
             this.tbStartTimerVolume.Name = "tbStartTimerVolume";
-            this.tbStartTimerVolume.Size = new System.Drawing.Size(279, 23);
-            this.tbStartTimerVolume.TabIndex = 74;
             this.tbStartTimerVolume.TickFrequency = 10;
+            this.ttVolume.SetToolTip(this.tbStartTimerVolume, resources.GetString("tbStartTimerVolume.ToolTip"));
             this.tbStartTimerVolume.Scroll += new System.EventHandler(this.VolumeTrackBarScrollHandler);
             // 
             // tbResumeVolume
             // 
+            resources.ApplyResources(this.tbResumeVolume, "tbResumeVolume");
             this.tbResumeVolume.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.tbResumeVolume.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tbResumeVolume.Location = new System.Drawing.Point(149, 409);
             this.tbResumeVolume.Maximum = 100;
             this.tbResumeVolume.Name = "tbResumeVolume";
-            this.tbResumeVolume.Size = new System.Drawing.Size(279, 23);
-            this.tbResumeVolume.TabIndex = 29;
             this.tbResumeVolume.TickFrequency = 10;
+            this.ttVolume.SetToolTip(this.tbResumeVolume, resources.GetString("tbResumeVolume.ToolTip"));
             this.tbResumeVolume.Scroll += new System.EventHandler(this.VolumeTrackBarScrollHandler);
             // 
             // tbPauseVolume
             // 
+            resources.ApplyResources(this.tbPauseVolume, "tbPauseVolume");
             this.tbPauseVolume.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.tbPauseVolume.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tbPauseVolume.Location = new System.Drawing.Point(149, 380);
             this.tbPauseVolume.Maximum = 100;
             this.tbPauseVolume.Name = "tbPauseVolume";
-            this.tbPauseVolume.Size = new System.Drawing.Size(279, 23);
-            this.tbPauseVolume.TabIndex = 27;
             this.tbPauseVolume.TickFrequency = 10;
+            this.ttVolume.SetToolTip(this.tbPauseVolume, resources.GetString("tbPauseVolume.ToolTip"));
             this.tbPauseVolume.Scroll += new System.EventHandler(this.VolumeTrackBarScrollHandler);
             // 
             // tbResetVolume
             // 
+            resources.ApplyResources(this.tbResetVolume, "tbResetVolume");
             this.tbResetVolume.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.tbResetVolume.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tbResetVolume.Location = new System.Drawing.Point(149, 351);
             this.tbResetVolume.Maximum = 100;
             this.tbResetVolume.Name = "tbResetVolume";
-            this.tbResetVolume.Size = new System.Drawing.Size(279, 23);
-            this.tbResetVolume.TabIndex = 25;
             this.tbResetVolume.TickFrequency = 10;
+            this.ttVolume.SetToolTip(this.tbResetVolume, resources.GetString("tbResetVolume.ToolTip"));
             this.tbResetVolume.Scroll += new System.EventHandler(this.VolumeTrackBarScrollHandler);
             // 
             // tbNotAPersonalBestVolume
             // 
+            resources.ApplyResources(this.tbNotAPersonalBestVolume, "tbNotAPersonalBestVolume");
             this.tbNotAPersonalBestVolume.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.tbNotAPersonalBestVolume.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tbNotAPersonalBestVolume.Location = new System.Drawing.Point(149, 322);
             this.tbNotAPersonalBestVolume.Maximum = 100;
             this.tbNotAPersonalBestVolume.Name = "tbNotAPersonalBestVolume";
-            this.tbNotAPersonalBestVolume.Size = new System.Drawing.Size(279, 23);
-            this.tbNotAPersonalBestVolume.TabIndex = 23;
             this.tbNotAPersonalBestVolume.TickFrequency = 10;
+            this.ttVolume.SetToolTip(this.tbNotAPersonalBestVolume, resources.GetString("tbNotAPersonalBestVolume.ToolTip"));
             this.tbNotAPersonalBestVolume.Scroll += new System.EventHandler(this.VolumeTrackBarScrollHandler);
             // 
             // tbPersonalBestVolume
             // 
+            resources.ApplyResources(this.tbPersonalBestVolume, "tbPersonalBestVolume");
             this.tbPersonalBestVolume.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.tbPersonalBestVolume.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tbPersonalBestVolume.Location = new System.Drawing.Point(149, 293);
             this.tbPersonalBestVolume.Maximum = 100;
             this.tbPersonalBestVolume.Name = "tbPersonalBestVolume";
-            this.tbPersonalBestVolume.Size = new System.Drawing.Size(279, 23);
-            this.tbPersonalBestVolume.TabIndex = 21;
             this.tbPersonalBestVolume.TickFrequency = 10;
+            this.ttVolume.SetToolTip(this.tbPersonalBestVolume, resources.GetString("tbPersonalBestVolume.ToolTip"));
             this.tbPersonalBestVolume.Scroll += new System.EventHandler(this.VolumeTrackBarScrollHandler);
             // 
             // tbSkipVolume
             // 
+            resources.ApplyResources(this.tbSkipVolume, "tbSkipVolume");
             this.tbSkipVolume.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.tbSkipVolume.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tbSkipVolume.Location = new System.Drawing.Point(149, 264);
             this.tbSkipVolume.Maximum = 100;
             this.tbSkipVolume.Name = "tbSkipVolume";
-            this.tbSkipVolume.Size = new System.Drawing.Size(279, 23);
-            this.tbSkipVolume.TabIndex = 19;
             this.tbSkipVolume.TickFrequency = 10;
+            this.ttVolume.SetToolTip(this.tbSkipVolume, resources.GetString("tbSkipVolume.ToolTip"));
             this.tbSkipVolume.Scroll += new System.EventHandler(this.VolumeTrackBarScrollHandler);
             // 
             // tbUndoVolume
             // 
+            resources.ApplyResources(this.tbUndoVolume, "tbUndoVolume");
             this.tbUndoVolume.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.tbUndoVolume.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tbUndoVolume.Location = new System.Drawing.Point(149, 235);
             this.tbUndoVolume.Maximum = 100;
             this.tbUndoVolume.Name = "tbUndoVolume";
-            this.tbUndoVolume.Size = new System.Drawing.Size(279, 23);
-            this.tbUndoVolume.TabIndex = 17;
             this.tbUndoVolume.TickFrequency = 10;
+            this.ttVolume.SetToolTip(this.tbUndoVolume, resources.GetString("tbUndoVolume.ToolTip"));
             this.tbUndoVolume.Scroll += new System.EventHandler(this.VolumeTrackBarScrollHandler);
             // 
             // tbBestSegmentVolume
             // 
+            resources.ApplyResources(this.tbBestSegmentVolume, "tbBestSegmentVolume");
             this.tbBestSegmentVolume.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.tbBestSegmentVolume.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tbBestSegmentVolume.Location = new System.Drawing.Point(149, 206);
             this.tbBestSegmentVolume.Maximum = 100;
             this.tbBestSegmentVolume.Name = "tbBestSegmentVolume";
-            this.tbBestSegmentVolume.Size = new System.Drawing.Size(279, 23);
-            this.tbBestSegmentVolume.TabIndex = 15;
             this.tbBestSegmentVolume.TickFrequency = 10;
+            this.ttVolume.SetToolTip(this.tbBestSegmentVolume, resources.GetString("tbBestSegmentVolume.ToolTip"));
             this.tbBestSegmentVolume.Scroll += new System.EventHandler(this.VolumeTrackBarScrollHandler);
             // 
             // tbSplitBehindLosingVolume
             // 
+            resources.ApplyResources(this.tbSplitBehindLosingVolume, "tbSplitBehindLosingVolume");
             this.tbSplitBehindLosingVolume.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.tbSplitBehindLosingVolume.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tbSplitBehindLosingVolume.Location = new System.Drawing.Point(149, 177);
             this.tbSplitBehindLosingVolume.Maximum = 100;
             this.tbSplitBehindLosingVolume.Name = "tbSplitBehindLosingVolume";
-            this.tbSplitBehindLosingVolume.Size = new System.Drawing.Size(279, 23);
-            this.tbSplitBehindLosingVolume.TabIndex = 13;
             this.tbSplitBehindLosingVolume.TickFrequency = 10;
+            this.ttVolume.SetToolTip(this.tbSplitBehindLosingVolume, resources.GetString("tbSplitBehindLosingVolume.ToolTip"));
             this.tbSplitBehindLosingVolume.Scroll += new System.EventHandler(this.VolumeTrackBarScrollHandler);
             // 
             // tbSplitBehindGainingVolume
             // 
+            resources.ApplyResources(this.tbSplitBehindGainingVolume, "tbSplitBehindGainingVolume");
             this.tbSplitBehindGainingVolume.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.tbSplitBehindGainingVolume.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tbSplitBehindGainingVolume.Location = new System.Drawing.Point(149, 148);
             this.tbSplitBehindGainingVolume.Maximum = 100;
             this.tbSplitBehindGainingVolume.Name = "tbSplitBehindGainingVolume";
-            this.tbSplitBehindGainingVolume.Size = new System.Drawing.Size(279, 23);
-            this.tbSplitBehindGainingVolume.TabIndex = 11;
             this.tbSplitBehindGainingVolume.TickFrequency = 10;
+            this.ttVolume.SetToolTip(this.tbSplitBehindGainingVolume, resources.GetString("tbSplitBehindGainingVolume.ToolTip"));
             this.tbSplitBehindGainingVolume.Scroll += new System.EventHandler(this.VolumeTrackBarScrollHandler);
             // 
             // tbSplitAheadLosingVolume
             // 
+            resources.ApplyResources(this.tbSplitAheadLosingVolume, "tbSplitAheadLosingVolume");
             this.tbSplitAheadLosingVolume.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.tbSplitAheadLosingVolume.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tbSplitAheadLosingVolume.Location = new System.Drawing.Point(149, 119);
             this.tbSplitAheadLosingVolume.Maximum = 100;
             this.tbSplitAheadLosingVolume.Name = "tbSplitAheadLosingVolume";
-            this.tbSplitAheadLosingVolume.Size = new System.Drawing.Size(279, 23);
-            this.tbSplitAheadLosingVolume.TabIndex = 9;
             this.tbSplitAheadLosingVolume.TickFrequency = 10;
+            this.ttVolume.SetToolTip(this.tbSplitAheadLosingVolume, resources.GetString("tbSplitAheadLosingVolume.ToolTip"));
             this.tbSplitAheadLosingVolume.Scroll += new System.EventHandler(this.VolumeTrackBarScrollHandler);
             // 
             // tbSplitAheadGainingVolume
             // 
+            resources.ApplyResources(this.tbSplitAheadGainingVolume, "tbSplitAheadGainingVolume");
             this.tbSplitAheadGainingVolume.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.tbSplitAheadGainingVolume.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tbSplitAheadGainingVolume.Location = new System.Drawing.Point(149, 90);
             this.tbSplitAheadGainingVolume.Maximum = 100;
             this.tbSplitAheadGainingVolume.Name = "tbSplitAheadGainingVolume";
-            this.tbSplitAheadGainingVolume.Size = new System.Drawing.Size(279, 23);
-            this.tbSplitAheadGainingVolume.TabIndex = 7;
             this.tbSplitAheadGainingVolume.TickFrequency = 10;
+            this.ttVolume.SetToolTip(this.tbSplitAheadGainingVolume, resources.GetString("tbSplitAheadGainingVolume.ToolTip"));
             this.tbSplitAheadGainingVolume.Scroll += new System.EventHandler(this.VolumeTrackBarScrollHandler);
             // 
             // tbSplitVolume
             // 
+            resources.ApplyResources(this.tbSplitVolume, "tbSplitVolume");
             this.tbSplitVolume.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.tbSplitVolume.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tbSplitVolume.Location = new System.Drawing.Point(149, 61);
             this.tbSplitVolume.Maximum = 100;
             this.tbSplitVolume.Name = "tbSplitVolume";
-            this.tbSplitVolume.Size = new System.Drawing.Size(279, 23);
-            this.tbSplitVolume.TabIndex = 5;
             this.tbSplitVolume.TickFrequency = 10;
+            this.ttVolume.SetToolTip(this.tbSplitVolume, resources.GetString("tbSplitVolume.ToolTip"));
             this.tbSplitVolume.Scroll += new System.EventHandler(this.VolumeTrackBarScrollHandler);
             // 
             // label16
             // 
-            this.label16.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(3, 443);
+            resources.ApplyResources(this.label16, "label16");
             this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(140, 13);
-            this.label16.TabIndex = 41;
-            this.label16.Text = "Start Timer:";
+            this.ttVolume.SetToolTip(this.label16, resources.GetString("label16.ToolTip"));
             // 
             // label17
             // 
-            this.label17.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(3, 414);
+            resources.ApplyResources(this.label17, "label17");
             this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(140, 13);
-            this.label17.TabIndex = 28;
-            this.label17.Text = "Resume:";
+            this.ttVolume.SetToolTip(this.label17, resources.GetString("label17.ToolTip"));
             // 
             // label18
             // 
-            this.label18.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(3, 385);
+            resources.ApplyResources(this.label18, "label18");
             this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(140, 13);
-            this.label18.TabIndex = 26;
-            this.label18.Text = "Pause:";
+            this.ttVolume.SetToolTip(this.label18, resources.GetString("label18.ToolTip"));
             // 
             // label19
             // 
-            this.label19.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(3, 356);
+            resources.ApplyResources(this.label19, "label19");
             this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(140, 13);
-            this.label19.TabIndex = 24;
-            this.label19.Text = "Reset:";
+            this.ttVolume.SetToolTip(this.label19, resources.GetString("label19.ToolTip"));
             // 
             // label20
             // 
-            this.label20.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(3, 327);
+            resources.ApplyResources(this.label20, "label20");
             this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(140, 13);
-            this.label20.TabIndex = 22;
-            this.label20.Text = "Not a Personal Best:";
+            this.ttVolume.SetToolTip(this.label20, resources.GetString("label20.ToolTip"));
             // 
             // label21
             // 
-            this.label21.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.label21.AutoSize = true;
-            this.label21.Location = new System.Drawing.Point(3, 298);
+            resources.ApplyResources(this.label21, "label21");
             this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(140, 13);
-            this.label21.TabIndex = 20;
-            this.label21.Text = "Personal Best:";
+            this.ttVolume.SetToolTip(this.label21, resources.GetString("label21.ToolTip"));
             // 
             // label22
             // 
-            this.label22.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.label22.AutoSize = true;
-            this.label22.Location = new System.Drawing.Point(3, 269);
+            resources.ApplyResources(this.label22, "label22");
             this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(140, 13);
-            this.label22.TabIndex = 18;
-            this.label22.Text = "Skip Split:";
+            this.ttVolume.SetToolTip(this.label22, resources.GetString("label22.ToolTip"));
             // 
             // label23
             // 
-            this.label23.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.label23.AutoSize = true;
-            this.label23.Location = new System.Drawing.Point(3, 240);
+            resources.ApplyResources(this.label23, "label23");
             this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(140, 13);
-            this.label23.TabIndex = 16;
-            this.label23.Text = "Undo Split:";
+            this.ttVolume.SetToolTip(this.label23, resources.GetString("label23.ToolTip"));
             // 
             // label24
             // 
-            this.label24.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.label24.AutoSize = true;
-            this.label24.Location = new System.Drawing.Point(3, 211);
+            resources.ApplyResources(this.label24, "label24");
             this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(140, 13);
-            this.label24.TabIndex = 14;
-            this.label24.Text = "Split (Best Segment):";
+            this.ttVolume.SetToolTip(this.label24, resources.GetString("label24.ToolTip"));
             // 
             // label25
             // 
-            this.label25.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.label25.AutoSize = true;
-            this.label25.Location = new System.Drawing.Point(3, 182);
+            resources.ApplyResources(this.label25, "label25");
             this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(140, 13);
-            this.label25.TabIndex = 12;
-            this.label25.Text = "Split (Behind, Losing Time):";
+            this.ttVolume.SetToolTip(this.label25, resources.GetString("label25.ToolTip"));
             // 
             // label26
             // 
-            this.label26.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.label26.AutoSize = true;
-            this.label26.Location = new System.Drawing.Point(3, 153);
+            resources.ApplyResources(this.label26, "label26");
             this.label26.Name = "label26";
-            this.label26.Size = new System.Drawing.Size(140, 13);
-            this.label26.TabIndex = 10;
-            this.label26.Text = "Split (Behind, Gaining Time):";
+            this.ttVolume.SetToolTip(this.label26, resources.GetString("label26.ToolTip"));
             // 
             // label27
             // 
-            this.label27.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.label27.AutoSize = true;
-            this.label27.Location = new System.Drawing.Point(3, 124);
+            resources.ApplyResources(this.label27, "label27");
             this.label27.Name = "label27";
-            this.label27.Size = new System.Drawing.Size(140, 13);
-            this.label27.TabIndex = 8;
-            this.label27.Text = "Split (Ahead, Losing Time):";
+            this.ttVolume.SetToolTip(this.label27, resources.GetString("label27.ToolTip"));
             // 
             // label28
             // 
-            this.label28.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.label28.AutoSize = true;
-            this.label28.Location = new System.Drawing.Point(3, 95);
+            resources.ApplyResources(this.label28, "label28");
             this.label28.Name = "label28";
-            this.label28.Size = new System.Drawing.Size(140, 13);
-            this.label28.TabIndex = 6;
-            this.label28.Text = "Split (Ahead, Gaining Time):";
+            this.ttVolume.SetToolTip(this.label28, resources.GetString("label28.ToolTip"));
             // 
             // label29
             // 
-            this.label29.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.label29.AutoSize = true;
-            this.label29.Location = new System.Drawing.Point(3, 66);
+            resources.ApplyResources(this.label29, "label29");
             this.label29.Name = "label29";
-            this.label29.Size = new System.Drawing.Size(140, 13);
-            this.label29.TabIndex = 4;
-            this.label29.Text = "Split:";
+            this.ttVolume.SetToolTip(this.label29, resources.GetString("label29.ToolTip"));
             // 
             // label15
             // 
-            this.label15.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(3, 37);
+            resources.ApplyResources(this.label15, "label15");
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(140, 13);
-            this.label15.TabIndex = 2;
-            this.label15.Text = "General Volume:";
+            this.ttVolume.SetToolTip(this.label15, resources.GetString("label15.ToolTip"));
             // 
             // tbGeneralVolume
             // 
+            resources.ApplyResources(this.tbGeneralVolume, "tbGeneralVolume");
             this.tbGeneralVolume.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.tbGeneralVolume.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tbGeneralVolume.Location = new System.Drawing.Point(149, 32);
             this.tbGeneralVolume.Maximum = 100;
             this.tbGeneralVolume.Name = "tbGeneralVolume";
-            this.tbGeneralVolume.Size = new System.Drawing.Size(279, 23);
-            this.tbGeneralVolume.TabIndex = 3;
             this.tbGeneralVolume.TickFrequency = 10;
+            this.ttVolume.SetToolTip(this.tbGeneralVolume, resources.GetString("tbGeneralVolume.ToolTip"));
             this.tbGeneralVolume.Scroll += new System.EventHandler(this.VolumeTrackBarScrollHandler);
             // 
             // label30
             // 
-            this.label30.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.label30.AutoSize = true;
-            this.label30.Location = new System.Drawing.Point(3, 8);
+            resources.ApplyResources(this.label30, "label30");
             this.label30.Name = "label30";
-            this.label30.Size = new System.Drawing.Size(140, 13);
-            this.label30.TabIndex = 0;
-            this.label30.Text = "Output Device:";
+            this.ttVolume.SetToolTip(this.label30, resources.GetString("label30.ToolTip"));
             // 
             // cbOutputDevice
             // 
-            this.cbOutputDevice.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            resources.ApplyResources(this.cbOutputDevice, "cbOutputDevice");
             this.cbOutputDevice.DisplayMember = "ProductName";
             this.cbOutputDevice.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbOutputDevice.FormattingEnabled = true;
-            this.cbOutputDevice.Location = new System.Drawing.Point(149, 4);
             this.cbOutputDevice.Name = "cbOutputDevice";
-            this.cbOutputDevice.Size = new System.Drawing.Size(279, 21);
-            this.cbOutputDevice.TabIndex = 1;
+            this.ttVolume.SetToolTip(this.cbOutputDevice, resources.GetString("cbOutputDevice.ToolTip"));
             this.cbOutputDevice.ValueMember = "ProductName";
             // 
             // ttVolume
@@ -1051,12 +789,11 @@
             // 
             // SoundSettings
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.tabControl1);
             this.Name = "SoundSettings";
-            this.Padding = new System.Windows.Forms.Padding(7);
-            this.Size = new System.Drawing.Size(476, 453);
+            this.ttVolume.SetToolTip(this, resources.GetString("$this.ToolTip"));
             this.tabControl1.ResumeLayout(false);
             this.tpSoundFiles.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);

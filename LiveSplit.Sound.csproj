@@ -59,6 +59,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="UI\Components\SoundSettings.ja-JP.resx">
+      <DependentUpon>SoundSettings.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UI\Components\SoundSettings.resx">
       <DependentUpon>SoundSettings.cs</DependentUpon>
     </EmbeddedResource>
