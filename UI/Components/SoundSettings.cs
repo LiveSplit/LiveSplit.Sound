@@ -155,43 +155,48 @@ namespace LiveSplit.UI.Components
         public XmlNode GetSettings(XmlDocument document)
         {
             var parent = document.CreateElement("Settings");
-
-            parent.AppendChild(SettingsHelper.ToElement(document, "Version", "1.6"));
-
-            parent.AppendChild(SettingsHelper.ToElement(document, "Split", Split));
-            parent.AppendChild(SettingsHelper.ToElement(document, "SplitAheadGaining", SplitAheadGaining));
-            parent.AppendChild(SettingsHelper.ToElement(document, "SplitAheadLosing", SplitAheadLosing));
-            parent.AppendChild(SettingsHelper.ToElement(document, "SplitBehindGaining", SplitBehindGaining));
-            parent.AppendChild(SettingsHelper.ToElement(document, "SplitBehindLosing", SplitBehindLosing));
-            parent.AppendChild(SettingsHelper.ToElement(document, "BestSegment", BestSegment));
-            parent.AppendChild(SettingsHelper.ToElement(document, "UndoSplit", UndoSplit));
-            parent.AppendChild(SettingsHelper.ToElement(document, "SkipSplit", SkipSplit));
-            parent.AppendChild(SettingsHelper.ToElement(document, "PersonalBest", PersonalBest));
-            parent.AppendChild(SettingsHelper.ToElement(document, "NotAPersonalBest", NotAPersonalBest));
-            parent.AppendChild(SettingsHelper.ToElement(document, "Reset", Reset));
-            parent.AppendChild(SettingsHelper.ToElement(document, "Pause", Pause));
-            parent.AppendChild(SettingsHelper.ToElement(document, "Resume", Resume));
-            parent.AppendChild(SettingsHelper.ToElement(document, "StartTimer", StartTimer));
-
-            parent.AppendChild(SettingsHelper.ToElement(document, "OutputDevice", OutputDevice));
-
-            parent.AppendChild(SettingsHelper.ToElement(document, "SplitVolume", SplitVolume));
-            parent.AppendChild(SettingsHelper.ToElement(document, "SplitAheadGainingVolume", SplitAheadGainingVolume));
-            parent.AppendChild(SettingsHelper.ToElement(document, "SplitAheadLosingVolume", SplitAheadLosingVolume));
-            parent.AppendChild(SettingsHelper.ToElement(document, "SplitBehindGainingVolume", SplitBehindGainingVolume));
-            parent.AppendChild(SettingsHelper.ToElement(document, "SplitBehindLosingVolume", SplitBehindLosingVolume));
-            parent.AppendChild(SettingsHelper.ToElement(document, "BestSegmentVolume", BestSegmentVolume));
-            parent.AppendChild(SettingsHelper.ToElement(document, "UndoSplitVolume", UndoSplitVolume));
-            parent.AppendChild(SettingsHelper.ToElement(document, "SkipSplitVolume", SkipSplitVolume));
-            parent.AppendChild(SettingsHelper.ToElement(document, "PersonalBestVolume", PersonalBestVolume));
-            parent.AppendChild(SettingsHelper.ToElement(document, "NotAPersonalBestVolume", NotAPersonalBestVolume));
-            parent.AppendChild(SettingsHelper.ToElement(document, "ResetVolume", ResetVolume));
-            parent.AppendChild(SettingsHelper.ToElement(document, "PauseVolume", PauseVolume));
-            parent.AppendChild(SettingsHelper.ToElement(document, "ResumeVolume", ResumeVolume));
-            parent.AppendChild(SettingsHelper.ToElement(document, "StartTimerVolume", StartTimerVolume));
-            parent.AppendChild(SettingsHelper.ToElement(document, "GeneralVolume", GeneralVolume));
-
+            CreateSettingsNode(document, parent);
             return parent;
+        }
+
+        public int GetSettingsHashCode()
+        {
+            return CreateSettingsNode(null, null);
+        }
+
+        private int CreateSettingsNode(XmlDocument document, XmlElement parent)
+        {
+            return SettingsHelper.CreateSetting(document, parent, "Version", "1.6") ^
+            SettingsHelper.CreateSetting(document, parent, "Split", Split) ^
+            SettingsHelper.CreateSetting(document, parent, "SplitAheadGaining", SplitAheadGaining) ^
+            SettingsHelper.CreateSetting(document, parent, "SplitAheadLosing", SplitAheadLosing) ^
+            SettingsHelper.CreateSetting(document, parent, "SplitBehindGaining", SplitBehindGaining) ^
+            SettingsHelper.CreateSetting(document, parent, "SplitBehindLosing", SplitBehindLosing) ^
+            SettingsHelper.CreateSetting(document, parent, "BestSegment", BestSegment) ^
+            SettingsHelper.CreateSetting(document, parent, "UndoSplit", UndoSplit) ^
+            SettingsHelper.CreateSetting(document, parent, "SkipSplit", SkipSplit) ^
+            SettingsHelper.CreateSetting(document, parent, "PersonalBest", PersonalBest) ^
+            SettingsHelper.CreateSetting(document, parent, "NotAPersonalBest", NotAPersonalBest) ^
+            SettingsHelper.CreateSetting(document, parent, "Reset", Reset) ^
+            SettingsHelper.CreateSetting(document, parent, "Pause", Pause) ^
+            SettingsHelper.CreateSetting(document, parent, "Resume", Resume) ^
+            SettingsHelper.CreateSetting(document, parent, "StartTimer", StartTimer) ^
+            SettingsHelper.CreateSetting(document, parent, "OutputDevice", OutputDevice) ^
+            SettingsHelper.CreateSetting(document, parent, "SplitVolume", SplitVolume) ^
+            SettingsHelper.CreateSetting(document, parent, "SplitAheadGainingVolume", SplitAheadGainingVolume) ^
+            SettingsHelper.CreateSetting(document, parent, "SplitAheadLosingVolume", SplitAheadLosingVolume) ^
+            SettingsHelper.CreateSetting(document, parent, "SplitBehindGainingVolume", SplitBehindGainingVolume) ^
+            SettingsHelper.CreateSetting(document, parent, "SplitBehindLosingVolume", SplitBehindLosingVolume) ^
+            SettingsHelper.CreateSetting(document, parent, "BestSegmentVolume", BestSegmentVolume) ^
+            SettingsHelper.CreateSetting(document, parent, "UndoSplitVolume", UndoSplitVolume) ^
+            SettingsHelper.CreateSetting(document, parent, "SkipSplitVolume", SkipSplitVolume) ^
+            SettingsHelper.CreateSetting(document, parent, "PersonalBestVolume", PersonalBestVolume) ^
+            SettingsHelper.CreateSetting(document, parent, "NotAPersonalBestVolume", NotAPersonalBestVolume) ^
+            SettingsHelper.CreateSetting(document, parent, "ResetVolume", ResetVolume) ^
+            SettingsHelper.CreateSetting(document, parent, "PauseVolume", PauseVolume) ^
+            SettingsHelper.CreateSetting(document, parent, "ResumeVolume", ResumeVolume) ^
+            SettingsHelper.CreateSetting(document, parent, "StartTimerVolume", StartTimerVolume) ^
+            SettingsHelper.CreateSetting(document, parent, "GeneralVolume", GeneralVolume);
         }
 
         protected String BrowseForPath(TextBox textBox, Action<string> callback)

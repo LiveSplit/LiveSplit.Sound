@@ -187,5 +187,10 @@ namespace LiveSplit.UI.Components
                 });
             }
         }
+
+        public int GetSettingsHashCode()
+        {
+            return Settings.GetSettingsHashCode();
+        }
     }
 }
