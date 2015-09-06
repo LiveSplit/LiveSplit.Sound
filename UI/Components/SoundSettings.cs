@@ -7,20 +7,20 @@ namespace LiveSplit.UI.Components
 {
     public partial class SoundSettings : UserControl
     {
-        public String Split { get; set; }
-        public String SplitAheadGaining { get; set; }
-        public String SplitAheadLosing { get; set; }
-        public String SplitBehindGaining { get; set; }
-        public String SplitBehindLosing { get; set; }
-        public String BestSegment { get; set; }
-        public String UndoSplit { get; set; }
-        public String SkipSplit { get; set; }
-        public String PersonalBest { get; set; }
-        public String NotAPersonalBest { get; set; }
-        public String Reset { get; set; }
-        public String Pause { get; set; }
-        public String Resume { get; set; }
-        public String StartTimer { get; set; }
+        public string Split { get; set; }
+        public string SplitAheadGaining { get; set; }
+        public string SplitAheadLosing { get; set; }
+        public string SplitBehindGaining { get; set; }
+        public string SplitBehindLosing { get; set; }
+        public string BestSegment { get; set; }
+        public string UndoSplit { get; set; }
+        public string SkipSplit { get; set; }
+        public string PersonalBest { get; set; }
+        public string NotAPersonalBest { get; set; }
+        public string Reset { get; set; }
+        public string Pause { get; set; }
+        public string Resume { get; set; }
+        public string StartTimer { get; set; }
 
         public int OutputDevice { get; set; }
 
@@ -199,7 +199,7 @@ namespace LiveSplit.UI.Components
             SettingsHelper.CreateSetting(document, parent, "GeneralVolume", GeneralVolume);
         }
 
-        protected String BrowseForPath(TextBox textBox, Action<string> callback)
+        protected string BrowseForPath(TextBox textBox, Action<string> callback)
         {
             var path = textBox.Text;
             var fileDialog = new OpenFileDialog()

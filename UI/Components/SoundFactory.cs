@@ -8,52 +8,20 @@ namespace LiveSplit.UI.Components
 {
     public class SoundFactory : IComponentFactory
     {
-        public string ComponentName
-        {
-            get { return "Sound Effects"; }
-        }
+        public string ComponentName => "Sound Effects";
 
-        public string Description
-        {
-            get { return "Plays sound effects for different situations."; }
-        }
+        public string Description => "Plays sound effects for different situations.";
 
-        public ComponentCategory Category
-        {
-            get { return ComponentCategory.Media; }
-        }
+        public ComponentCategory Category => ComponentCategory.Media;
 
-        public IComponent Create(LiveSplitState state)
-        {
-            return new SoundComponent(state);
-        }
+        public IComponent Create(LiveSplitState state) => new SoundComponent(state);
 
-        public string UpdateName
-        {
-            get { return ComponentName; }
-        }
+        public string UpdateName => ComponentName;
 
-        public string XMLURL
-        {
-#if RELEASE_CANDIDATE
-            get { return "http://livesplit.org/update_rc_sdhjdop/Components/update.LiveSplit.Sound.xml"; }
-#else
-            get { return "http://livesplit.org/update/Components/update.LiveSplit.Sound.xml"; }
-#endif
-        }
+        public string XMLURL => "http://livesplit.org/update/Components/update.LiveSplit.Sound.xml";
 
-        public string UpdateURL
-        {
-#if RELEASE_CANDIDATE
-            get { return "http://livesplit.org/update_rc_sdhjdop/"; }
-#else
-            get { return "http://livesplit.org/update/"; }
-#endif
-        }
+        public string UpdateURL => "http://livesplit.org/update/";
 
-        public Version Version
-        {
-            get { return Version.Parse("1.6"); }
-        }
+        public Version Version => Version.Parse("1.6");
     }
 }

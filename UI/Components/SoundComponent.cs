@@ -12,10 +12,7 @@ namespace LiveSplit.UI.Components
 {
     public class SoundComponent : LogicComponent, IDeactivatableComponent
     {
-        public override string ComponentName
-        {
-            get { return "Sound Effects"; }
-        }
+        public override string ComponentName => "Sound Effects";
 
         public bool Activated { get; set; }
 
@@ -60,7 +57,7 @@ namespace LiveSplit.UI.Components
             return Settings;
         }
 
-        public override System.Xml.XmlNode GetSettings(XmlDocument document)
+        public override XmlNode GetSettings(XmlDocument document)
         {
             return Settings.GetSettings(document);
         }
@@ -86,7 +83,7 @@ namespace LiveSplit.UI.Components
             }
             else
             {
-                var path = String.Empty;
+                var path = string.Empty;
                 int volume = Settings.SplitVolume;
 
                 var splitIndex = State.CurrentSplitIndex - 1;
@@ -130,7 +127,7 @@ namespace LiveSplit.UI.Components
                     }
                 }
 
-                if (String.IsNullOrEmpty(path))
+                if (string.IsNullOrEmpty(path))
                     path = Settings.Split;
 
                 PlaySound(path, volume);
@@ -163,7 +160,7 @@ namespace LiveSplit.UI.Components
                 PlaySound(Settings.Reset, Settings.ResetVolume);
         }
 
-        private void PlaySound(String location, int volume)
+        private void PlaySound(string location, int volume)
         {
             Player.Stop();
 
@@ -188,9 +185,6 @@ namespace LiveSplit.UI.Components
             }
         }
 
-        public int GetSettingsHashCode()
-        {
-            return Settings.GetSettingsHashCode();
-        }
+        public int GetSettingsHashCode() => Settings.GetSettingsHashCode();
     }
 }
