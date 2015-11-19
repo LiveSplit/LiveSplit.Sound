@@ -116,7 +116,7 @@ namespace LiveSplit.UI.Components
                 }
 
                 //Check for best segment
-                TimeSpan? curSegment = LiveSplitStateHelper.GetPreviousSegmentTime(State, splitIndex, State.CurrentComparison, State.CurrentTimingMethod);
+                TimeSpan? curSegment = LiveSplitStateHelper.GetPreviousSegmentTime(State, splitIndex, State.CurrentTimingMethod);
 
                 if (curSegment != null)
                 {
