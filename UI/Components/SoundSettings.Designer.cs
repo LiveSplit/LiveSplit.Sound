@@ -109,6 +109,7 @@
             this.label30 = new System.Windows.Forms.Label();
             this.cbOutputDevice = new System.Windows.Forms.ComboBox();
             this.ttVolume = new System.Windows.Forms.ToolTip(this.components);
+            this.enableSituationMode = new System.Windows.Forms.CheckBox();
             this.tabControl1.SuspendLayout();
             this.tpSoundFiles.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -139,7 +140,7 @@
             this.tabControl1.Location = new System.Drawing.Point(7, 7);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(462, 439);
+            this.tabControl1.Size = new System.Drawing.Size(462, 459);
             this.tabControl1.TabIndex = 0;
             // 
             // tpSoundFiles
@@ -148,7 +149,7 @@
             this.tpSoundFiles.Location = new System.Drawing.Point(4, 22);
             this.tpSoundFiles.Name = "tpSoundFiles";
             this.tpSoundFiles.Padding = new System.Windows.Forms.Padding(3);
-            this.tpSoundFiles.Size = new System.Drawing.Size(454, 413);
+            this.tpSoundFiles.Size = new System.Drawing.Size(454, 433);
             this.tpSoundFiles.TabIndex = 0;
             this.tpSoundFiles.Text = "Sound Files";
             this.tpSoundFiles.UseVisualStyleBackColor = true;
@@ -156,7 +157,7 @@
             // tableLayoutPanel1
             // 
             this.tableLayoutPanel1.ColumnCount = 3;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 146F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 147F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
@@ -202,6 +203,7 @@
             this.tableLayoutPanel1.Controls.Add(this.btnAheadGaining, 2, 1);
             this.tableLayoutPanel1.Controls.Add(this.btnSplit, 2, 0);
             this.tableLayoutPanel1.Controls.Add(this.btnStartTimer, 2, 13);
+            this.tableLayoutPanel1.Controls.Add(this.enableSituationMode, 1, 14);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(3, 3);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -221,15 +223,15 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 29F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 29F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(448, 407);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(448, 427);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // txtStartTimer
             // 
             this.txtStartTimer.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtStartTimer.Location = new System.Drawing.Point(149, 381);
+            this.txtStartTimer.Location = new System.Drawing.Point(150, 381);
             this.txtStartTimer.Name = "txtStartTimer";
-            this.txtStartTimer.Size = new System.Drawing.Size(215, 20);
+            this.txtStartTimer.Size = new System.Drawing.Size(214, 20);
             this.txtStartTimer.TabIndex = 40;
             // 
             // label14
@@ -238,7 +240,7 @@
             this.label14.AutoSize = true;
             this.label14.Location = new System.Drawing.Point(3, 385);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(140, 13);
+            this.label14.Size = new System.Drawing.Size(141, 13);
             this.label14.TabIndex = 39;
             this.label14.Text = "Start Timer:";
             // 
@@ -248,7 +250,7 @@
             this.label13.AutoSize = true;
             this.label13.Location = new System.Drawing.Point(3, 356);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(140, 13);
+            this.label13.Size = new System.Drawing.Size(141, 13);
             this.label13.TabIndex = 36;
             this.label13.Text = "Resume:";
             // 
@@ -258,7 +260,7 @@
             this.label12.AutoSize = true;
             this.label12.Location = new System.Drawing.Point(3, 327);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(140, 13);
+            this.label12.Size = new System.Drawing.Size(141, 13);
             this.label12.TabIndex = 33;
             this.label12.Text = "Pause:";
             // 
@@ -268,7 +270,7 @@
             this.label11.AutoSize = true;
             this.label11.Location = new System.Drawing.Point(3, 298);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(140, 13);
+            this.label11.Size = new System.Drawing.Size(141, 13);
             this.label11.TabIndex = 30;
             this.label11.Text = "Reset:";
             // 
@@ -278,7 +280,7 @@
             this.label10.AutoSize = true;
             this.label10.Location = new System.Drawing.Point(3, 269);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(140, 13);
+            this.label10.Size = new System.Drawing.Size(141, 13);
             this.label10.TabIndex = 27;
             this.label10.Text = "Not a Personal Best:";
             // 
@@ -288,7 +290,7 @@
             this.label9.AutoSize = true;
             this.label9.Location = new System.Drawing.Point(3, 240);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(140, 13);
+            this.label9.Size = new System.Drawing.Size(141, 13);
             this.label9.TabIndex = 24;
             this.label9.Text = "Personal Best:";
             // 
@@ -298,7 +300,7 @@
             this.label8.AutoSize = true;
             this.label8.Location = new System.Drawing.Point(3, 211);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(140, 13);
+            this.label8.Size = new System.Drawing.Size(141, 13);
             this.label8.TabIndex = 21;
             this.label8.Text = "Skip Split:";
             // 
@@ -308,7 +310,7 @@
             this.label7.AutoSize = true;
             this.label7.Location = new System.Drawing.Point(3, 182);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(140, 13);
+            this.label7.Size = new System.Drawing.Size(141, 13);
             this.label7.TabIndex = 18;
             this.label7.Text = "Undo Split:";
             // 
@@ -318,7 +320,7 @@
             this.label5.AutoSize = true;
             this.label5.Location = new System.Drawing.Point(3, 153);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(140, 13);
+            this.label5.Size = new System.Drawing.Size(141, 13);
             this.label5.TabIndex = 15;
             this.label5.Text = "Split (Best Segment):";
             // 
@@ -328,7 +330,7 @@
             this.label6.AutoSize = true;
             this.label6.Location = new System.Drawing.Point(3, 124);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(140, 13);
+            this.label6.Size = new System.Drawing.Size(141, 13);
             this.label6.TabIndex = 12;
             this.label6.Text = "Split (Behind, Losing Time):";
             // 
@@ -338,7 +340,7 @@
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(3, 95);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(140, 13);
+            this.label4.Size = new System.Drawing.Size(141, 13);
             this.label4.TabIndex = 9;
             this.label4.Text = "Split (Behind, Gaining Time):";
             // 
@@ -348,7 +350,7 @@
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(3, 66);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(140, 13);
+            this.label3.Size = new System.Drawing.Size(141, 13);
             this.label3.TabIndex = 6;
             this.label3.Text = "Split (Ahead, Losing Time):";
             // 
@@ -358,7 +360,7 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(3, 37);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(140, 13);
+            this.label2.Size = new System.Drawing.Size(141, 13);
             this.label2.TabIndex = 3;
             this.label2.Text = "Split (Ahead, Gaining Time):";
             // 
@@ -368,112 +370,112 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(3, 8);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(140, 13);
+            this.label1.Size = new System.Drawing.Size(141, 13);
             this.label1.TabIndex = 0;
             this.label1.Text = "Split:";
             // 
             // txtResume
             // 
             this.txtResume.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtResume.Location = new System.Drawing.Point(149, 352);
+            this.txtResume.Location = new System.Drawing.Point(150, 352);
             this.txtResume.Name = "txtResume";
-            this.txtResume.Size = new System.Drawing.Size(215, 20);
+            this.txtResume.Size = new System.Drawing.Size(214, 20);
             this.txtResume.TabIndex = 37;
             // 
             // txtPause
             // 
             this.txtPause.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtPause.Location = new System.Drawing.Point(149, 323);
+            this.txtPause.Location = new System.Drawing.Point(150, 323);
             this.txtPause.Name = "txtPause";
-            this.txtPause.Size = new System.Drawing.Size(215, 20);
+            this.txtPause.Size = new System.Drawing.Size(214, 20);
             this.txtPause.TabIndex = 34;
             // 
             // txtReset
             // 
             this.txtReset.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtReset.Location = new System.Drawing.Point(149, 294);
+            this.txtReset.Location = new System.Drawing.Point(150, 294);
             this.txtReset.Name = "txtReset";
-            this.txtReset.Size = new System.Drawing.Size(215, 20);
+            this.txtReset.Size = new System.Drawing.Size(214, 20);
             this.txtReset.TabIndex = 31;
             // 
             // txtNotAPersonalBest
             // 
             this.txtNotAPersonalBest.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtNotAPersonalBest.Location = new System.Drawing.Point(149, 265);
+            this.txtNotAPersonalBest.Location = new System.Drawing.Point(150, 265);
             this.txtNotAPersonalBest.Name = "txtNotAPersonalBest";
-            this.txtNotAPersonalBest.Size = new System.Drawing.Size(215, 20);
+            this.txtNotAPersonalBest.Size = new System.Drawing.Size(214, 20);
             this.txtNotAPersonalBest.TabIndex = 28;
             // 
             // txtPersonalBest
             // 
             this.txtPersonalBest.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtPersonalBest.Location = new System.Drawing.Point(149, 236);
+            this.txtPersonalBest.Location = new System.Drawing.Point(150, 236);
             this.txtPersonalBest.Name = "txtPersonalBest";
-            this.txtPersonalBest.Size = new System.Drawing.Size(215, 20);
+            this.txtPersonalBest.Size = new System.Drawing.Size(214, 20);
             this.txtPersonalBest.TabIndex = 25;
             // 
             // txtSkip
             // 
             this.txtSkip.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtSkip.Location = new System.Drawing.Point(149, 207);
+            this.txtSkip.Location = new System.Drawing.Point(150, 207);
             this.txtSkip.Name = "txtSkip";
-            this.txtSkip.Size = new System.Drawing.Size(215, 20);
+            this.txtSkip.Size = new System.Drawing.Size(214, 20);
             this.txtSkip.TabIndex = 22;
             // 
             // txtUndo
             // 
             this.txtUndo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtUndo.Location = new System.Drawing.Point(149, 178);
+            this.txtUndo.Location = new System.Drawing.Point(150, 178);
             this.txtUndo.Name = "txtUndo";
-            this.txtUndo.Size = new System.Drawing.Size(215, 20);
+            this.txtUndo.Size = new System.Drawing.Size(214, 20);
             this.txtUndo.TabIndex = 19;
             // 
             // txtBestSegment
             // 
             this.txtBestSegment.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtBestSegment.Location = new System.Drawing.Point(149, 149);
+            this.txtBestSegment.Location = new System.Drawing.Point(150, 149);
             this.txtBestSegment.Name = "txtBestSegment";
-            this.txtBestSegment.Size = new System.Drawing.Size(215, 20);
+            this.txtBestSegment.Size = new System.Drawing.Size(214, 20);
             this.txtBestSegment.TabIndex = 16;
             // 
             // txtSplitBehindLosing
             // 
             this.txtSplitBehindLosing.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtSplitBehindLosing.Location = new System.Drawing.Point(149, 120);
+            this.txtSplitBehindLosing.Location = new System.Drawing.Point(150, 120);
             this.txtSplitBehindLosing.Name = "txtSplitBehindLosing";
-            this.txtSplitBehindLosing.Size = new System.Drawing.Size(215, 20);
+            this.txtSplitBehindLosing.Size = new System.Drawing.Size(214, 20);
             this.txtSplitBehindLosing.TabIndex = 13;
             // 
             // txtSplitBehindGaining
             // 
             this.txtSplitBehindGaining.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtSplitBehindGaining.Location = new System.Drawing.Point(149, 91);
+            this.txtSplitBehindGaining.Location = new System.Drawing.Point(150, 91);
             this.txtSplitBehindGaining.Name = "txtSplitBehindGaining";
-            this.txtSplitBehindGaining.Size = new System.Drawing.Size(215, 20);
+            this.txtSplitBehindGaining.Size = new System.Drawing.Size(214, 20);
             this.txtSplitBehindGaining.TabIndex = 10;
             // 
             // txtSplitAheadLosing
             // 
             this.txtSplitAheadLosing.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtSplitAheadLosing.Location = new System.Drawing.Point(149, 62);
+            this.txtSplitAheadLosing.Location = new System.Drawing.Point(150, 62);
             this.txtSplitAheadLosing.Name = "txtSplitAheadLosing";
-            this.txtSplitAheadLosing.Size = new System.Drawing.Size(215, 20);
+            this.txtSplitAheadLosing.Size = new System.Drawing.Size(214, 20);
             this.txtSplitAheadLosing.TabIndex = 7;
             // 
             // txtSplitAheadGaining
             // 
             this.txtSplitAheadGaining.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtSplitAheadGaining.Location = new System.Drawing.Point(149, 33);
+            this.txtSplitAheadGaining.Location = new System.Drawing.Point(150, 33);
             this.txtSplitAheadGaining.Name = "txtSplitAheadGaining";
-            this.txtSplitAheadGaining.Size = new System.Drawing.Size(215, 20);
+            this.txtSplitAheadGaining.Size = new System.Drawing.Size(214, 20);
             this.txtSplitAheadGaining.TabIndex = 4;
             // 
             // txtSplitPath
             // 
             this.txtSplitPath.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtSplitPath.Location = new System.Drawing.Point(149, 4);
+            this.txtSplitPath.Location = new System.Drawing.Point(150, 4);
             this.txtSplitPath.Name = "txtSplitPath";
-            this.txtSplitPath.Size = new System.Drawing.Size(215, 20);
+            this.txtSplitPath.Size = new System.Drawing.Size(214, 20);
             this.txtSplitPath.TabIndex = 1;
             // 
             // btnResume
@@ -1049,6 +1051,16 @@
             this.ttVolume.ReshowDelay = 500;
             this.ttVolume.ShowAlways = true;
             // 
+            // enableSituationMode
+            // 
+            this.enableSituationMode.AutoSize = true;
+            this.enableSituationMode.Location = new System.Drawing.Point(150, 409);
+            this.enableSituationMode.Name = "enableSituationMode";
+            this.enableSituationMode.Size = new System.Drawing.Size(149, 17);
+            this.enableSituationMode.TabIndex = 42;
+            this.enableSituationMode.Text = "Only play on state change";
+            this.enableSituationMode.UseVisualStyleBackColor = true;
+            // 
             // SoundSettings
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1056,7 +1068,7 @@
             this.Controls.Add(this.tabControl1);
             this.Name = "SoundSettings";
             this.Padding = new System.Windows.Forms.Padding(7);
-            this.Size = new System.Drawing.Size(476, 453);
+            this.Size = new System.Drawing.Size(476, 473);
             this.tabControl1.ResumeLayout(false);
             this.tpSoundFiles.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
@@ -1166,6 +1178,6 @@
         private System.Windows.Forms.Label label30;
         private System.Windows.Forms.ComboBox cbOutputDevice;
         private System.Windows.Forms.ToolTip ttVolume;
-
+        private System.Windows.Forms.CheckBox enableSituationMode;
     }
 }
