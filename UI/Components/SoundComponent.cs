@@ -18,6 +18,7 @@ namespace LiveSplit.UI.Components
 
         private LiveSplitState State { get; set; }
         private SoundSettings Settings { get; set; }
+ 
         private WaveOut Player { get; set; }
 
         public SoundComponent(LiveSplitState state)
@@ -72,14 +73,69 @@ namespace LiveSplit.UI.Components
             PlaySound(Settings.StartTimer, Settings.StartTimerVolume);
         }
 
+        private enum RunState
+        {
+            Indetermined,
+            AheadGaining,
+            AheadLosing,
+            BehindGaining,
+            BehindLosing,
+            BestSegment
+        }
+
+        private static RunState GetRunState(LiveSplitState state, int splitIndex)
+        {
+            if (splitIndex < 0)
+            {
+                return RunState.Indetermined;
+            }
+
+            TimeSpan? curSegment = LiveSplitStateHelper.GetPreviousSegmentTime(state, splitIndex, state.CurrentTimingMethod);
+
+            if (curSegment != null)
+            {
+                if (state.Run[splitIndex].BestSegmentTime[state.CurrentTimingMethod] == null || curSegment < state.Run[splitIndex].BestSegmentTime[state.CurrentTimingMethod])
+                {
+                    return RunState.BestSegment;
+                }
+            }
+
+            var timeDifference = state.Run[splitIndex].SplitTime[state.CurrentTimingMethod] - state.Run[splitIndex].Comparisons[state.CurrentComparison][state.CurrentTimingMethod];
+
+            if (timeDifference == null)
+            {
+                return RunState.Indetermined;
+            }
+
+            if (timeDifference < TimeSpan.Zero)
+            {
+                if (LiveSplitStateHelper.GetPreviousSegmentDelta(state, splitIndex, state.CurrentComparison, state.CurrentTimingMethod) > TimeSpan.Zero)
+                {
+                    return RunState.AheadLosing;
+                }
+
+                return RunState.AheadGaining;
+            }
+
+            if (LiveSplitStateHelper.GetPreviousSegmentDelta(state, splitIndex, state.CurrentComparison, state.CurrentTimingMethod) < TimeSpan.Zero)
+            {
+                return RunState.BehindGaining;
+            }
+
+            return RunState.BehindLosing;
+        }
+
         private void State_OnSplit(object sender, EventArgs e)
         {
             if (State.CurrentPhase == TimerPhase.Ended)
+            //if the run is over
             {
                 if (State.Run.Last().PersonalBestSplitTime[State.CurrentTimingMethod] == null || State.Run.Last().SplitTime[State.CurrentTimingMethod] < State.Run.Last().PersonalBestSplitTime[State.CurrentTimingMethod])
                     PlaySound(Settings.PersonalBest, Settings.PersonalBestVolume);
+                //if PB
                 else
                     PlaySound(Settings.NotAPersonalBest, Settings.NotAPersonalBestVolume);
+                // not a PB
             }
             else
             {
@@ -87,48 +143,45 @@ namespace LiveSplit.UI.Components
                 int volume = Settings.SplitVolume;
 
                 var splitIndex = State.CurrentSplitIndex - 1;
-                var timeDifference = State.Run[splitIndex].SplitTime[State.CurrentTimingMethod] - State.Run[splitIndex].Comparisons[State.CurrentComparison][State.CurrentTimingMethod];
+                var curRunState = GetRunState(State, splitIndex);
+                var prevRunState = GetRunState(State, splitIndex - 1);
 
-                if (timeDifference != null)
+                if (curRunState == prevRunState && curRunState != RunState.BestSegment && Settings.IsSituationModeChecked())
                 {
-                    if (timeDifference < TimeSpan.Zero)
-                    {
+                    return; // pas de son du tout
+                }
+
+                switch (curRunState)
+                {
+                    case RunState.AheadGaining:
                         path = Settings.SplitAheadGaining;
                         volume = Settings.SplitAheadGainingVolume;
+                        break;
 
-                        if (LiveSplitStateHelper.GetPreviousSegmentDelta(State, splitIndex, State.CurrentComparison, State.CurrentTimingMethod) > TimeSpan.Zero)
-                        {
-                            path = Settings.SplitAheadLosing;
-                            volume = Settings.SplitAheadLosingVolume;
-                        }
-                    }
-                    else
-                    {
+                    case RunState.AheadLosing:
+                        path = Settings.SplitAheadLosing;
+                        volume = Settings.SplitAheadLosingVolume;
+                        break;
+
+                    case RunState.BehindGaining:
+                        path = Settings.SplitBehindGaining;
+                        volume = Settings.SplitBehindGainingVolume;
+                        break;
+
+                    case RunState.BehindLosing:
                         path = Settings.SplitBehindLosing;
                         volume = Settings.SplitBehindLosingVolume;
+                        break;
 
-                        if (LiveSplitStateHelper.GetPreviousSegmentDelta(State, splitIndex, State.CurrentComparison, State.CurrentTimingMethod) < TimeSpan.Zero)
-                        {
-                            path = Settings.SplitBehindGaining;
-                            volume = Settings.SplitBehindGainingVolume;
-                        }
-                    }
-                }
-
-                //Check for best segment
-                TimeSpan? curSegment = LiveSplitStateHelper.GetPreviousSegmentTime(State, splitIndex, State.CurrentTimingMethod);
-
-                if (curSegment != null)
-                {
-                    if (State.Run[splitIndex].BestSegmentTime[State.CurrentTimingMethod] == null || curSegment < State.Run[splitIndex].BestSegmentTime[State.CurrentTimingMethod])
-                    {
+                    case RunState.BestSegment:
                         path = Settings.BestSegment;
                         volume = Settings.BestSegmentVolume;
-                    }
+                        break;
+
+                    default: break; //do nothing by default
                 }
 
-                if (string.IsNullOrEmpty(path))
-                    path = Settings.Split;
+                if (string.IsNullOrEmpty(path)) path = Settings.Split;
 
                 PlaySound(path, volume);
             }

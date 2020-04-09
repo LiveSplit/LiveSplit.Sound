@@ -21,6 +21,7 @@ namespace LiveSplit.UI.Components
         public string Pause { get; set; }
         public string Resume { get; set; }
         public string StartTimer { get; set; }
+        public bool IsSituationModeChecked() { return enableSituationMode.Checked; }
 
         public int OutputDevice { get; set; }
 
