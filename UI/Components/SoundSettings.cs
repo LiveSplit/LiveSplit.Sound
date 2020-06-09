@@ -204,14 +204,15 @@ namespace LiveSplit.UI.Components
             var path = textBox.Text;
             var fileDialog = new OpenFileDialog()
             {
-                FileName = path,
+                Multiselect = true,
+                FileName = path.Split(';')[0],
                 Filter = "Audio Files|*.mp3;*.wav;*.aiff;*.wma|All Files|*.*"
             };
 
             var result = fileDialog.ShowDialog();
 
             if (result == DialogResult.OK)
-                path = fileDialog.FileName;
+                path = String.Join(";", fileDialog.FileNames);
 
             textBox.Text = path;
             callback(path);
