@@ -207,7 +207,8 @@ public partial class SoundSettings : UserControl
         string path = textBox.Text;
         var fileDialog = new OpenFileDialog()
         {
-            FileName = path,
+            Multiselect = true,
+            FileName = path.Split(';')[0],
             Filter = "Audio Files|*.mp3;*.wav;*.aiff;*.wma|All Files|*.*"
         };
 
@@ -215,7 +216,7 @@ public partial class SoundSettings : UserControl
 
         if (result == DialogResult.OK)
         {
-            path = fileDialog.FileName;
+            path = string.Join(";", fileDialog.FileNames);
         }
 
         textBox.Text = path;
