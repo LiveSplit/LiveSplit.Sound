@@ -164,24 +164,33 @@ namespace LiveSplit.UI.Components
         {
             Player.Stop();
 
-            if (Activated && File.Exists(location))
+            if (location != null && location.Length != 0)
             {
-                Task.Factory.StartNew(() =>
-                {
-                    try
-                    {
-                        AudioFileReader audioFileReader = new AudioFileReader(location);
-                        audioFileReader.Volume = (volume / 100f) * (Settings.GeneralVolume / 100f);
+                String[] sounds = location.Split(new[] { ',' }, System.StringSplitOptions.RemoveEmptyEntries);
+                var rnd = new Random();
+                int sIndex = rnd.Next(sounds.Length);
+            
+                var soundLocation = sounds[sIndex];
 
-                        Player.DeviceNumber = Settings.OutputDevice;
-                        Player.Init(audioFileReader);
-                        Player.Play();
-                    }
-                    catch (Exception e)
+                if (Activated && File.Exists(soundLocation))
+                {
+                    Task.Factory.StartNew(() =>
                     {
-                        Log.Error(e);
-                    }
-                });
+                        try
+                        {
+                            AudioFileReader audioFileReader = new AudioFileReader(soundLocation);
+                            audioFileReader.Volume = (volume / 100f) * (Settings.GeneralVolume / 100f);
+
+                            Player.DeviceNumber = Settings.OutputDevice;
+                            Player.Init(audioFileReader);
+                            Player.Play();
+                        }
+                        catch (Exception e)
+                        {
+                            Log.Error(e);
+                        }
+                    });
+                }
             }
         }
 

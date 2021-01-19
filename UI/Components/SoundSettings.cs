@@ -205,13 +205,18 @@ namespace LiveSplit.UI.Components
             var fileDialog = new OpenFileDialog()
             {
                 FileName = path,
-                Filter = "Audio Files|*.mp3;*.wav;*.aiff;*.wma|All Files|*.*"
+                Filter = "Audio Files|*.mp3;*.wav;*.aiff;*.wma|All Files|*.*",
+                Multiselect = true
             };
 
             var result = fileDialog.ShowDialog();
 
             if (result == DialogResult.OK)
-                path = fileDialog.FileName;
+                path = "";
+                foreach (String file in fileDialog.FileNames)
+                {
+                    path = path + "," + file;
+                }
 
             textBox.Text = path;
             callback(path);
