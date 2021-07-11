@@ -83,7 +83,7 @@ namespace LiveSplit.UI.Components
             }
             else
             {
-                var path = string.Empty;
+                var path = new string[] { };
                 int volume = Settings.SplitVolume;
 
                 var splitIndex = State.CurrentSplitIndex - 1;
@@ -127,7 +127,7 @@ namespace LiveSplit.UI.Components
                     }
                 }
 
-                if (string.IsNullOrEmpty(path))
+                if (path == null || path.Length == 0)
                     path = Settings.Split;
 
                 PlaySound(path, volume);
@@ -160,17 +160,17 @@ namespace LiveSplit.UI.Components
                 PlaySound(Settings.Reset, Settings.ResetVolume);
         }
 
-        private void PlaySound(string location, int volume)
+        private void PlaySound(string[] location, int volume)
         {
             Player.Stop();
 
+
             if (location != null && location.Length != 0)
             {
-                String[] sounds = location.Split(new[] { ',' }, System.StringSplitOptions.RemoveEmptyEntries);
                 var rnd = new Random();
-                int sIndex = rnd.Next(sounds.Length);
-            
-                var soundLocation = sounds[sIndex];
+                int lIndex = rnd.Next(0, location.Length);
+
+                var soundLocation = location[lIndex];
 
                 if (Activated && File.Exists(soundLocation))
                 {
