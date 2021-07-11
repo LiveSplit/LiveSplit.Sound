@@ -83,7 +83,7 @@ namespace LiveSplit.UI.Components
             }
             else
             {
-                var path = string.Empty;
+                var path = new string[] { };
                 int volume = Settings.SplitVolume;
 
                 var splitIndex = State.CurrentSplitIndex - 1;
@@ -127,7 +127,7 @@ namespace LiveSplit.UI.Components
                     }
                 }
 
-                if (string.IsNullOrEmpty(path))
+                if (path == null || path.Length == 0)
                     path = Settings.Split;
 
                 PlaySound(path, volume);
@@ -160,28 +160,37 @@ namespace LiveSplit.UI.Components
                 PlaySound(Settings.Reset, Settings.ResetVolume);
         }
 
-        private void PlaySound(string location, int volume)
+        private void PlaySound(string[] location, int volume)
         {
             Player.Stop();
 
-            if (Activated && File.Exists(location))
-            {
-                Task.Factory.StartNew(() =>
-                {
-                    try
-                    {
-                        AudioFileReader audioFileReader = new AudioFileReader(location);
-                        audioFileReader.Volume = (volume / 100f) * (Settings.GeneralVolume / 100f);
 
-                        Player.DeviceNumber = Settings.OutputDevice;
-                        Player.Init(audioFileReader);
-                        Player.Play();
-                    }
-                    catch (Exception e)
+            if (location != null && location.Length != 0)
+            {
+                var rnd = new Random();
+                int lIndex = rnd.Next(0, location.Length);
+
+                var soundLocation = location[lIndex];
+
+                if (Activated && File.Exists(soundLocation))
+                {
+                    Task.Factory.StartNew(() =>
                     {
-                        Log.Error(e);
-                    }
-                });
+                        try
+                        {
+                            AudioFileReader audioFileReader = new AudioFileReader(soundLocation);
+                            audioFileReader.Volume = (volume / 100f) * (Settings.GeneralVolume / 100f);
+
+                            Player.DeviceNumber = Settings.OutputDevice;
+                            Player.Init(audioFileReader);
+                            Player.Play();
+                        }
+                        catch (Exception e)
+                        {
+                            Log.Error(e);
+                        }
+                    });
+                }
             }
         }
 

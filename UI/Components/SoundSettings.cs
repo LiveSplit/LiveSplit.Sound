@@ -7,20 +7,35 @@ namespace LiveSplit.UI.Components
 {
     public partial class SoundSettings : UserControl
     {
-        public string Split { get; set; }
-        public string SplitAheadGaining { get; set; }
-        public string SplitAheadLosing { get; set; }
-        public string SplitBehindGaining { get; set; }
-        public string SplitBehindLosing { get; set; }
-        public string BestSegment { get; set; }
-        public string UndoSplit { get; set; }
-        public string SkipSplit { get; set; }
-        public string PersonalBest { get; set; }
-        public string NotAPersonalBest { get; set; }
-        public string Reset { get; set; }
-        public string Pause { get; set; }
-        public string Resume { get; set; }
-        public string StartTimer { get; set; }
+        public string[] Split { get; set; }
+        public string SplitText { get { return string.Join(",", Split); } set { Split = value.Split(new[] { ',' }, System.StringSplitOptions.RemoveEmptyEntries); } }
+        public string[] SplitAheadGaining { get; set; }
+        public string SplitAheadGainingText { get { return string.Join(",", SplitAheadGaining); } set { SplitAheadGaining = value.Split(new[] { ',' }, System.StringSplitOptions.RemoveEmptyEntries); } }
+        public string[] SplitAheadLosing { get; set; }
+        public string SplitAheadLosingText { get { return string.Join(",", SplitAheadLosing); } set { SplitAheadLosing = value.Split(new[] { ',' }, System.StringSplitOptions.RemoveEmptyEntries); } }
+        public string[] SplitBehindGaining { get; set; }
+        public string SplitBehindGainingText { get { return string.Join(",", SplitBehindGaining); } set { SplitBehindGaining = value.Split(new[] { ',' }, System.StringSplitOptions.RemoveEmptyEntries); } }
+        public string[] SplitBehindLosing { get; set; }
+        public string SplitBehindLosingText { get { return string.Join(",", SplitBehindLosing); } set { SplitBehindLosing = value.Split(new[] { ',' }, System.StringSplitOptions.RemoveEmptyEntries); } }
+        public string[] BestSegment { get; set; }
+        public string BestSegmentText { get { return string.Join(",", BestSegment); } set { BestSegment = value.Split(new[] { ',' }, System.StringSplitOptions.RemoveEmptyEntries); } }
+        public string[] UndoSplit { get; set; }
+        public string UndoSplitText { get { return string.Join(",", UndoSplit); } set { UndoSplit = value.Split(new[] { ',' }, System.StringSplitOptions.RemoveEmptyEntries); } }
+        public string[] SkipSplit { get; set; }
+        public string SkipSplitText { get { return string.Join(",", SkipSplit); } set { SkipSplit = value.Split(new[] { ',' }, System.StringSplitOptions.RemoveEmptyEntries); } }
+        public string[] PersonalBest { get; set; }
+        public string PersonalBestText { get { return string.Join(",", PersonalBest); } set { PersonalBest = value.Split(new[] { ',' }, System.StringSplitOptions.RemoveEmptyEntries); } }
+        public string[] NotAPersonalBest { get; set; }
+        public string NotAPersonalBestText { get { return string.Join(",", NotAPersonalBest); } set { NotAPersonalBest = value.Split(new[] { ',' }, System.StringSplitOptions.RemoveEmptyEntries); } }
+        public string[] Reset { get; set; }
+        // Uses different name because ResetText hides Control.ResetText otherwise.
+        public string ResetSoundText { get { return string.Join(",", Reset); } set { Reset = value.Split(new[] { ',' }, System.StringSplitOptions.RemoveEmptyEntries); } }
+        public string[] Pause { get; set; }
+        public string PauseText { get { return string.Join(",", Pause); } set { Pause = value.Split(new[] { ',' }, System.StringSplitOptions.RemoveEmptyEntries);  } }
+        public string[] Resume { get; set; }
+        public string ResumeText { get { return string.Join(",", Resume); } set { Resume = value.Split(new[] { ',' }, System.StringSplitOptions.RemoveEmptyEntries); } }
+        public string[] StartTimer { get; set; }
+        public string StartTimerText { get { return string.Join(",", StartTimer); } set { StartTimer = value.Split(new[] { ',' }, System.StringSplitOptions.RemoveEmptyEntries); } }
 
         public int OutputDevice { get; set; }
 
@@ -57,7 +72,7 @@ namespace LiveSplit.UI.Components
             Reset =
             Pause =
             Resume =
-            StartTimer = "";
+            StartTimer = new string[] { "" };
 
             OutputDevice = 0;
 
@@ -80,20 +95,20 @@ namespace LiveSplit.UI.Components
             for (int i = 0; i < WaveOut.DeviceCount; ++i)
                 cbOutputDevice.Items.Add(WaveOut.GetCapabilities(i));
 
-            txtSplitPath.DataBindings.Add("Text", this, "Split");
-            txtSplitAheadGaining.DataBindings.Add("Text", this, "SplitAheadGaining");
-            txtSplitAheadLosing.DataBindings.Add("Text", this, "SplitAheadLosing");
-            txtSplitBehindGaining.DataBindings.Add("Text", this, "SplitBehindGaining");
-            txtSplitBehindLosing.DataBindings.Add("Text", this, "SplitBehindLosing");
-            txtBestSegment.DataBindings.Add("Text", this, "BestSegment");
-            txtUndo.DataBindings.Add("Text", this, "UndoSplit");
-            txtSkip.DataBindings.Add("Text", this, "SkipSplit");
-            txtPersonalBest.DataBindings.Add("Text", this, "PersonalBest");
-            txtNotAPersonalBest.DataBindings.Add("Text", this, "NotAPersonalBest");
-            txtReset.DataBindings.Add("Text", this, "Reset");
-            txtPause.DataBindings.Add("Text", this, "Pause");
-            txtResume.DataBindings.Add("Text", this, "Resume");
-            txtStartTimer.DataBindings.Add("Text", this, "StartTimer");
+            txtSplitPath.DataBindings.Add("Text", this, "SplitText");
+            txtSplitAheadGaining.DataBindings.Add("Text", this, "SplitAheadGainingText");
+            txtSplitAheadLosing.DataBindings.Add("Text", this, "SplitAheadLosingText");
+            txtSplitBehindGaining.DataBindings.Add("Text", this, "SplitBehindGainingText");
+            txtSplitBehindLosing.DataBindings.Add("Text", this, "SplitBehindLosingText");
+            txtBestSegment.DataBindings.Add("Text", this, "BestSegmentText");
+            txtUndo.DataBindings.Add("Text", this, "UndoSplitText");
+            txtSkip.DataBindings.Add("Text", this, "SkipSplitText");
+            txtPersonalBest.DataBindings.Add("Text", this, "PersonalBestText");
+            txtNotAPersonalBest.DataBindings.Add("Text", this, "NotAPersonalBestText");
+            txtReset.DataBindings.Add("Text", this, "ResetSoundText");
+            txtPause.DataBindings.Add("Text", this, "PauseText");
+            txtResume.DataBindings.Add("Text", this, "ResumeText");
+            txtStartTimer.DataBindings.Add("Text", this, "StartTimerText");
 
             cbOutputDevice.DataBindings.Add("SelectedIndex", this, "OutputDevice");
 
@@ -118,20 +133,20 @@ namespace LiveSplit.UI.Components
         {
             var element = (XmlElement)node;
 
-            Split = SettingsHelper.ParseString(element["Split"]);
-            SplitAheadGaining = SettingsHelper.ParseString(element["SplitAheadGaining"]);
-            SplitAheadLosing = SettingsHelper.ParseString(element["SplitAheadLosing"]);
-            SplitBehindGaining = SettingsHelper.ParseString(element["SplitBehindGaining"]);
-            SplitBehindLosing = SettingsHelper.ParseString(element["SplitBehindLosing"]);
-            BestSegment = SettingsHelper.ParseString(element["BestSegment"]);
-            UndoSplit = SettingsHelper.ParseString(element["UndoSplit"]);
-            SkipSplit = SettingsHelper.ParseString(element["SkipSplit"]);
-            PersonalBest = SettingsHelper.ParseString(element["PersonalBest"]);
-            NotAPersonalBest = SettingsHelper.ParseString(element["NotAPersonalBest"]);
-            Reset = SettingsHelper.ParseString(element["Reset"]);
-            Pause = SettingsHelper.ParseString(element["Pause"]);
-            Resume = SettingsHelper.ParseString(element["Resume"]);
-            StartTimer = SettingsHelper.ParseString(element["StartTimer"]);
+            Split = SettingsHelper.ParseString(element["Split"]).Split(new[] { ',' }, System.StringSplitOptions.RemoveEmptyEntries);
+            SplitAheadGaining = SettingsHelper.ParseString(element["SplitAheadGaining"]).Split(new[] { ',' }, System.StringSplitOptions.RemoveEmptyEntries);
+            SplitAheadLosing = SettingsHelper.ParseString(element["SplitAheadLosing"]).Split(new[] { ',' }, System.StringSplitOptions.RemoveEmptyEntries);
+            SplitBehindGaining = SettingsHelper.ParseString(element["SplitBehindGaining"]).Split(new[] { ',' }, System.StringSplitOptions.RemoveEmptyEntries);
+            SplitBehindLosing = SettingsHelper.ParseString(element["SplitBehindLosing"]).Split(new[] { ',' }, System.StringSplitOptions.RemoveEmptyEntries);
+            BestSegment = SettingsHelper.ParseString(element["BestSegment"]).Split(new[] { ',' }, System.StringSplitOptions.RemoveEmptyEntries);
+            UndoSplit = SettingsHelper.ParseString(element["UndoSplit"]).Split(new[] { ',' }, System.StringSplitOptions.RemoveEmptyEntries);
+            SkipSplit = SettingsHelper.ParseString(element["SkipSplit"]).Split(new[] { ',' }, System.StringSplitOptions.RemoveEmptyEntries);
+            PersonalBest = SettingsHelper.ParseString(element["PersonalBest"]).Split(new[] { ',' }, System.StringSplitOptions.RemoveEmptyEntries);
+            NotAPersonalBest = SettingsHelper.ParseString(element["NotAPersonalBest"]).Split(new[] { ',' }, System.StringSplitOptions.RemoveEmptyEntries);
+            Reset = SettingsHelper.ParseString(element["Reset"]).Split(new[] { ',' }, System.StringSplitOptions.RemoveEmptyEntries);
+            Pause = SettingsHelper.ParseString(element["Pause"]).Split(new[] { ',' }, System.StringSplitOptions.RemoveEmptyEntries);
+            Resume = SettingsHelper.ParseString(element["Resume"]).Split(new[] { ',' }, System.StringSplitOptions.RemoveEmptyEntries);
+            StartTimer = SettingsHelper.ParseString(element["StartTimer"]).Split(new[] { ',' }, System.StringSplitOptions.RemoveEmptyEntries);
 
             OutputDevice = SettingsHelper.ParseInt(element["OutputDevice"]);
 
@@ -167,20 +182,20 @@ namespace LiveSplit.UI.Components
         private int CreateSettingsNode(XmlDocument document, XmlElement parent)
         {
             return SettingsHelper.CreateSetting(document, parent, "Version", "1.6") ^
-            SettingsHelper.CreateSetting(document, parent, "Split", Split) ^
-            SettingsHelper.CreateSetting(document, parent, "SplitAheadGaining", SplitAheadGaining) ^
-            SettingsHelper.CreateSetting(document, parent, "SplitAheadLosing", SplitAheadLosing) ^
-            SettingsHelper.CreateSetting(document, parent, "SplitBehindGaining", SplitBehindGaining) ^
-            SettingsHelper.CreateSetting(document, parent, "SplitBehindLosing", SplitBehindLosing) ^
-            SettingsHelper.CreateSetting(document, parent, "BestSegment", BestSegment) ^
-            SettingsHelper.CreateSetting(document, parent, "UndoSplit", UndoSplit) ^
-            SettingsHelper.CreateSetting(document, parent, "SkipSplit", SkipSplit) ^
-            SettingsHelper.CreateSetting(document, parent, "PersonalBest", PersonalBest) ^
-            SettingsHelper.CreateSetting(document, parent, "NotAPersonalBest", NotAPersonalBest) ^
-            SettingsHelper.CreateSetting(document, parent, "Reset", Reset) ^
-            SettingsHelper.CreateSetting(document, parent, "Pause", Pause) ^
-            SettingsHelper.CreateSetting(document, parent, "Resume", Resume) ^
-            SettingsHelper.CreateSetting(document, parent, "StartTimer", StartTimer) ^
+            SettingsHelper.CreateSetting(document, parent, "Split", string.Join(",", Split)) ^
+            SettingsHelper.CreateSetting(document, parent, "SplitAheadGaining", string.Join(",", SplitAheadGaining)) ^
+            SettingsHelper.CreateSetting(document, parent, "SplitAheadLosing", string.Join(",", SplitAheadLosing)) ^
+            SettingsHelper.CreateSetting(document, parent, "SplitBehindGaining", string.Join(",", SplitBehindGaining)) ^
+            SettingsHelper.CreateSetting(document, parent, "SplitBehindLosing", string.Join(",", SplitBehindLosing)) ^
+            SettingsHelper.CreateSetting(document, parent, "BestSegment", string.Join(",", BestSegment)) ^
+            SettingsHelper.CreateSetting(document, parent, "UndoSplit", string.Join(",", UndoSplit)) ^
+            SettingsHelper.CreateSetting(document, parent, "SkipSplit", string.Join(",", SkipSplit)) ^
+            SettingsHelper.CreateSetting(document, parent, "PersonalBest", string.Join(",", PersonalBest)) ^
+            SettingsHelper.CreateSetting(document, parent, "NotAPersonalBest", string.Join(",", NotAPersonalBest)) ^
+            SettingsHelper.CreateSetting(document, parent, "Reset", string.Join(",", Reset)) ^
+            SettingsHelper.CreateSetting(document, parent, "Pause", string.Join(",", Pause)) ^
+            SettingsHelper.CreateSetting(document, parent, "Resume", string.Join(",", Resume)) ^
+            SettingsHelper.CreateSetting(document, parent, "StartTimer", string.Join(",", StartTimer)) ^
             SettingsHelper.CreateSetting(document, parent, "OutputDevice", OutputDevice) ^
             SettingsHelper.CreateSetting(document, parent, "SplitVolume", SplitVolume) ^
             SettingsHelper.CreateSetting(document, parent, "SplitAheadGainingVolume", SplitAheadGainingVolume) ^
@@ -199,24 +214,29 @@ namespace LiveSplit.UI.Components
             SettingsHelper.CreateSetting(document, parent, "GeneralVolume", GeneralVolume);
         }
 
-        protected string BrowseForPath(TextBox textBox, Action<string> callback)
+        protected string[] BrowseForPath(TextBox textBox, Action<string[]> callback)
         {
             var path = textBox.Text;
+            var pathArray = new string[] { "" };
             var fileDialog = new OpenFileDialog()
             {
                 FileName = path,
-                Filter = "Audio Files|*.mp3;*.wav;*.aiff;*.wma|All Files|*.*"
+                Filter = "Audio Files|*.mp3;*.wav;*.aiff;*.wma|All Files|*.*",
+                Multiselect = true
             };
 
             var result = fileDialog.ShowDialog();
 
             if (result == DialogResult.OK)
-                path = fileDialog.FileName;
+                path = String.Join(",", fileDialog.FileNames);
+                pathArray = fileDialog.FileNames;
+            if (path == null || path.Length == 0)
+                path = "";
 
             textBox.Text = path;
-            callback(path);
+            callback(pathArray);
 
-            return path;
+            return pathArray;
         }
 
         private void btnSplit_Click(object sender, EventArgs e)
