@@ -20,6 +20,8 @@ namespace LiveSplit.UI.Components
         private SoundSettings Settings { get; set; }
         private WaveOut Player { get; set; }
 
+        private Random rnd;
+
         public SoundComponent(LiveSplitState state)
         {
             Activated = true;
@@ -35,6 +37,8 @@ namespace LiveSplit.UI.Components
             State.OnPause += State_OnPause;
             State.OnResume += State_OnResume;
             State.OnReset += State_OnReset;
+
+            rnd = new Random();
         }
 
         public override void Dispose()
@@ -160,9 +164,18 @@ namespace LiveSplit.UI.Components
                 PlaySound(Settings.Reset, Settings.ResetVolume);
         }
 
-        private void PlaySound(string location, int volume)
+        private void PlaySound(string locations, int volume)
         {
             Player.Stop();
+
+            int index = 0;
+            string[] locationsArray = locations.Split(';');
+            if (locationsArray.Length > 1)
+            {
+                index = rnd.Next(0, locations.Length);
+            }
+
+            string location = locationsArray[index];
 
             if (Activated && File.Exists(location))
             {
