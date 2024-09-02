@@ -15,7 +15,10 @@ public class SoundFactory : IComponentFactory
 
     public ComponentCategory Category => ComponentCategory.Media;
 
-    public IComponent Create(LiveSplitState state) => new SoundComponent(state);
+    public IComponent Create(LiveSplitState state)
+    {
+        return new SoundComponent(state);
+    }
 
     public string UpdateName => ComponentName;
 

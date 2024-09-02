@@ -187,5 +187,8 @@ public class SoundComponent : LogicComponent, IDeactivatableComponent
         }
     }
 
-    public int GetSettingsHashCode() => Settings.GetSettingsHashCode();
+    public int GetSettingsHashCode()
+    {
+        return Settings.GetSettingsHashCode();
+    }
 }
