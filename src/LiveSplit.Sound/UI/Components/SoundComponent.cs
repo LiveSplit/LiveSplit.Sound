@@ -79,9 +79,13 @@ public class SoundComponent : LogicComponent, IDeactivatableComponent
         if (State.CurrentPhase == TimerPhase.Ended)
         {
             if (State.Run.Last().PersonalBestSplitTime[State.CurrentTimingMethod] == null || State.Run.Last().SplitTime[State.CurrentTimingMethod] < State.Run.Last().PersonalBestSplitTime[State.CurrentTimingMethod])
+            {
                 PlaySound(Settings.PersonalBest, Settings.PersonalBestVolume);
+            }
             else
+            {
                 PlaySound(Settings.NotAPersonalBest, Settings.NotAPersonalBestVolume);
+            }
         }
         else
         {
@@ -130,7 +134,9 @@ public class SoundComponent : LogicComponent, IDeactivatableComponent
             }
 
             if (string.IsNullOrEmpty(path))
+            {
                 path = Settings.Split;
+            }
 
             PlaySound(path, volume);
         }
@@ -159,7 +165,9 @@ public class SoundComponent : LogicComponent, IDeactivatableComponent
     private void State_OnReset(object sender, TimerPhase e)
     {
         if (e != TimerPhase.Ended)
+        {
             PlaySound(Settings.Reset, Settings.ResetVolume);
+        }
     }
 
     private void PlaySound(string location, int volume)
@@ -173,7 +181,7 @@ public class SoundComponent : LogicComponent, IDeactivatableComponent
                 try
                 {
                     AudioFileReader audioFileReader = new AudioFileReader(location);
-                    audioFileReader.Volume = (volume / 100f) * (Settings.GeneralVolume / 100f);
+                    audioFileReader.Volume = volume / 100f * (Settings.GeneralVolume / 100f);
 
                     Player.DeviceNumber = Settings.OutputDevice;
                     Player.Init(audioFileReader);

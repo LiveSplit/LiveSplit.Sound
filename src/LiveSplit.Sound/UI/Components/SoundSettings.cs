@@ -79,7 +79,9 @@ public partial class SoundSettings : UserControl
         StartTimerVolume = 100;
 
         for (int i = 0; i < WaveOut.DeviceCount; ++i)
+        {
             cbOutputDevice.Items.Add(WaveOut.GetCapabilities(i));
+        }
 
         txtSplitPath.DataBindings.Add("Text", this, "Split");
         txtSplitAheadGaining.DataBindings.Add("Text", this, "SplitAheadGaining");
@@ -212,7 +214,9 @@ public partial class SoundSettings : UserControl
         var result = fileDialog.ShowDialog();
 
         if (result == DialogResult.OK)
+        {
             path = fileDialog.FileName;
+        }
 
         textBox.Text = path;
         callback(path);
