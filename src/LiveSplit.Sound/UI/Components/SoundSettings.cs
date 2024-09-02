@@ -157,7 +157,7 @@ public partial class SoundSettings : UserControl
 
     public XmlNode GetSettings(XmlDocument document)
     {
-        var parent = document.CreateElement("Settings");
+        XmlElement parent = document.CreateElement("Settings");
         CreateSettingsNode(document, parent);
         return parent;
     }
@@ -204,14 +204,14 @@ public partial class SoundSettings : UserControl
 
     protected string BrowseForPath(TextBox textBox, Action<string> callback)
     {
-        var path = textBox.Text;
+        string path = textBox.Text;
         var fileDialog = new OpenFileDialog()
         {
             FileName = path,
             Filter = "Audio Files|*.mp3;*.wav;*.aiff;*.wma|All Files|*.*"
         };
 
-        var result = fileDialog.ShowDialog();
+        DialogResult result = fileDialog.ShowDialog();
 
         if (result == DialogResult.OK)
         {
@@ -296,7 +296,7 @@ public partial class SoundSettings : UserControl
 
     private void VolumeTrackBarScrollHandler(object sender, EventArgs e)
     {
-        TrackBar trackBar = (TrackBar)sender;
+        var trackBar = (TrackBar)sender;
 
         ttVolume.SetToolTip(trackBar, trackBar.Value.ToString());
     }

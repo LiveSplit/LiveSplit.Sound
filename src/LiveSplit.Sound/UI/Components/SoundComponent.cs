@@ -89,11 +89,11 @@ public class SoundComponent : LogicComponent, IDeactivatableComponent
         }
         else
         {
-            var path = string.Empty;
+            string path = string.Empty;
             int volume = Settings.SplitVolume;
 
-            var splitIndex = State.CurrentSplitIndex - 1;
-            var timeDifference = State.Run[splitIndex].SplitTime[State.CurrentTimingMethod] - State.Run[splitIndex].Comparisons[State.CurrentComparison][State.CurrentTimingMethod];
+            int splitIndex = State.CurrentSplitIndex - 1;
+            TimeSpan? timeDifference = State.Run[splitIndex].SplitTime[State.CurrentTimingMethod] - State.Run[splitIndex].Comparisons[State.CurrentComparison][State.CurrentTimingMethod];
 
             if (timeDifference != null)
             {
@@ -180,7 +180,7 @@ public class SoundComponent : LogicComponent, IDeactivatableComponent
             {
                 try
                 {
-                    AudioFileReader audioFileReader = new AudioFileReader(location)
+                    var audioFileReader = new AudioFileReader(location)
                     {
                         Volume = volume / 100f * (Settings.GeneralVolume / 100f)
                     };
