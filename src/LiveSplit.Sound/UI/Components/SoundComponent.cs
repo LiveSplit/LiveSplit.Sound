@@ -180,8 +180,10 @@ public class SoundComponent : LogicComponent, IDeactivatableComponent
             {
                 try
                 {
-                    AudioFileReader audioFileReader = new AudioFileReader(location);
-                    audioFileReader.Volume = volume / 100f * (Settings.GeneralVolume / 100f);
+                    AudioFileReader audioFileReader = new AudioFileReader(location)
+                    {
+                        Volume = volume / 100f * (Settings.GeneralVolume / 100f)
+                    };
 
                     Player.DeviceNumber = Settings.OutputDevice;
                     Player.Init(audioFileReader);
