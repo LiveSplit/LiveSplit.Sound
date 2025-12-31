@@ -136,10 +136,10 @@
             this.tabControl1.Controls.Add(this.tpSoundFiles);
             this.tabControl1.Controls.Add(this.tpVolumeMixer);
             this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tabControl1.Location = new System.Drawing.Point(7, 7);
+            this.tabControl1.Location = new System.Drawing.Point(7, 6);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(462, 439);
+            this.tabControl1.Size = new System.Drawing.Size(462, 406);
             this.tabControl1.TabIndex = 0;
             // 
             // tpSoundFiles
@@ -148,7 +148,7 @@
             this.tpSoundFiles.Location = new System.Drawing.Point(4, 22);
             this.tpSoundFiles.Name = "tpSoundFiles";
             this.tpSoundFiles.Padding = new System.Windows.Forms.Padding(3);
-            this.tpSoundFiles.Size = new System.Drawing.Size(454, 413);
+            this.tpSoundFiles.Size = new System.Drawing.Size(454, 380);
             this.tpSoundFiles.TabIndex = 0;
             this.tpSoundFiles.Text = "Sound Files";
             this.tpSoundFiles.UseVisualStyleBackColor = true;
@@ -206,39 +206,42 @@
             this.tableLayoutPanel1.Location = new System.Drawing.Point(3, 3);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 15;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 29F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 29F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 29F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 29F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 29F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 29F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 29F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 29F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 29F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 29F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 29F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 29F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 29F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 29F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 27F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 27F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 27F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 27F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 27F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 27F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 27F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 27F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 27F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 27F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 27F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 27F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 27F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 27F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(448, 407);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(448, 374);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // txtStartTimer
             // 
+            this.txtStartTimer.AllowDrop = true;
             this.txtStartTimer.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtStartTimer.Location = new System.Drawing.Point(149, 381);
+            this.txtStartTimer.Location = new System.Drawing.Point(149, 355);
             this.txtStartTimer.Name = "txtStartTimer";
-            this.txtStartTimer.Size = new System.Drawing.Size(215, 20);
+            this.txtStartTimer.Size = new System.Drawing.Size(215, 19);
             this.txtStartTimer.TabIndex = 40;
+            this.txtStartTimer.DragDrop += new System.Windows.Forms.DragEventHandler(this.txtFilePath_DragDrop);
+            this.txtStartTimer.DragEnter += new System.Windows.Forms.DragEventHandler(this.txtFilePath_DragEnter);
             // 
             // label14
             // 
             this.label14.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(3, 385);
+            this.label14.Location = new System.Drawing.Point(3, 358);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(140, 13);
+            this.label14.Size = new System.Drawing.Size(140, 12);
             this.label14.TabIndex = 39;
             this.label14.Text = "Start Timer:";
             // 
@@ -246,9 +249,9 @@
             // 
             this.label13.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(3, 356);
+            this.label13.Location = new System.Drawing.Point(3, 331);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(140, 13);
+            this.label13.Size = new System.Drawing.Size(140, 12);
             this.label13.TabIndex = 36;
             this.label13.Text = "Resume:";
             // 
@@ -256,9 +259,9 @@
             // 
             this.label12.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(3, 327);
+            this.label12.Location = new System.Drawing.Point(3, 304);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(140, 13);
+            this.label12.Size = new System.Drawing.Size(140, 12);
             this.label12.TabIndex = 33;
             this.label12.Text = "Pause:";
             // 
@@ -266,9 +269,9 @@
             // 
             this.label11.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(3, 298);
+            this.label11.Location = new System.Drawing.Point(3, 277);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(140, 13);
+            this.label11.Size = new System.Drawing.Size(140, 12);
             this.label11.TabIndex = 30;
             this.label11.Text = "Reset:";
             // 
@@ -276,9 +279,9 @@
             // 
             this.label10.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(3, 269);
+            this.label10.Location = new System.Drawing.Point(3, 250);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(140, 13);
+            this.label10.Size = new System.Drawing.Size(140, 12);
             this.label10.TabIndex = 27;
             this.label10.Text = "Not a Personal Best:";
             // 
@@ -286,9 +289,9 @@
             // 
             this.label9.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(3, 240);
+            this.label9.Location = new System.Drawing.Point(3, 223);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(140, 13);
+            this.label9.Size = new System.Drawing.Size(140, 12);
             this.label9.TabIndex = 24;
             this.label9.Text = "Personal Best:";
             // 
@@ -296,9 +299,9 @@
             // 
             this.label8.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(3, 211);
+            this.label8.Location = new System.Drawing.Point(3, 196);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(140, 13);
+            this.label8.Size = new System.Drawing.Size(140, 12);
             this.label8.TabIndex = 21;
             this.label8.Text = "Skip Split:";
             // 
@@ -306,9 +309,9 @@
             // 
             this.label7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(3, 182);
+            this.label7.Location = new System.Drawing.Point(3, 169);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(140, 13);
+            this.label7.Size = new System.Drawing.Size(140, 12);
             this.label7.TabIndex = 18;
             this.label7.Text = "Undo Split:";
             // 
@@ -316,9 +319,9 @@
             // 
             this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(3, 153);
+            this.label5.Location = new System.Drawing.Point(3, 142);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(140, 13);
+            this.label5.Size = new System.Drawing.Size(140, 12);
             this.label5.TabIndex = 15;
             this.label5.Text = "Split (Best Segment):";
             // 
@@ -326,9 +329,9 @@
             // 
             this.label6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(3, 124);
+            this.label6.Location = new System.Drawing.Point(3, 109);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(140, 13);
+            this.label6.Size = new System.Drawing.Size(140, 24);
             this.label6.TabIndex = 12;
             this.label6.Text = "Split (Behind, Losing Time):";
             // 
@@ -336,9 +339,9 @@
             // 
             this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(3, 95);
+            this.label4.Location = new System.Drawing.Point(3, 82);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(140, 13);
+            this.label4.Size = new System.Drawing.Size(140, 24);
             this.label4.TabIndex = 9;
             this.label4.Text = "Split (Behind, Gaining Time):";
             // 
@@ -346,9 +349,9 @@
             // 
             this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(3, 66);
+            this.label3.Location = new System.Drawing.Point(3, 55);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(140, 13);
+            this.label3.Size = new System.Drawing.Size(140, 24);
             this.label3.TabIndex = 6;
             this.label3.Text = "Split (Ahead, Losing Time):";
             // 
@@ -356,9 +359,9 @@
             // 
             this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(3, 37);
+            this.label2.Location = new System.Drawing.Point(3, 28);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(140, 13);
+            this.label2.Size = new System.Drawing.Size(140, 24);
             this.label2.TabIndex = 3;
             this.label2.Text = "Split (Ahead, Gaining Time):";
             // 
@@ -366,121 +369,160 @@
             // 
             this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(3, 8);
+            this.label1.Location = new System.Drawing.Point(3, 7);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(140, 13);
+            this.label1.Size = new System.Drawing.Size(140, 12);
             this.label1.TabIndex = 0;
             this.label1.Text = "Split:";
             // 
             // txtResume
             // 
+            this.txtResume.AllowDrop = true;
             this.txtResume.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtResume.Location = new System.Drawing.Point(149, 352);
+            this.txtResume.Location = new System.Drawing.Point(149, 328);
             this.txtResume.Name = "txtResume";
-            this.txtResume.Size = new System.Drawing.Size(215, 20);
+            this.txtResume.Size = new System.Drawing.Size(215, 19);
             this.txtResume.TabIndex = 37;
+            this.txtResume.DragDrop += new System.Windows.Forms.DragEventHandler(this.txtFilePath_DragDrop);
+            this.txtResume.DragEnter += new System.Windows.Forms.DragEventHandler(this.txtFilePath_DragEnter);
             // 
             // txtPause
             // 
+            this.txtPause.AllowDrop = true;
             this.txtPause.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtPause.Location = new System.Drawing.Point(149, 323);
+            this.txtPause.Location = new System.Drawing.Point(149, 301);
             this.txtPause.Name = "txtPause";
-            this.txtPause.Size = new System.Drawing.Size(215, 20);
+            this.txtPause.Size = new System.Drawing.Size(215, 19);
             this.txtPause.TabIndex = 34;
+            this.txtPause.DragDrop += new System.Windows.Forms.DragEventHandler(this.txtFilePath_DragDrop);
+            this.txtPause.DragEnter += new System.Windows.Forms.DragEventHandler(this.txtFilePath_DragEnter);
             // 
             // txtReset
             // 
+            this.txtReset.AllowDrop = true;
             this.txtReset.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtReset.Location = new System.Drawing.Point(149, 294);
+            this.txtReset.Location = new System.Drawing.Point(149, 274);
             this.txtReset.Name = "txtReset";
-            this.txtReset.Size = new System.Drawing.Size(215, 20);
+            this.txtReset.Size = new System.Drawing.Size(215, 19);
             this.txtReset.TabIndex = 31;
+            this.txtReset.DragDrop += new System.Windows.Forms.DragEventHandler(this.txtFilePath_DragDrop);
+            this.txtReset.DragEnter += new System.Windows.Forms.DragEventHandler(this.txtFilePath_DragEnter);
             // 
             // txtNotAPersonalBest
             // 
+            this.txtNotAPersonalBest.AllowDrop = true;
             this.txtNotAPersonalBest.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtNotAPersonalBest.Location = new System.Drawing.Point(149, 265);
+            this.txtNotAPersonalBest.Location = new System.Drawing.Point(149, 247);
             this.txtNotAPersonalBest.Name = "txtNotAPersonalBest";
-            this.txtNotAPersonalBest.Size = new System.Drawing.Size(215, 20);
+            this.txtNotAPersonalBest.Size = new System.Drawing.Size(215, 19);
             this.txtNotAPersonalBest.TabIndex = 28;
+            this.txtNotAPersonalBest.DragDrop += new System.Windows.Forms.DragEventHandler(this.txtFilePath_DragDrop);
+            this.txtNotAPersonalBest.DragEnter += new System.Windows.Forms.DragEventHandler(this.txtFilePath_DragEnter);
             // 
             // txtPersonalBest
             // 
+            this.txtPersonalBest.AllowDrop = true;
             this.txtPersonalBest.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtPersonalBest.Location = new System.Drawing.Point(149, 236);
+            this.txtPersonalBest.Location = new System.Drawing.Point(149, 220);
             this.txtPersonalBest.Name = "txtPersonalBest";
-            this.txtPersonalBest.Size = new System.Drawing.Size(215, 20);
+            this.txtPersonalBest.Size = new System.Drawing.Size(215, 19);
             this.txtPersonalBest.TabIndex = 25;
+            this.txtPersonalBest.DragDrop += new System.Windows.Forms.DragEventHandler(this.txtFilePath_DragDrop);
+            this.txtPersonalBest.DragEnter += new System.Windows.Forms.DragEventHandler(this.txtFilePath_DragEnter);
             // 
             // txtSkip
             // 
+            this.txtSkip.AllowDrop = true;
             this.txtSkip.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtSkip.Location = new System.Drawing.Point(149, 207);
+            this.txtSkip.Location = new System.Drawing.Point(149, 193);
             this.txtSkip.Name = "txtSkip";
-            this.txtSkip.Size = new System.Drawing.Size(215, 20);
+            this.txtSkip.Size = new System.Drawing.Size(215, 19);
             this.txtSkip.TabIndex = 22;
+            this.txtSkip.DragDrop += new System.Windows.Forms.DragEventHandler(this.txtFilePath_DragDrop);
+            this.txtSkip.DragEnter += new System.Windows.Forms.DragEventHandler(this.txtFilePath_DragEnter);
             // 
             // txtUndo
             // 
+            this.txtUndo.AllowDrop = true;
             this.txtUndo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtUndo.Location = new System.Drawing.Point(149, 178);
+            this.txtUndo.Location = new System.Drawing.Point(149, 166);
             this.txtUndo.Name = "txtUndo";
-            this.txtUndo.Size = new System.Drawing.Size(215, 20);
+            this.txtUndo.Size = new System.Drawing.Size(215, 19);
             this.txtUndo.TabIndex = 19;
+            this.txtUndo.DragDrop += new System.Windows.Forms.DragEventHandler(this.txtFilePath_DragDrop);
+            this.txtUndo.DragEnter += new System.Windows.Forms.DragEventHandler(this.txtFilePath_DragEnter);
             // 
             // txtBestSegment
             // 
+            this.txtBestSegment.AllowDrop = true;
             this.txtBestSegment.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtBestSegment.Location = new System.Drawing.Point(149, 149);
+            this.txtBestSegment.Location = new System.Drawing.Point(149, 139);
             this.txtBestSegment.Name = "txtBestSegment";
-            this.txtBestSegment.Size = new System.Drawing.Size(215, 20);
+            this.txtBestSegment.Size = new System.Drawing.Size(215, 19);
             this.txtBestSegment.TabIndex = 16;
+            this.txtBestSegment.DragDrop += new System.Windows.Forms.DragEventHandler(this.txtFilePath_DragDrop);
+            this.txtBestSegment.DragEnter += new System.Windows.Forms.DragEventHandler(this.txtFilePath_DragEnter);
             // 
             // txtSplitBehindLosing
             // 
+            this.txtSplitBehindLosing.AllowDrop = true;
             this.txtSplitBehindLosing.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtSplitBehindLosing.Location = new System.Drawing.Point(149, 120);
+            this.txtSplitBehindLosing.Location = new System.Drawing.Point(149, 112);
             this.txtSplitBehindLosing.Name = "txtSplitBehindLosing";
-            this.txtSplitBehindLosing.Size = new System.Drawing.Size(215, 20);
+            this.txtSplitBehindLosing.Size = new System.Drawing.Size(215, 19);
             this.txtSplitBehindLosing.TabIndex = 13;
+            this.txtSplitBehindLosing.DragDrop += new System.Windows.Forms.DragEventHandler(this.txtFilePath_DragDrop);
+            this.txtSplitBehindLosing.DragEnter += new System.Windows.Forms.DragEventHandler(this.txtFilePath_DragEnter);
             // 
             // txtSplitBehindGaining
             // 
+            this.txtSplitBehindGaining.AllowDrop = true;
             this.txtSplitBehindGaining.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtSplitBehindGaining.Location = new System.Drawing.Point(149, 91);
+            this.txtSplitBehindGaining.Location = new System.Drawing.Point(149, 85);
             this.txtSplitBehindGaining.Name = "txtSplitBehindGaining";
-            this.txtSplitBehindGaining.Size = new System.Drawing.Size(215, 20);
+            this.txtSplitBehindGaining.Size = new System.Drawing.Size(215, 19);
             this.txtSplitBehindGaining.TabIndex = 10;
+            this.txtSplitBehindGaining.DragDrop += new System.Windows.Forms.DragEventHandler(this.txtFilePath_DragDrop);
+            this.txtSplitBehindGaining.DragEnter += new System.Windows.Forms.DragEventHandler(this.txtFilePath_DragEnter);
             // 
             // txtSplitAheadLosing
             // 
+            this.txtSplitAheadLosing.AllowDrop = true;
             this.txtSplitAheadLosing.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtSplitAheadLosing.Location = new System.Drawing.Point(149, 62);
+            this.txtSplitAheadLosing.Location = new System.Drawing.Point(149, 58);
             this.txtSplitAheadLosing.Name = "txtSplitAheadLosing";
-            this.txtSplitAheadLosing.Size = new System.Drawing.Size(215, 20);
+            this.txtSplitAheadLosing.Size = new System.Drawing.Size(215, 19);
             this.txtSplitAheadLosing.TabIndex = 7;
+            this.txtSplitAheadLosing.DragDrop += new System.Windows.Forms.DragEventHandler(this.txtFilePath_DragDrop);
+            this.txtSplitAheadLosing.DragEnter += new System.Windows.Forms.DragEventHandler(this.txtFilePath_DragEnter);
             // 
             // txtSplitAheadGaining
             // 
+            this.txtSplitAheadGaining.AllowDrop = true;
             this.txtSplitAheadGaining.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtSplitAheadGaining.Location = new System.Drawing.Point(149, 33);
+            this.txtSplitAheadGaining.Location = new System.Drawing.Point(149, 31);
             this.txtSplitAheadGaining.Name = "txtSplitAheadGaining";
-            this.txtSplitAheadGaining.Size = new System.Drawing.Size(215, 20);
+            this.txtSplitAheadGaining.Size = new System.Drawing.Size(215, 19);
             this.txtSplitAheadGaining.TabIndex = 4;
+            this.txtSplitAheadGaining.DragDrop += new System.Windows.Forms.DragEventHandler(this.txtFilePath_DragDrop);
+            this.txtSplitAheadGaining.DragEnter += new System.Windows.Forms.DragEventHandler(this.txtFilePath_DragEnter);
             // 
             // txtSplitPath
             // 
+            this.txtSplitPath.AllowDrop = true;
             this.txtSplitPath.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.txtSplitPath.Location = new System.Drawing.Point(149, 4);
             this.txtSplitPath.Name = "txtSplitPath";
-            this.txtSplitPath.Size = new System.Drawing.Size(215, 20);
+            this.txtSplitPath.Size = new System.Drawing.Size(215, 19);
             this.txtSplitPath.TabIndex = 1;
+            this.txtSplitPath.DragDrop += new System.Windows.Forms.DragEventHandler(this.txtFilePath_DragDrop);
+            this.txtSplitPath.DragEnter += new System.Windows.Forms.DragEventHandler(this.txtFilePath_DragEnter);
             // 
             // btnResume
             // 
-            this.btnResume.Location = new System.Drawing.Point(370, 351);
+            this.btnResume.Location = new System.Drawing.Point(370, 327);
             this.btnResume.Name = "btnResume";
-            this.btnResume.Size = new System.Drawing.Size(75, 23);
+            this.btnResume.Size = new System.Drawing.Size(75, 21);
             this.btnResume.TabIndex = 38;
             this.btnResume.Text = "Browse...";
             this.btnResume.UseVisualStyleBackColor = true;
@@ -488,9 +530,9 @@
             // 
             // btnPause
             // 
-            this.btnPause.Location = new System.Drawing.Point(370, 322);
+            this.btnPause.Location = new System.Drawing.Point(370, 300);
             this.btnPause.Name = "btnPause";
-            this.btnPause.Size = new System.Drawing.Size(75, 23);
+            this.btnPause.Size = new System.Drawing.Size(75, 21);
             this.btnPause.TabIndex = 35;
             this.btnPause.Text = "Browse...";
             this.btnPause.UseVisualStyleBackColor = true;
@@ -498,9 +540,9 @@
             // 
             // btnReset
             // 
-            this.btnReset.Location = new System.Drawing.Point(370, 293);
+            this.btnReset.Location = new System.Drawing.Point(370, 273);
             this.btnReset.Name = "btnReset";
-            this.btnReset.Size = new System.Drawing.Size(75, 23);
+            this.btnReset.Size = new System.Drawing.Size(75, 21);
             this.btnReset.TabIndex = 32;
             this.btnReset.Text = "Browse...";
             this.btnReset.UseVisualStyleBackColor = true;
@@ -508,9 +550,9 @@
             // 
             // btnNotAPersonalBest
             // 
-            this.btnNotAPersonalBest.Location = new System.Drawing.Point(370, 264);
+            this.btnNotAPersonalBest.Location = new System.Drawing.Point(370, 246);
             this.btnNotAPersonalBest.Name = "btnNotAPersonalBest";
-            this.btnNotAPersonalBest.Size = new System.Drawing.Size(75, 23);
+            this.btnNotAPersonalBest.Size = new System.Drawing.Size(75, 21);
             this.btnNotAPersonalBest.TabIndex = 29;
             this.btnNotAPersonalBest.Text = "Browse...";
             this.btnNotAPersonalBest.UseVisualStyleBackColor = true;
@@ -518,9 +560,9 @@
             // 
             // btnPersonalBest
             // 
-            this.btnPersonalBest.Location = new System.Drawing.Point(370, 235);
+            this.btnPersonalBest.Location = new System.Drawing.Point(370, 219);
             this.btnPersonalBest.Name = "btnPersonalBest";
-            this.btnPersonalBest.Size = new System.Drawing.Size(75, 23);
+            this.btnPersonalBest.Size = new System.Drawing.Size(75, 21);
             this.btnPersonalBest.TabIndex = 26;
             this.btnPersonalBest.Text = "Browse...";
             this.btnPersonalBest.UseVisualStyleBackColor = true;
@@ -528,9 +570,9 @@
             // 
             // btnSkipSplit
             // 
-            this.btnSkipSplit.Location = new System.Drawing.Point(370, 206);
+            this.btnSkipSplit.Location = new System.Drawing.Point(370, 192);
             this.btnSkipSplit.Name = "btnSkipSplit";
-            this.btnSkipSplit.Size = new System.Drawing.Size(75, 23);
+            this.btnSkipSplit.Size = new System.Drawing.Size(75, 21);
             this.btnSkipSplit.TabIndex = 23;
             this.btnSkipSplit.Text = "Browse...";
             this.btnSkipSplit.UseVisualStyleBackColor = true;
@@ -538,9 +580,9 @@
             // 
             // btnUndo
             // 
-            this.btnUndo.Location = new System.Drawing.Point(370, 177);
+            this.btnUndo.Location = new System.Drawing.Point(370, 165);
             this.btnUndo.Name = "btnUndo";
-            this.btnUndo.Size = new System.Drawing.Size(75, 23);
+            this.btnUndo.Size = new System.Drawing.Size(75, 21);
             this.btnUndo.TabIndex = 20;
             this.btnUndo.Text = "Browse...";
             this.btnUndo.UseVisualStyleBackColor = true;
@@ -548,9 +590,9 @@
             // 
             // btnBestSegment
             // 
-            this.btnBestSegment.Location = new System.Drawing.Point(370, 148);
+            this.btnBestSegment.Location = new System.Drawing.Point(370, 138);
             this.btnBestSegment.Name = "btnBestSegment";
-            this.btnBestSegment.Size = new System.Drawing.Size(75, 23);
+            this.btnBestSegment.Size = new System.Drawing.Size(75, 21);
             this.btnBestSegment.TabIndex = 17;
             this.btnBestSegment.Text = "Browse...";
             this.btnBestSegment.UseVisualStyleBackColor = true;
@@ -558,9 +600,9 @@
             // 
             // btnBehindLosing
             // 
-            this.btnBehindLosing.Location = new System.Drawing.Point(370, 119);
+            this.btnBehindLosing.Location = new System.Drawing.Point(370, 111);
             this.btnBehindLosing.Name = "btnBehindLosing";
-            this.btnBehindLosing.Size = new System.Drawing.Size(75, 23);
+            this.btnBehindLosing.Size = new System.Drawing.Size(75, 21);
             this.btnBehindLosing.TabIndex = 14;
             this.btnBehindLosing.Text = "Browse...";
             this.btnBehindLosing.UseVisualStyleBackColor = true;
@@ -568,9 +610,9 @@
             // 
             // btnBehindGaining
             // 
-            this.btnBehindGaining.Location = new System.Drawing.Point(370, 90);
+            this.btnBehindGaining.Location = new System.Drawing.Point(370, 84);
             this.btnBehindGaining.Name = "btnBehindGaining";
-            this.btnBehindGaining.Size = new System.Drawing.Size(75, 23);
+            this.btnBehindGaining.Size = new System.Drawing.Size(75, 21);
             this.btnBehindGaining.TabIndex = 11;
             this.btnBehindGaining.Text = "Browse...";
             this.btnBehindGaining.UseVisualStyleBackColor = true;
@@ -578,9 +620,9 @@
             // 
             // btnAheadLosing
             // 
-            this.btnAheadLosing.Location = new System.Drawing.Point(370, 61);
+            this.btnAheadLosing.Location = new System.Drawing.Point(370, 57);
             this.btnAheadLosing.Name = "btnAheadLosing";
-            this.btnAheadLosing.Size = new System.Drawing.Size(75, 23);
+            this.btnAheadLosing.Size = new System.Drawing.Size(75, 21);
             this.btnAheadLosing.TabIndex = 8;
             this.btnAheadLosing.Text = "Browse...";
             this.btnAheadLosing.UseVisualStyleBackColor = true;
@@ -588,9 +630,9 @@
             // 
             // btnAheadGaining
             // 
-            this.btnAheadGaining.Location = new System.Drawing.Point(370, 32);
+            this.btnAheadGaining.Location = new System.Drawing.Point(370, 30);
             this.btnAheadGaining.Name = "btnAheadGaining";
-            this.btnAheadGaining.Size = new System.Drawing.Size(75, 23);
+            this.btnAheadGaining.Size = new System.Drawing.Size(75, 21);
             this.btnAheadGaining.TabIndex = 5;
             this.btnAheadGaining.Text = "Browse...";
             this.btnAheadGaining.UseVisualStyleBackColor = true;
@@ -600,7 +642,7 @@
             // 
             this.btnSplit.Location = new System.Drawing.Point(370, 3);
             this.btnSplit.Name = "btnSplit";
-            this.btnSplit.Size = new System.Drawing.Size(75, 23);
+            this.btnSplit.Size = new System.Drawing.Size(75, 21);
             this.btnSplit.TabIndex = 2;
             this.btnSplit.Text = "Browse...";
             this.btnSplit.UseVisualStyleBackColor = true;
@@ -608,9 +650,9 @@
             // 
             // btnStartTimer
             // 
-            this.btnStartTimer.Location = new System.Drawing.Point(370, 380);
+            this.btnStartTimer.Location = new System.Drawing.Point(370, 354);
             this.btnStartTimer.Name = "btnStartTimer";
-            this.btnStartTimer.Size = new System.Drawing.Size(75, 23);
+            this.btnStartTimer.Size = new System.Drawing.Size(75, 21);
             this.btnStartTimer.TabIndex = 41;
             this.btnStartTimer.Text = "Browse...";
             this.btnStartTimer.UseVisualStyleBackColor = true;
@@ -623,7 +665,7 @@
             this.tpVolumeMixer.Location = new System.Drawing.Point(4, 22);
             this.tpVolumeMixer.Name = "tpVolumeMixer";
             this.tpVolumeMixer.Padding = new System.Windows.Forms.Padding(3);
-            this.tpVolumeMixer.Size = new System.Drawing.Size(454, 413);
+            this.tpVolumeMixer.Size = new System.Drawing.Size(454, 380);
             this.tpVolumeMixer.TabIndex = 1;
             this.tpVolumeMixer.Text = "Volume Mixer";
             this.tpVolumeMixer.UseVisualStyleBackColor = true;
@@ -671,33 +713,33 @@
             this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 3);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 16;
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 29F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 29F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 29F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 29F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 29F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 29F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 29F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 29F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 29F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 29F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 29F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 29F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 29F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 29F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 29F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 29F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(431, 464);
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 27F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 27F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 27F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 27F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 27F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 27F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 27F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 27F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 27F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 27F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 27F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 27F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 27F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 27F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 27F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 27F));
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(431, 432);
             this.tableLayoutPanel2.TabIndex = 3;
             // 
             // tbStartTimerVolume
             // 
             this.tbStartTimerVolume.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.tbStartTimerVolume.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tbStartTimerVolume.Location = new System.Drawing.Point(149, 438);
+            this.tbStartTimerVolume.Location = new System.Drawing.Point(149, 408);
             this.tbStartTimerVolume.Maximum = 100;
             this.tbStartTimerVolume.Name = "tbStartTimerVolume";
-            this.tbStartTimerVolume.Size = new System.Drawing.Size(279, 23);
+            this.tbStartTimerVolume.Size = new System.Drawing.Size(279, 21);
             this.tbStartTimerVolume.TabIndex = 74;
             this.tbStartTimerVolume.TickFrequency = 10;
             this.tbStartTimerVolume.Scroll += new System.EventHandler(this.VolumeTrackBarScrollHandler);
@@ -706,10 +748,10 @@
             // 
             this.tbResumeVolume.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.tbResumeVolume.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tbResumeVolume.Location = new System.Drawing.Point(149, 409);
+            this.tbResumeVolume.Location = new System.Drawing.Point(149, 381);
             this.tbResumeVolume.Maximum = 100;
             this.tbResumeVolume.Name = "tbResumeVolume";
-            this.tbResumeVolume.Size = new System.Drawing.Size(279, 23);
+            this.tbResumeVolume.Size = new System.Drawing.Size(279, 21);
             this.tbResumeVolume.TabIndex = 29;
             this.tbResumeVolume.TickFrequency = 10;
             this.tbResumeVolume.Scroll += new System.EventHandler(this.VolumeTrackBarScrollHandler);
@@ -718,10 +760,10 @@
             // 
             this.tbPauseVolume.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.tbPauseVolume.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tbPauseVolume.Location = new System.Drawing.Point(149, 380);
+            this.tbPauseVolume.Location = new System.Drawing.Point(149, 354);
             this.tbPauseVolume.Maximum = 100;
             this.tbPauseVolume.Name = "tbPauseVolume";
-            this.tbPauseVolume.Size = new System.Drawing.Size(279, 23);
+            this.tbPauseVolume.Size = new System.Drawing.Size(279, 21);
             this.tbPauseVolume.TabIndex = 27;
             this.tbPauseVolume.TickFrequency = 10;
             this.tbPauseVolume.Scroll += new System.EventHandler(this.VolumeTrackBarScrollHandler);
@@ -730,10 +772,10 @@
             // 
             this.tbResetVolume.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.tbResetVolume.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tbResetVolume.Location = new System.Drawing.Point(149, 351);
+            this.tbResetVolume.Location = new System.Drawing.Point(149, 327);
             this.tbResetVolume.Maximum = 100;
             this.tbResetVolume.Name = "tbResetVolume";
-            this.tbResetVolume.Size = new System.Drawing.Size(279, 23);
+            this.tbResetVolume.Size = new System.Drawing.Size(279, 21);
             this.tbResetVolume.TabIndex = 25;
             this.tbResetVolume.TickFrequency = 10;
             this.tbResetVolume.Scroll += new System.EventHandler(this.VolumeTrackBarScrollHandler);
@@ -742,10 +784,10 @@
             // 
             this.tbNotAPersonalBestVolume.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.tbNotAPersonalBestVolume.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tbNotAPersonalBestVolume.Location = new System.Drawing.Point(149, 322);
+            this.tbNotAPersonalBestVolume.Location = new System.Drawing.Point(149, 300);
             this.tbNotAPersonalBestVolume.Maximum = 100;
             this.tbNotAPersonalBestVolume.Name = "tbNotAPersonalBestVolume";
-            this.tbNotAPersonalBestVolume.Size = new System.Drawing.Size(279, 23);
+            this.tbNotAPersonalBestVolume.Size = new System.Drawing.Size(279, 21);
             this.tbNotAPersonalBestVolume.TabIndex = 23;
             this.tbNotAPersonalBestVolume.TickFrequency = 10;
             this.tbNotAPersonalBestVolume.Scroll += new System.EventHandler(this.VolumeTrackBarScrollHandler);
@@ -754,10 +796,10 @@
             // 
             this.tbPersonalBestVolume.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.tbPersonalBestVolume.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tbPersonalBestVolume.Location = new System.Drawing.Point(149, 293);
+            this.tbPersonalBestVolume.Location = new System.Drawing.Point(149, 273);
             this.tbPersonalBestVolume.Maximum = 100;
             this.tbPersonalBestVolume.Name = "tbPersonalBestVolume";
-            this.tbPersonalBestVolume.Size = new System.Drawing.Size(279, 23);
+            this.tbPersonalBestVolume.Size = new System.Drawing.Size(279, 21);
             this.tbPersonalBestVolume.TabIndex = 21;
             this.tbPersonalBestVolume.TickFrequency = 10;
             this.tbPersonalBestVolume.Scroll += new System.EventHandler(this.VolumeTrackBarScrollHandler);
@@ -766,10 +808,10 @@
             // 
             this.tbSkipVolume.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.tbSkipVolume.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tbSkipVolume.Location = new System.Drawing.Point(149, 264);
+            this.tbSkipVolume.Location = new System.Drawing.Point(149, 246);
             this.tbSkipVolume.Maximum = 100;
             this.tbSkipVolume.Name = "tbSkipVolume";
-            this.tbSkipVolume.Size = new System.Drawing.Size(279, 23);
+            this.tbSkipVolume.Size = new System.Drawing.Size(279, 21);
             this.tbSkipVolume.TabIndex = 19;
             this.tbSkipVolume.TickFrequency = 10;
             this.tbSkipVolume.Scroll += new System.EventHandler(this.VolumeTrackBarScrollHandler);
@@ -778,10 +820,10 @@
             // 
             this.tbUndoVolume.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.tbUndoVolume.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tbUndoVolume.Location = new System.Drawing.Point(149, 235);
+            this.tbUndoVolume.Location = new System.Drawing.Point(149, 219);
             this.tbUndoVolume.Maximum = 100;
             this.tbUndoVolume.Name = "tbUndoVolume";
-            this.tbUndoVolume.Size = new System.Drawing.Size(279, 23);
+            this.tbUndoVolume.Size = new System.Drawing.Size(279, 21);
             this.tbUndoVolume.TabIndex = 17;
             this.tbUndoVolume.TickFrequency = 10;
             this.tbUndoVolume.Scroll += new System.EventHandler(this.VolumeTrackBarScrollHandler);
@@ -790,10 +832,10 @@
             // 
             this.tbBestSegmentVolume.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.tbBestSegmentVolume.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tbBestSegmentVolume.Location = new System.Drawing.Point(149, 206);
+            this.tbBestSegmentVolume.Location = new System.Drawing.Point(149, 192);
             this.tbBestSegmentVolume.Maximum = 100;
             this.tbBestSegmentVolume.Name = "tbBestSegmentVolume";
-            this.tbBestSegmentVolume.Size = new System.Drawing.Size(279, 23);
+            this.tbBestSegmentVolume.Size = new System.Drawing.Size(279, 21);
             this.tbBestSegmentVolume.TabIndex = 15;
             this.tbBestSegmentVolume.TickFrequency = 10;
             this.tbBestSegmentVolume.Scroll += new System.EventHandler(this.VolumeTrackBarScrollHandler);
@@ -802,10 +844,10 @@
             // 
             this.tbSplitBehindLosingVolume.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.tbSplitBehindLosingVolume.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tbSplitBehindLosingVolume.Location = new System.Drawing.Point(149, 177);
+            this.tbSplitBehindLosingVolume.Location = new System.Drawing.Point(149, 165);
             this.tbSplitBehindLosingVolume.Maximum = 100;
             this.tbSplitBehindLosingVolume.Name = "tbSplitBehindLosingVolume";
-            this.tbSplitBehindLosingVolume.Size = new System.Drawing.Size(279, 23);
+            this.tbSplitBehindLosingVolume.Size = new System.Drawing.Size(279, 21);
             this.tbSplitBehindLosingVolume.TabIndex = 13;
             this.tbSplitBehindLosingVolume.TickFrequency = 10;
             this.tbSplitBehindLosingVolume.Scroll += new System.EventHandler(this.VolumeTrackBarScrollHandler);
@@ -814,10 +856,10 @@
             // 
             this.tbSplitBehindGainingVolume.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.tbSplitBehindGainingVolume.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tbSplitBehindGainingVolume.Location = new System.Drawing.Point(149, 148);
+            this.tbSplitBehindGainingVolume.Location = new System.Drawing.Point(149, 138);
             this.tbSplitBehindGainingVolume.Maximum = 100;
             this.tbSplitBehindGainingVolume.Name = "tbSplitBehindGainingVolume";
-            this.tbSplitBehindGainingVolume.Size = new System.Drawing.Size(279, 23);
+            this.tbSplitBehindGainingVolume.Size = new System.Drawing.Size(279, 21);
             this.tbSplitBehindGainingVolume.TabIndex = 11;
             this.tbSplitBehindGainingVolume.TickFrequency = 10;
             this.tbSplitBehindGainingVolume.Scroll += new System.EventHandler(this.VolumeTrackBarScrollHandler);
@@ -826,10 +868,10 @@
             // 
             this.tbSplitAheadLosingVolume.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.tbSplitAheadLosingVolume.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tbSplitAheadLosingVolume.Location = new System.Drawing.Point(149, 119);
+            this.tbSplitAheadLosingVolume.Location = new System.Drawing.Point(149, 111);
             this.tbSplitAheadLosingVolume.Maximum = 100;
             this.tbSplitAheadLosingVolume.Name = "tbSplitAheadLosingVolume";
-            this.tbSplitAheadLosingVolume.Size = new System.Drawing.Size(279, 23);
+            this.tbSplitAheadLosingVolume.Size = new System.Drawing.Size(279, 21);
             this.tbSplitAheadLosingVolume.TabIndex = 9;
             this.tbSplitAheadLosingVolume.TickFrequency = 10;
             this.tbSplitAheadLosingVolume.Scroll += new System.EventHandler(this.VolumeTrackBarScrollHandler);
@@ -838,10 +880,10 @@
             // 
             this.tbSplitAheadGainingVolume.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.tbSplitAheadGainingVolume.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tbSplitAheadGainingVolume.Location = new System.Drawing.Point(149, 90);
+            this.tbSplitAheadGainingVolume.Location = new System.Drawing.Point(149, 84);
             this.tbSplitAheadGainingVolume.Maximum = 100;
             this.tbSplitAheadGainingVolume.Name = "tbSplitAheadGainingVolume";
-            this.tbSplitAheadGainingVolume.Size = new System.Drawing.Size(279, 23);
+            this.tbSplitAheadGainingVolume.Size = new System.Drawing.Size(279, 21);
             this.tbSplitAheadGainingVolume.TabIndex = 7;
             this.tbSplitAheadGainingVolume.TickFrequency = 10;
             this.tbSplitAheadGainingVolume.Scroll += new System.EventHandler(this.VolumeTrackBarScrollHandler);
@@ -850,10 +892,10 @@
             // 
             this.tbSplitVolume.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.tbSplitVolume.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tbSplitVolume.Location = new System.Drawing.Point(149, 61);
+            this.tbSplitVolume.Location = new System.Drawing.Point(149, 57);
             this.tbSplitVolume.Maximum = 100;
             this.tbSplitVolume.Name = "tbSplitVolume";
-            this.tbSplitVolume.Size = new System.Drawing.Size(279, 23);
+            this.tbSplitVolume.Size = new System.Drawing.Size(279, 21);
             this.tbSplitVolume.TabIndex = 5;
             this.tbSplitVolume.TickFrequency = 10;
             this.tbSplitVolume.Scroll += new System.EventHandler(this.VolumeTrackBarScrollHandler);
@@ -862,9 +904,9 @@
             // 
             this.label16.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(3, 443);
+            this.label16.Location = new System.Drawing.Point(3, 412);
             this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(140, 13);
+            this.label16.Size = new System.Drawing.Size(140, 12);
             this.label16.TabIndex = 41;
             this.label16.Text = "Start Timer:";
             // 
@@ -872,9 +914,9 @@
             // 
             this.label17.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(3, 414);
+            this.label17.Location = new System.Drawing.Point(3, 385);
             this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(140, 13);
+            this.label17.Size = new System.Drawing.Size(140, 12);
             this.label17.TabIndex = 28;
             this.label17.Text = "Resume:";
             // 
@@ -882,9 +924,9 @@
             // 
             this.label18.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(3, 385);
+            this.label18.Location = new System.Drawing.Point(3, 358);
             this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(140, 13);
+            this.label18.Size = new System.Drawing.Size(140, 12);
             this.label18.TabIndex = 26;
             this.label18.Text = "Pause:";
             // 
@@ -892,9 +934,9 @@
             // 
             this.label19.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(3, 356);
+            this.label19.Location = new System.Drawing.Point(3, 331);
             this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(140, 13);
+            this.label19.Size = new System.Drawing.Size(140, 12);
             this.label19.TabIndex = 24;
             this.label19.Text = "Reset:";
             // 
@@ -902,9 +944,9 @@
             // 
             this.label20.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(3, 327);
+            this.label20.Location = new System.Drawing.Point(3, 304);
             this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(140, 13);
+            this.label20.Size = new System.Drawing.Size(140, 12);
             this.label20.TabIndex = 22;
             this.label20.Text = "Not a Personal Best:";
             // 
@@ -912,9 +954,9 @@
             // 
             this.label21.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.label21.AutoSize = true;
-            this.label21.Location = new System.Drawing.Point(3, 298);
+            this.label21.Location = new System.Drawing.Point(3, 277);
             this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(140, 13);
+            this.label21.Size = new System.Drawing.Size(140, 12);
             this.label21.TabIndex = 20;
             this.label21.Text = "Personal Best:";
             // 
@@ -922,9 +964,9 @@
             // 
             this.label22.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.label22.AutoSize = true;
-            this.label22.Location = new System.Drawing.Point(3, 269);
+            this.label22.Location = new System.Drawing.Point(3, 250);
             this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(140, 13);
+            this.label22.Size = new System.Drawing.Size(140, 12);
             this.label22.TabIndex = 18;
             this.label22.Text = "Skip Split:";
             // 
@@ -932,9 +974,9 @@
             // 
             this.label23.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.label23.AutoSize = true;
-            this.label23.Location = new System.Drawing.Point(3, 240);
+            this.label23.Location = new System.Drawing.Point(3, 223);
             this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(140, 13);
+            this.label23.Size = new System.Drawing.Size(140, 12);
             this.label23.TabIndex = 16;
             this.label23.Text = "Undo Split:";
             // 
@@ -942,9 +984,9 @@
             // 
             this.label24.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.label24.AutoSize = true;
-            this.label24.Location = new System.Drawing.Point(3, 211);
+            this.label24.Location = new System.Drawing.Point(3, 196);
             this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(140, 13);
+            this.label24.Size = new System.Drawing.Size(140, 12);
             this.label24.TabIndex = 14;
             this.label24.Text = "Split (Best Segment):";
             // 
@@ -952,9 +994,9 @@
             // 
             this.label25.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.label25.AutoSize = true;
-            this.label25.Location = new System.Drawing.Point(3, 182);
+            this.label25.Location = new System.Drawing.Point(3, 163);
             this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(140, 13);
+            this.label25.Size = new System.Drawing.Size(140, 24);
             this.label25.TabIndex = 12;
             this.label25.Text = "Split (Behind, Losing Time):";
             // 
@@ -962,9 +1004,9 @@
             // 
             this.label26.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.label26.AutoSize = true;
-            this.label26.Location = new System.Drawing.Point(3, 153);
+            this.label26.Location = new System.Drawing.Point(3, 136);
             this.label26.Name = "label26";
-            this.label26.Size = new System.Drawing.Size(140, 13);
+            this.label26.Size = new System.Drawing.Size(140, 24);
             this.label26.TabIndex = 10;
             this.label26.Text = "Split (Behind, Gaining Time):";
             // 
@@ -972,9 +1014,9 @@
             // 
             this.label27.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.label27.AutoSize = true;
-            this.label27.Location = new System.Drawing.Point(3, 124);
+            this.label27.Location = new System.Drawing.Point(3, 109);
             this.label27.Name = "label27";
-            this.label27.Size = new System.Drawing.Size(140, 13);
+            this.label27.Size = new System.Drawing.Size(140, 24);
             this.label27.TabIndex = 8;
             this.label27.Text = "Split (Ahead, Losing Time):";
             // 
@@ -982,9 +1024,9 @@
             // 
             this.label28.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.label28.AutoSize = true;
-            this.label28.Location = new System.Drawing.Point(3, 95);
+            this.label28.Location = new System.Drawing.Point(3, 82);
             this.label28.Name = "label28";
-            this.label28.Size = new System.Drawing.Size(140, 13);
+            this.label28.Size = new System.Drawing.Size(140, 24);
             this.label28.TabIndex = 6;
             this.label28.Text = "Split (Ahead, Gaining Time):";
             // 
@@ -992,9 +1034,9 @@
             // 
             this.label29.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.label29.AutoSize = true;
-            this.label29.Location = new System.Drawing.Point(3, 66);
+            this.label29.Location = new System.Drawing.Point(3, 61);
             this.label29.Name = "label29";
-            this.label29.Size = new System.Drawing.Size(140, 13);
+            this.label29.Size = new System.Drawing.Size(140, 12);
             this.label29.TabIndex = 4;
             this.label29.Text = "Split:";
             // 
@@ -1002,9 +1044,9 @@
             // 
             this.label15.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(3, 37);
+            this.label15.Location = new System.Drawing.Point(3, 34);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(140, 13);
+            this.label15.Size = new System.Drawing.Size(140, 12);
             this.label15.TabIndex = 2;
             this.label15.Text = "General Volume:";
             // 
@@ -1012,10 +1054,10 @@
             // 
             this.tbGeneralVolume.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.tbGeneralVolume.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tbGeneralVolume.Location = new System.Drawing.Point(149, 32);
+            this.tbGeneralVolume.Location = new System.Drawing.Point(149, 30);
             this.tbGeneralVolume.Maximum = 100;
             this.tbGeneralVolume.Name = "tbGeneralVolume";
-            this.tbGeneralVolume.Size = new System.Drawing.Size(279, 23);
+            this.tbGeneralVolume.Size = new System.Drawing.Size(279, 21);
             this.tbGeneralVolume.TabIndex = 3;
             this.tbGeneralVolume.TickFrequency = 10;
             this.tbGeneralVolume.Scroll += new System.EventHandler(this.VolumeTrackBarScrollHandler);
@@ -1024,9 +1066,9 @@
             // 
             this.label30.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.label30.AutoSize = true;
-            this.label30.Location = new System.Drawing.Point(3, 8);
+            this.label30.Location = new System.Drawing.Point(3, 7);
             this.label30.Name = "label30";
-            this.label30.Size = new System.Drawing.Size(140, 13);
+            this.label30.Size = new System.Drawing.Size(140, 12);
             this.label30.TabIndex = 0;
             this.label30.Text = "Output Device:";
             // 
@@ -1036,9 +1078,9 @@
             this.cbOutputDevice.DisplayMember = "ProductName";
             this.cbOutputDevice.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbOutputDevice.FormattingEnabled = true;
-            this.cbOutputDevice.Location = new System.Drawing.Point(149, 4);
+            this.cbOutputDevice.Location = new System.Drawing.Point(149, 3);
             this.cbOutputDevice.Name = "cbOutputDevice";
-            this.cbOutputDevice.Size = new System.Drawing.Size(279, 21);
+            this.cbOutputDevice.Size = new System.Drawing.Size(279, 20);
             this.cbOutputDevice.TabIndex = 1;
             this.cbOutputDevice.ValueMember = "ProductName";
             // 
@@ -1051,12 +1093,12 @@
             // 
             // SoundSettings
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.tabControl1);
             this.Name = "SoundSettings";
-            this.Padding = new System.Windows.Forms.Padding(7);
-            this.Size = new System.Drawing.Size(476, 453);
+            this.Padding = new System.Windows.Forms.Padding(7, 6, 7, 6);
+            this.Size = new System.Drawing.Size(476, 418);
             this.tabControl1.ResumeLayout(false);
             this.tpSoundFiles.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);

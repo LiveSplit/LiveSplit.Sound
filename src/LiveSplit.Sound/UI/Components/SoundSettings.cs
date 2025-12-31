@@ -15,6 +15,7 @@ public partial class SoundSettings : UserControl
 
     public Dictionary<EventType, SoundData> SoundDataDictionary { get; set; }
     public Dictionary<EventType, TextBox> TextBoxDictionary { get; set; }
+    public Dictionary<TextBox, EventType> TextBoxToTypeDictionary { get; set; }
     public Dictionary<EventType, TrackBar> TrackBarDictionary { get; set; }
     public Dictionary<Button, EventType> ButtonToTypeDictionary { get; set; }
 
@@ -47,6 +48,22 @@ public partial class SoundSettings : UserControl
         TextBoxDictionary.Add(EventType.Pause, txtPause);
         TextBoxDictionary.Add(EventType.Resume, txtResume);
         TextBoxDictionary.Add(EventType.StartTimer, txtStartTimer);
+
+        TextBoxToTypeDictionary = [];
+        TextBoxToTypeDictionary.Add(txtSplitPath, EventType.Split);
+        TextBoxToTypeDictionary.Add(txtSplitAheadGaining, EventType.SplitAheadGaining);
+        TextBoxToTypeDictionary.Add(txtSplitAheadLosing, EventType.SplitAheadLosing);
+        TextBoxToTypeDictionary.Add(txtSplitBehindGaining, EventType.SplitBehindGaining);
+        TextBoxToTypeDictionary.Add(txtSplitBehindLosing, EventType.SplitBehindLosing);
+        TextBoxToTypeDictionary.Add(txtBestSegment, EventType.BestSegment);
+        TextBoxToTypeDictionary.Add(txtUndo, EventType.UndoSplit);
+        TextBoxToTypeDictionary.Add(txtSkip, EventType.SkipSplit);
+        TextBoxToTypeDictionary.Add(txtPersonalBest, EventType.PersonalBest);
+        TextBoxToTypeDictionary.Add(txtNotAPersonalBest, EventType.NotAPersonalBest);
+        TextBoxToTypeDictionary.Add(txtReset, EventType.Reset);
+        TextBoxToTypeDictionary.Add(txtPause, EventType.Pause);
+        TextBoxToTypeDictionary.Add(txtResume, EventType.Resume);
+        TextBoxToTypeDictionary.Add(txtStartTimer, EventType.StartTimer);
 
         TrackBarDictionary = [];
         TrackBarDictionary.Add(EventType.Split, tbSplitVolume);
@@ -102,8 +119,8 @@ public partial class SoundSettings : UserControl
 
         foreach (EventType type in Enum.GetValues(typeof(EventType)))
         {
-            SoundDataDictionary[type].FilePath = SettingsHelper.ParseString(element[nameof(type)]);
-            SoundDataDictionary[type].Volume = SettingsHelper.ParseInt(element[$"{nameof(type)}Volume"]);
+            SoundDataDictionary[type].FilePath = SettingsHelper.ParseString(element[type.ToString()]);
+            SoundDataDictionary[type].Volume = SettingsHelper.ParseInt(element[$"{type}Volume"]);
         }
 
         OutputDevice = SettingsHelper.ParseInt(element["OutputDevice"]);
@@ -170,5 +187,27 @@ public partial class SoundSettings : UserControl
         var trackBar = (TrackBar)sender;
 
         ttVolume.SetToolTip(trackBar, trackBar.Value.ToString());
+    }
+
+    private void txtFilePath_DragDrop(object sender, DragEventArgs e)
+    {
+        string[] files = (string[])e.Data.GetData(DataFormats.FileDrop, false);
+        var textBox = (TextBox)sender;
+        EventType type = TextBoxToTypeDictionary[textBox];
+
+        SoundDataDictionary[type].FilePath = files[0];
+        textBox.Text = files[0];
+    }
+
+    private void txtFilePath_DragEnter(object sender, DragEventArgs e)
+    {
+        if (e.Data.GetDataPresent(DataFormats.FileDrop))
+        {
+            e.Effect = DragDropEffects.Copy;
+        }
+        else
+        {
+            e.Effect = DragDropEffects.None;
+        }
     }
 }
