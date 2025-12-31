@@ -484,7 +484,7 @@
             this.btnResume.TabIndex = 38;
             this.btnResume.Text = "Browse...";
             this.btnResume.UseVisualStyleBackColor = true;
-            this.btnResume.Click += new System.EventHandler(this.btnResume_Click);
+            this.btnResume.Click += new System.EventHandler(this.btnBrowse_Click);
             // 
             // btnPause
             // 
@@ -494,7 +494,7 @@
             this.btnPause.TabIndex = 35;
             this.btnPause.Text = "Browse...";
             this.btnPause.UseVisualStyleBackColor = true;
-            this.btnPause.Click += new System.EventHandler(this.btnPause_Click);
+            this.btnPause.Click += new System.EventHandler(this.btnBrowse_Click);
             // 
             // btnReset
             // 
@@ -504,7 +504,7 @@
             this.btnReset.TabIndex = 32;
             this.btnReset.Text = "Browse...";
             this.btnReset.UseVisualStyleBackColor = true;
-            this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
+            this.btnReset.Click += new System.EventHandler(this.btnBrowse_Click);
             // 
             // btnNotAPersonalBest
             // 
@@ -514,7 +514,7 @@
             this.btnNotAPersonalBest.TabIndex = 29;
             this.btnNotAPersonalBest.Text = "Browse...";
             this.btnNotAPersonalBest.UseVisualStyleBackColor = true;
-            this.btnNotAPersonalBest.Click += new System.EventHandler(this.btnNotAPersonalBest_Click);
+            this.btnNotAPersonalBest.Click += new System.EventHandler(this.btnBrowse_Click);
             // 
             // btnPersonalBest
             // 
@@ -524,7 +524,7 @@
             this.btnPersonalBest.TabIndex = 26;
             this.btnPersonalBest.Text = "Browse...";
             this.btnPersonalBest.UseVisualStyleBackColor = true;
-            this.btnPersonalBest.Click += new System.EventHandler(this.btnPersonalBest_Click);
+            this.btnPersonalBest.Click += new System.EventHandler(this.btnBrowse_Click);
             // 
             // btnSkipSplit
             // 
@@ -534,7 +534,7 @@
             this.btnSkipSplit.TabIndex = 23;
             this.btnSkipSplit.Text = "Browse...";
             this.btnSkipSplit.UseVisualStyleBackColor = true;
-            this.btnSkipSplit.Click += new System.EventHandler(this.btnSkipSplit_Click);
+            this.btnSkipSplit.Click += new System.EventHandler(this.btnBrowse_Click);
             // 
             // btnUndo
             // 
@@ -544,7 +544,7 @@
             this.btnUndo.TabIndex = 20;
             this.btnUndo.Text = "Browse...";
             this.btnUndo.UseVisualStyleBackColor = true;
-            this.btnUndo.Click += new System.EventHandler(this.btnUndo_Click);
+            this.btnUndo.Click += new System.EventHandler(this.btnBrowse_Click);
             // 
             // btnBestSegment
             // 
@@ -554,7 +554,7 @@
             this.btnBestSegment.TabIndex = 17;
             this.btnBestSegment.Text = "Browse...";
             this.btnBestSegment.UseVisualStyleBackColor = true;
-            this.btnBestSegment.Click += new System.EventHandler(this.btnBestSegment_Click);
+            this.btnBestSegment.Click += new System.EventHandler(this.btnBrowse_Click);
             // 
             // btnBehindLosing
             // 
@@ -564,7 +564,7 @@
             this.btnBehindLosing.TabIndex = 14;
             this.btnBehindLosing.Text = "Browse...";
             this.btnBehindLosing.UseVisualStyleBackColor = true;
-            this.btnBehindLosing.Click += new System.EventHandler(this.btnBehindLosing_Click);
+            this.btnBehindLosing.Click += new System.EventHandler(this.btnBrowse_Click);
             // 
             // btnBehindGaining
             // 
@@ -574,7 +574,7 @@
             this.btnBehindGaining.TabIndex = 11;
             this.btnBehindGaining.Text = "Browse...";
             this.btnBehindGaining.UseVisualStyleBackColor = true;
-            this.btnBehindGaining.Click += new System.EventHandler(this.btnBehindGaining_Click);
+            this.btnBehindGaining.Click += new System.EventHandler(this.btnBrowse_Click);
             // 
             // btnAheadLosing
             // 
@@ -584,7 +584,7 @@
             this.btnAheadLosing.TabIndex = 8;
             this.btnAheadLosing.Text = "Browse...";
             this.btnAheadLosing.UseVisualStyleBackColor = true;
-            this.btnAheadLosing.Click += new System.EventHandler(this.btnAheadLosing_Click);
+            this.btnAheadLosing.Click += new System.EventHandler(this.btnBrowse_Click);
             // 
             // btnAheadGaining
             // 
@@ -594,7 +594,7 @@
             this.btnAheadGaining.TabIndex = 5;
             this.btnAheadGaining.Text = "Browse...";
             this.btnAheadGaining.UseVisualStyleBackColor = true;
-            this.btnAheadGaining.Click += new System.EventHandler(this.btnAheadGaining_Click);
+            this.btnAheadGaining.Click += new System.EventHandler(this.btnBrowse_Click);
             // 
             // btnSplit
             // 
@@ -604,7 +604,7 @@
             this.btnSplit.TabIndex = 2;
             this.btnSplit.Text = "Browse...";
             this.btnSplit.UseVisualStyleBackColor = true;
-            this.btnSplit.Click += new System.EventHandler(this.btnSplit_Click);
+            this.btnSplit.Click += new System.EventHandler(this.btnBrowse_Click);
             // 
             // btnStartTimer
             // 
@@ -614,7 +614,7 @@
             this.btnStartTimer.TabIndex = 41;
             this.btnStartTimer.Text = "Browse...";
             this.btnStartTimer.UseVisualStyleBackColor = true;
-            this.btnStartTimer.Click += new System.EventHandler(this.btnStartTimer_Click);
+            this.btnStartTimer.Click += new System.EventHandler(this.btnBrowse_Click);
             // 
             // tpVolumeMixer
             // 
