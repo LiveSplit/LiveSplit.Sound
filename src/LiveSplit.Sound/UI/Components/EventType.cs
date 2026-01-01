@@ -24,10 +24,10 @@ public static class EventTypeEx
         return type switch
         {
             EventType.Split => "Split",
-            EventType.SplitAheadGaining => "Split(Ahead, Gaining):",
-            EventType.SplitAheadLosing => "Split(Ahead, Losing):",
-            EventType.SplitBehindGaining => "Split(Behind, Gaining):",
-            EventType.SplitBehindLosing => "Split(Behind, Losing):",
+            EventType.SplitAheadGaining => "Split(Ahead, Gaining Time):",
+            EventType.SplitAheadLosing => "Split(Ahead, Losing Time):",
+            EventType.SplitBehindGaining => "Split(Behind, Gaining Time):",
+            EventType.SplitBehindLosing => "Split(Behind, Losing Time):",
             EventType.BestSegment => "Split(Best Segment):",
             EventType.UndoSplit => "Undo Split:",
             EventType.SkipSplit => "Skip Split:",
