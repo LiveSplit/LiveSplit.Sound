@@ -13,7 +13,8 @@ public partial class SoundSettings : UserControl
 
     public int GeneralVolume { get; set; }
 
-    public Dictionary<EventType, SoundDataSettingsSet> DataSettingsDictionary { get; set; }
+    public Dictionary<EventType, SoundData> SoundDataDictionary { get; set; }
+    private Dictionary<EventType, SoundDataSettingsSet> DataSettingsDictionary { get; set; }
 
     public SoundSettings()
     {
@@ -22,14 +23,17 @@ public partial class SoundSettings : UserControl
         OutputDevice = 0;
         GeneralVolume = 100;
 
+        SoundDataDictionary = []; 
         DataSettingsDictionary = [];
         foreach (EventType type in Enum.GetValues(typeof(EventType)))
         {
             SoundData data = new("", 100);
+            SoundDataDictionary.Add(type, data);
+
             SoundFileSettings sfs = new(type, data);
             SoundVolumeSettings svs = new(type, data);
 
-            SoundDataSettingsSet settingsSet = new(data, sfs, svs);
+            SoundDataSettingsSet settingsSet = new(sfs, svs);
             DataSettingsDictionary.Add(type, settingsSet);
         }
 
@@ -48,8 +52,8 @@ public partial class SoundSettings : UserControl
 
         foreach (EventType type in Enum.GetValues(typeof(EventType)))
         {
-            DataSettingsDictionary[type].Data.FilePath = SettingsHelper.ParseString(element[type.ToString()]);
-            DataSettingsDictionary[type].Data.Volume = SettingsHelper.ParseInt(element[$"{type}Volume"]);
+            SoundDataDictionary[type].FilePath = SettingsHelper.ParseString(element[type.ToString()]);
+            SoundDataDictionary[type].Volume = SettingsHelper.ParseInt(element[$"{type}Volume"]);
         }
 
         OutputDevice = SettingsHelper.ParseInt(element["OutputDevice"]);
@@ -76,8 +80,8 @@ public partial class SoundSettings : UserControl
 
         foreach (EventType type in Enum.GetValues(typeof(EventType)))
         {
-            hash ^= SettingsHelper.CreateSetting(document, parent, type.ToString(), DataSettingsDictionary[type].Data.FilePath) ^
-                SettingsHelper.CreateSetting(document, parent, $"{type}Volume", DataSettingsDictionary[type].Data.Volume);
+            hash ^= SettingsHelper.CreateSetting(document, parent, type.ToString(), SoundDataDictionary[type].FilePath) ^
+                SettingsHelper.CreateSetting(document, parent, $"{type}Volume", SoundDataDictionary[type].Volume);
         }
 
         return hash;
@@ -104,15 +108,13 @@ public partial class SoundSettings : UserControl
     }
 }
 
-public class SoundDataSettingsSet
+internal class SoundDataSettingsSet
 {
-    public SoundData Data { get; set; }
-    public SoundFileSettings FileSettings { get; set; }
-    public SoundVolumeSettings VolumeSettings { get; set; }
+    internal SoundFileSettings FileSettings { get; set; }
+    internal SoundVolumeSettings VolumeSettings { get; set; }
 
-    public SoundDataSettingsSet(SoundData data, SoundFileSettings sfs, SoundVolumeSettings svs)
+    internal SoundDataSettingsSet(SoundFileSettings sfs, SoundVolumeSettings svs)
     {
-        Data = data;
         FileSettings = sfs;
         VolumeSettings = svs;
     }

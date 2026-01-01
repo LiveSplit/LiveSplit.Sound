@@ -128,11 +128,11 @@ public class SoundComponent : LogicComponent, IDeactivatableComponent
             }
         }
 
-        if (string.IsNullOrEmpty(Settings.DataSettingsDictionary[type].Data.FilePath))
+        if (string.IsNullOrEmpty(Settings.SoundDataDictionary[type].FilePath))
         {
             type = EventType.Split;
         }
-
+        
         PlaySound(type);
     }
 
@@ -168,8 +168,8 @@ public class SoundComponent : LogicComponent, IDeactivatableComponent
     {
         Player.Stop();
 
-        string location = Settings.DataSettingsDictionary[type].Data.FilePath;
-        int volume = Settings.DataSettingsDictionary[type].Data.Volume;
+        string location = Settings.SoundDataDictionary[type].FilePath;
+        int volume = Settings.SoundDataDictionary[type].Volume;
 
         if (!Activated || !File.Exists(location))
         {
