@@ -37,9 +37,9 @@
             // 
             // lblName
             // 
-            this.lblName.Location = new System.Drawing.Point(3, 7);
+            this.lblName.Location = new System.Drawing.Point(3, 0);
             this.lblName.Name = "lblName";
-            this.lblName.Size = new System.Drawing.Size(140, 12);
+            this.lblName.Size = new System.Drawing.Size(140, 29);
             this.lblName.TabIndex = 0;
             this.lblName.Text = "Split:";
             this.lblName.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -51,7 +51,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtFilePath.Location = new System.Drawing.Point(149, 4);
             this.txtFilePath.Name = "txtFilePath";
-            this.txtFilePath.Size = new System.Drawing.Size(215, 19);
+            this.txtFilePath.Size = new System.Drawing.Size(215, 20);
             this.txtFilePath.TabIndex = 1;
             this.txtFilePath.DragDrop += new System.Windows.Forms.DragEventHandler(this.txtFilePath_DragDrop);
             this.txtFilePath.DragEnter += new System.Windows.Forms.DragEventHandler(this.txtFilePath_DragEnter);
@@ -61,7 +61,7 @@
             this.btnBrowse.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnBrowse.Location = new System.Drawing.Point(370, 3);
             this.btnBrowse.Name = "btnBrowse";
-            this.btnBrowse.Size = new System.Drawing.Size(75, 21);
+            this.btnBrowse.Size = new System.Drawing.Size(75, 23);
             this.btnBrowse.TabIndex = 2;
             this.btnBrowse.Text = "Browse...";
             this.btnBrowse.UseVisualStyleBackColor = true;
@@ -76,14 +76,14 @@
             // 
             // SoundFileSettings
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.lblName);
             this.Controls.Add(this.txtFilePath);
             this.Controls.Add(this.btnBrowse);
             this.Margin = new System.Windows.Forms.Padding(0);
             this.Name = "SoundFileSettings";
-            this.Size = new System.Drawing.Size(448, 27);
+            this.Size = new System.Drawing.Size(448, 29);
             this.ResumeLayout(false);
             this.PerformLayout();
 

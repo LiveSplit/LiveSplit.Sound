@@ -44,16 +44,16 @@
             this.tbVolume.Location = new System.Drawing.Point(149, 3);
             this.tbVolume.Maximum = 100;
             this.tbVolume.Name = "tbVolume";
-            this.tbVolume.Size = new System.Drawing.Size(296, 21);
+            this.tbVolume.Size = new System.Drawing.Size(296, 23);
             this.tbVolume.TabIndex = 5;
             this.tbVolume.TickFrequency = 10;
             this.tbVolume.Scroll += new System.EventHandler(this.VolumeTrackBarScrollHandler);
             // 
             // lblName
             // 
-            this.lblName.Location = new System.Drawing.Point(3, 7);
+            this.lblName.Location = new System.Drawing.Point(3, 0);
             this.lblName.Name = "lblName";
-            this.lblName.Size = new System.Drawing.Size(140, 12);
+            this.lblName.Size = new System.Drawing.Size(140, 29);
             this.lblName.TabIndex = 4;
             this.lblName.Text = "Split:";
             this.lblName.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -67,13 +67,13 @@
             // 
             // SoundVolumeSettings
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.lblName);
             this.Controls.Add(this.tbVolume);
             this.Margin = new System.Windows.Forms.Padding(0);
             this.Name = "SoundVolumeSettings";
-            this.Size = new System.Drawing.Size(448, 27);
+            this.Size = new System.Drawing.Size(448, 29);
             ((System.ComponentModel.ISupportInitialize)(this.tbVolume)).EndInit();
             this.ResumeLayout(false);
 

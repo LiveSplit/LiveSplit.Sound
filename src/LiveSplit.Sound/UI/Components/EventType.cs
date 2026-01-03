@@ -23,12 +23,12 @@ public static class EventTypeEx
     {
         return type switch
         {
-            EventType.Split => "Split",
-            EventType.SplitAheadGaining => "Split(Ahead, Gaining Time):",
-            EventType.SplitAheadLosing => "Split(Ahead, Losing Time):",
-            EventType.SplitBehindGaining => "Split(Behind, Gaining Time):",
-            EventType.SplitBehindLosing => "Split(Behind, Losing Time):",
-            EventType.BestSegment => "Split(Best Segment):",
+            EventType.Split => "Split:",
+            EventType.SplitAheadGaining => "Split (Ahead, Gaining Time):",
+            EventType.SplitAheadLosing => "Split (Ahead, Losing Time):",
+            EventType.SplitBehindGaining => "Split (Behind, Gaining Time):",
+            EventType.SplitBehindLosing => "Split (Behind, Losing Time):",
+            EventType.BestSegment => "Split (Best Segment):",
             EventType.UndoSplit => "Undo Split:",
             EventType.SkipSplit => "Skip Split:",
             EventType.PersonalBest => "Personal Best:",
@@ -36,7 +36,7 @@ public static class EventTypeEx
             EventType.Reset => "Reset:",
             EventType.Pause => "Pause:",
             EventType.Resume => "Resume:",
-            EventType.StartTimer => "Start:",
+            EventType.StartTimer => "Start Timer:",
             _ => "no name",
         };
     }

@@ -51,10 +51,10 @@
             this.tabControl1.Controls.Add(this.tpSoundFiles);
             this.tabControl1.Controls.Add(this.tpVolumeMixer);
             this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tabControl1.Location = new System.Drawing.Point(7, 6);
+            this.tabControl1.Location = new System.Drawing.Point(7, 7);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(462, 406);
+            this.tabControl1.Size = new System.Drawing.Size(462, 439);
             this.tabControl1.TabIndex = 0;
             // 
             // tpSoundFiles
@@ -63,7 +63,7 @@
             this.tpSoundFiles.Location = new System.Drawing.Point(4, 22);
             this.tpSoundFiles.Name = "tpSoundFiles";
             this.tpSoundFiles.Padding = new System.Windows.Forms.Padding(3);
-            this.tpSoundFiles.Size = new System.Drawing.Size(454, 380);
+            this.tpSoundFiles.Size = new System.Drawing.Size(454, 413);
             this.tpSoundFiles.TabIndex = 0;
             this.tpSoundFiles.Text = "Sound Files";
             this.tpSoundFiles.UseVisualStyleBackColor = true;
@@ -78,22 +78,22 @@
             this.tableLayoutPanel1.Location = new System.Drawing.Point(3, 3);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 15;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 27F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 27F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 27F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 27F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 27F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 27F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 27F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 27F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 27F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 27F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 27F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 27F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 27F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 27F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 29F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 29F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 29F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 29F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 29F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 29F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 29F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 29F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 29F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 29F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 29F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 29F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 29F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 29F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(448, 374);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(448, 407);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // tpVolumeMixer
@@ -103,7 +103,7 @@
             this.tpVolumeMixer.Location = new System.Drawing.Point(4, 22);
             this.tpVolumeMixer.Name = "tpVolumeMixer";
             this.tpVolumeMixer.Padding = new System.Windows.Forms.Padding(3);
-            this.tpVolumeMixer.Size = new System.Drawing.Size(454, 380);
+            this.tpVolumeMixer.Size = new System.Drawing.Size(454, 413);
             this.tpVolumeMixer.TabIndex = 1;
             this.tpVolumeMixer.Text = "Volume Mixer";
             this.tpVolumeMixer.UseVisualStyleBackColor = true;
@@ -123,32 +123,32 @@
             this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 3);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 16;
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 27F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 27F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 27F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 27F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 27F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 27F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 27F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 27F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 27F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 27F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 27F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 27F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 27F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 27F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 27F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 27F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(431, 432);
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 29F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 29F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 29F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 29F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 29F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 29F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 29F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 29F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 29F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 29F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 29F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 29F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 29F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 29F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 29F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 29F));
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(431, 464);
             this.tableLayoutPanel2.TabIndex = 3;
             // 
             // label15
             // 
             this.label15.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(3, 34);
+            this.label15.Location = new System.Drawing.Point(3, 37);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(140, 12);
+            this.label15.Size = new System.Drawing.Size(140, 13);
             this.label15.TabIndex = 2;
             this.label15.Text = "General Volume:";
             // 
@@ -156,10 +156,10 @@
             // 
             this.tbGeneralVolume.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.tbGeneralVolume.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tbGeneralVolume.Location = new System.Drawing.Point(149, 30);
+            this.tbGeneralVolume.Location = new System.Drawing.Point(149, 32);
             this.tbGeneralVolume.Maximum = 100;
             this.tbGeneralVolume.Name = "tbGeneralVolume";
-            this.tbGeneralVolume.Size = new System.Drawing.Size(279, 21);
+            this.tbGeneralVolume.Size = new System.Drawing.Size(279, 23);
             this.tbGeneralVolume.TabIndex = 3;
             this.tbGeneralVolume.TickFrequency = 10;
             this.tbGeneralVolume.Scroll += new System.EventHandler(this.VolumeTrackBarScrollHandler);
@@ -168,9 +168,9 @@
             // 
             this.label30.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.label30.AutoSize = true;
-            this.label30.Location = new System.Drawing.Point(3, 7);
+            this.label30.Location = new System.Drawing.Point(3, 8);
             this.label30.Name = "label30";
-            this.label30.Size = new System.Drawing.Size(140, 12);
+            this.label30.Size = new System.Drawing.Size(140, 13);
             this.label30.TabIndex = 0;
             this.label30.Text = "Output Device:";
             // 
@@ -180,9 +180,9 @@
             this.cbOutputDevice.DisplayMember = "ProductName";
             this.cbOutputDevice.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbOutputDevice.FormattingEnabled = true;
-            this.cbOutputDevice.Location = new System.Drawing.Point(149, 3);
+            this.cbOutputDevice.Location = new System.Drawing.Point(149, 4);
             this.cbOutputDevice.Name = "cbOutputDevice";
-            this.cbOutputDevice.Size = new System.Drawing.Size(279, 20);
+            this.cbOutputDevice.Size = new System.Drawing.Size(279, 21);
             this.cbOutputDevice.TabIndex = 1;
             this.cbOutputDevice.ValueMember = "ProductName";
             // 
@@ -195,12 +195,12 @@
             // 
             // SoundSettings
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.tabControl1);
             this.Name = "SoundSettings";
-            this.Padding = new System.Windows.Forms.Padding(7, 6, 7, 6);
-            this.Size = new System.Drawing.Size(476, 418);
+            this.Padding = new System.Windows.Forms.Padding(7);
+            this.Size = new System.Drawing.Size(476, 453);
             this.Load += new System.EventHandler(this.SoundSettings_Load);
             this.tabControl1.ResumeLayout(false);
             this.tpSoundFiles.ResumeLayout(false);
