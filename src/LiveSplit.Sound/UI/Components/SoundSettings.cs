@@ -10,6 +10,8 @@ namespace LiveSplit.UI.Components;
 
 public partial class SoundSettings : UserControl
 {
+    private const string PathSeparator = ", ";
+
     public IList<string> Split { get; set; }
     public IList<string> SplitAheadGaining { get; set; }
     public IList<string> SplitAheadLosing { get; set; }
@@ -129,7 +131,7 @@ public partial class SoundSettings : UserControl
                 return;
             }
 
-            convertEvent.Value = string.Join(", ", (IList<string>)convertEvent.Value);
+            convertEvent.Value = string.Join(PathSeparator, (IList<string>)convertEvent.Value);
         });
 
         bindings.Add(b);
@@ -283,7 +285,7 @@ public partial class SoundSettings : UserControl
             paths = fileDialog.FileNames;
         }
 
-        textBox.Text = string.Join(", ", paths);
+        textBox.Text = string.Join(PathSeparator, paths);
         callback(paths);
     }
 
@@ -439,6 +441,21 @@ public partial class SoundSettings : UserControl
     {
         StartTimer = [];
         txtStartTimer.Clear();
+    }
+
+    private void PathsTextBoxEnterHandler(object sender, EventArgs e)
+    {
+        var textBox = (TextBox)sender;
+
+        // Display below the text box
+        ttPaths.Show(textBox.Text.Replace(PathSeparator, "\n"), textBox, 0, textBox.Height);
+    }
+
+    private void PathsTextBoxLeaveHandler(object sender, EventArgs e)
+    {
+        var textBox = (TextBox)sender;
+
+        ttPaths.Hide(textBox);
     }
 
     private void VolumeTrackBarScrollHandler(object sender, EventArgs e)

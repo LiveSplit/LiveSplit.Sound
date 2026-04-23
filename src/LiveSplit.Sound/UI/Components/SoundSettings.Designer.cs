@@ -123,6 +123,7 @@
             this.label30 = new System.Windows.Forms.Label();
             this.cbOutputDevice = new System.Windows.Forms.ComboBox();
             this.ttVolume = new System.Windows.Forms.ToolTip(this.components);
+            this.ttPaths = new System.Windows.Forms.ToolTip(this.components);
             this.tabControl1.SuspendLayout();
             this.tpSoundFiles.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -400,6 +401,8 @@
             this.txtStartTimer.ReadOnly = true;
             this.txtStartTimer.Size = new System.Drawing.Size(134, 20);
             this.txtStartTimer.TabIndex = 40;
+            this.txtStartTimer.Enter += new System.EventHandler(this.PathsTextBoxEnterHandler);
+            this.txtStartTimer.Leave += new System.EventHandler(this.PathsTextBoxLeaveHandler);
             // 
             // label14
             // 
@@ -549,6 +552,8 @@
             this.txtResume.ReadOnly = true;
             this.txtResume.Size = new System.Drawing.Size(134, 20);
             this.txtResume.TabIndex = 37;
+            this.txtResume.Enter += new System.EventHandler(this.PathsTextBoxEnterHandler);
+            this.txtResume.Leave += new System.EventHandler(this.PathsTextBoxLeaveHandler);
             // 
             // txtPause
             // 
@@ -558,6 +563,8 @@
             this.txtPause.ReadOnly = true;
             this.txtPause.Size = new System.Drawing.Size(134, 20);
             this.txtPause.TabIndex = 34;
+            this.txtPause.Enter += new System.EventHandler(this.PathsTextBoxEnterHandler);
+            this.txtPause.Leave += new System.EventHandler(this.PathsTextBoxLeaveHandler);
             // 
             // txtReset
             // 
@@ -567,6 +574,8 @@
             this.txtReset.ReadOnly = true;
             this.txtReset.Size = new System.Drawing.Size(134, 20);
             this.txtReset.TabIndex = 31;
+            this.txtReset.Enter += new System.EventHandler(this.PathsTextBoxEnterHandler);
+            this.txtReset.Leave += new System.EventHandler(this.PathsTextBoxLeaveHandler);
             // 
             // txtNotAPersonalBest
             // 
@@ -576,6 +585,8 @@
             this.txtNotAPersonalBest.ReadOnly = true;
             this.txtNotAPersonalBest.Size = new System.Drawing.Size(134, 20);
             this.txtNotAPersonalBest.TabIndex = 28;
+            this.txtNotAPersonalBest.Enter += new System.EventHandler(this.PathsTextBoxEnterHandler);
+            this.txtNotAPersonalBest.Leave += new System.EventHandler(this.PathsTextBoxLeaveHandler);
             // 
             // txtPersonalBest
             // 
@@ -585,6 +596,8 @@
             this.txtPersonalBest.ReadOnly = true;
             this.txtPersonalBest.Size = new System.Drawing.Size(134, 20);
             this.txtPersonalBest.TabIndex = 25;
+            this.txtPersonalBest.Enter += new System.EventHandler(this.PathsTextBoxEnterHandler);
+            this.txtPersonalBest.Leave += new System.EventHandler(this.PathsTextBoxLeaveHandler);
             // 
             // txtSkip
             // 
@@ -594,6 +607,8 @@
             this.txtSkip.ReadOnly = true;
             this.txtSkip.Size = new System.Drawing.Size(134, 20);
             this.txtSkip.TabIndex = 22;
+            this.txtSkip.Enter += new System.EventHandler(this.PathsTextBoxEnterHandler);
+            this.txtSkip.Leave += new System.EventHandler(this.PathsTextBoxLeaveHandler);
             // 
             // txtUndo
             // 
@@ -603,6 +618,8 @@
             this.txtUndo.ReadOnly = true;
             this.txtUndo.Size = new System.Drawing.Size(134, 20);
             this.txtUndo.TabIndex = 19;
+            this.txtUndo.Enter += new System.EventHandler(this.PathsTextBoxEnterHandler);
+            this.txtUndo.Leave += new System.EventHandler(this.PathsTextBoxLeaveHandler);
             // 
             // txtBestSegment
             // 
@@ -612,6 +629,8 @@
             this.txtBestSegment.ReadOnly = true;
             this.txtBestSegment.Size = new System.Drawing.Size(134, 20);
             this.txtBestSegment.TabIndex = 16;
+            this.txtBestSegment.Enter += new System.EventHandler(this.PathsTextBoxEnterHandler);
+            this.txtBestSegment.Leave += new System.EventHandler(this.PathsTextBoxLeaveHandler);
             // 
             // txtSplitBehindLosing
             // 
@@ -621,6 +640,8 @@
             this.txtSplitBehindLosing.ReadOnly = true;
             this.txtSplitBehindLosing.Size = new System.Drawing.Size(134, 20);
             this.txtSplitBehindLosing.TabIndex = 13;
+            this.txtSplitBehindLosing.Enter += new System.EventHandler(this.PathsTextBoxEnterHandler);
+            this.txtSplitBehindLosing.Leave += new System.EventHandler(this.PathsTextBoxLeaveHandler);
             // 
             // txtSplitBehindGaining
             // 
@@ -630,6 +651,8 @@
             this.txtSplitBehindGaining.ReadOnly = true;
             this.txtSplitBehindGaining.Size = new System.Drawing.Size(134, 20);
             this.txtSplitBehindGaining.TabIndex = 10;
+            this.txtSplitBehindGaining.Enter += new System.EventHandler(this.PathsTextBoxEnterHandler);
+            this.txtSplitBehindGaining.Leave += new System.EventHandler(this.PathsTextBoxLeaveHandler);
             // 
             // txtSplitAheadLosing
             // 
@@ -639,6 +662,8 @@
             this.txtSplitAheadLosing.ReadOnly = true;
             this.txtSplitAheadLosing.Size = new System.Drawing.Size(134, 20);
             this.txtSplitAheadLosing.TabIndex = 7;
+            this.txtSplitAheadLosing.Enter += new System.EventHandler(this.PathsTextBoxEnterHandler);
+            this.txtSplitAheadLosing.Leave += new System.EventHandler(this.PathsTextBoxLeaveHandler);
             // 
             // txtSplitAheadGaining
             // 
@@ -648,6 +673,8 @@
             this.txtSplitAheadGaining.ReadOnly = true;
             this.txtSplitAheadGaining.Size = new System.Drawing.Size(134, 20);
             this.txtSplitAheadGaining.TabIndex = 4;
+            this.txtSplitAheadGaining.Enter += new System.EventHandler(this.PathsTextBoxEnterHandler);
+            this.txtSplitAheadGaining.Leave += new System.EventHandler(this.PathsTextBoxLeaveHandler);
             // 
             // txtSplitPath
             // 
@@ -657,6 +684,8 @@
             this.txtSplitPath.ReadOnly = true;
             this.txtSplitPath.Size = new System.Drawing.Size(134, 20);
             this.txtSplitPath.TabIndex = 1;
+            this.txtSplitPath.Enter += new System.EventHandler(this.PathsTextBoxEnterHandler);
+            this.txtSplitPath.Leave += new System.EventHandler(this.PathsTextBoxLeaveHandler);
             // 
             // btnResume
             // 
@@ -1348,6 +1377,7 @@
         private System.Windows.Forms.Label label30;
         private System.Windows.Forms.ComboBox cbOutputDevice;
         private System.Windows.Forms.ToolTip ttVolume;
+        private System.Windows.Forms.ToolTip ttPaths;
         private System.Windows.Forms.Button btnClearStartTimer;
         private System.Windows.Forms.Button btnClearResume;
         private System.Windows.Forms.Button btnClearPause;
