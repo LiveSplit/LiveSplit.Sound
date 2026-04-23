@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Windows.Forms;
 using System.Xml;
 
@@ -8,20 +10,20 @@ namespace LiveSplit.UI.Components;
 
 public partial class SoundSettings : UserControl
 {
-    public string Split { get; set; }
-    public string SplitAheadGaining { get; set; }
-    public string SplitAheadLosing { get; set; }
-    public string SplitBehindGaining { get; set; }
-    public string SplitBehindLosing { get; set; }
-    public string BestSegment { get; set; }
-    public string UndoSplit { get; set; }
-    public string SkipSplit { get; set; }
-    public string PersonalBest { get; set; }
-    public string NotAPersonalBest { get; set; }
-    public string Reset { get; set; }
-    public string Pause { get; set; }
-    public string Resume { get; set; }
-    public string StartTimer { get; set; }
+    public IList<string> Split { get; set; }
+    public IList<string> SplitAheadGaining { get; set; }
+    public IList<string> SplitAheadLosing { get; set; }
+    public IList<string> SplitBehindGaining { get; set; }
+    public IList<string> SplitBehindLosing { get; set; }
+    public IList<string> BestSegment { get; set; }
+    public IList<string> UndoSplit { get; set; }
+    public IList<string> SkipSplit { get; set; }
+    public IList<string> PersonalBest { get; set; }
+    public IList<string> NotAPersonalBest { get; set; }
+    public IList<string> Reset { get; set; }
+    public IList<string> Pause { get; set; }
+    public IList<string> Resume { get; set; }
+    public IList<string> StartTimer { get; set; }
 
     public int OutputDevice { get; set; }
 
@@ -45,20 +47,20 @@ public partial class SoundSettings : UserControl
     {
         InitializeComponent();
 
-        Split =
-        SplitAheadGaining =
-        SplitAheadLosing =
-        SplitBehindGaining =
-        SplitBehindLosing =
-        BestSegment =
-        UndoSplit =
-        SkipSplit =
-        PersonalBest =
-        NotAPersonalBest =
-        Reset =
-        Pause =
-        Resume =
-        StartTimer = "";
+        Split = [];
+        SplitAheadGaining = [];
+        SplitAheadLosing = [];
+        SplitBehindGaining = [];
+        SplitBehindLosing = [];
+        BestSegment = [];
+        UndoSplit = [];
+        SkipSplit = [];
+        PersonalBest = [];
+        NotAPersonalBest = [];
+        Reset = [];
+        Pause = [];
+        Resume = [];
+        StartTimer = [];
 
         OutputDevice = 0;
 
@@ -83,20 +85,20 @@ public partial class SoundSettings : UserControl
             cbOutputDevice.Items.Add(WaveOut.GetCapabilities(i));
         }
 
-        txtSplitPath.DataBindings.Add("Text", this, "Split");
-        txtSplitAheadGaining.DataBindings.Add("Text", this, "SplitAheadGaining");
-        txtSplitAheadLosing.DataBindings.Add("Text", this, "SplitAheadLosing");
-        txtSplitBehindGaining.DataBindings.Add("Text", this, "SplitBehindGaining");
-        txtSplitBehindLosing.DataBindings.Add("Text", this, "SplitBehindLosing");
-        txtBestSegment.DataBindings.Add("Text", this, "BestSegment");
-        txtUndo.DataBindings.Add("Text", this, "UndoSplit");
-        txtSkip.DataBindings.Add("Text", this, "SkipSplit");
-        txtPersonalBest.DataBindings.Add("Text", this, "PersonalBest");
-        txtNotAPersonalBest.DataBindings.Add("Text", this, "NotAPersonalBest");
-        txtReset.DataBindings.Add("Text", this, "Reset");
-        txtPause.DataBindings.Add("Text", this, "Pause");
-        txtResume.DataBindings.Add("Text", this, "Resume");
-        txtStartTimer.DataBindings.Add("Text", this, "StartTimer");
+        AddPathListBinding(txtSplitPath.DataBindings, "Text", this, "Split");
+        AddPathListBinding(txtSplitAheadGaining.DataBindings, "Text", this, "SplitAheadGaining");
+        AddPathListBinding(txtSplitAheadLosing.DataBindings, "Text", this, "SplitAheadLosing");
+        AddPathListBinding(txtSplitBehindGaining.DataBindings, "Text", this, "SplitBehindGaining");
+        AddPathListBinding(txtSplitBehindLosing.DataBindings, "Text", this, "SplitBehindLosing");
+        AddPathListBinding(txtBestSegment.DataBindings, "Text", this, "BestSegment");
+        AddPathListBinding(txtUndo.DataBindings, "Text", this, "UndoSplit");
+        AddPathListBinding(txtSkip.DataBindings, "Text", this, "SkipSplit");
+        AddPathListBinding(txtPersonalBest.DataBindings, "Text", this, "PersonalBest");
+        AddPathListBinding(txtNotAPersonalBest.DataBindings, "Text", this, "NotAPersonalBest");
+        AddPathListBinding(txtReset.DataBindings, "Text", this, "Reset");
+        AddPathListBinding(txtPause.DataBindings, "Text", this, "Pause");
+        AddPathListBinding(txtResume.DataBindings, "Text", this, "Resume");
+        AddPathListBinding(txtStartTimer.DataBindings, "Text", this, "StartTimer");
 
         cbOutputDevice.DataBindings.Add("SelectedIndex", this, "OutputDevice");
 
@@ -117,24 +119,40 @@ public partial class SoundSettings : UserControl
         tbStartTimerVolume.DataBindings.Add("Value", this, "StartTimerVolume");
     }
 
+    private void AddPathListBinding(ControlBindingsCollection bindings, string propertyName, object dataSource, string dataMember)
+    {
+        Binding b = new(propertyName, dataSource, dataMember, true, DataSourceUpdateMode.Never);
+        b.Format += new ConvertEventHandler((sender, convertEvent) =>
+        {
+            if (convertEvent.DesiredType != typeof(string))
+            {
+                return;
+            }
+
+            convertEvent.Value = string.Join(", ", (IList<string>)convertEvent.Value);
+        });
+
+        bindings.Add(b);
+    }
+
     public void SetSettings(XmlNode node)
     {
         var element = (XmlElement)node;
 
-        Split = SettingsHelper.ParseString(element["Split"]);
-        SplitAheadGaining = SettingsHelper.ParseString(element["SplitAheadGaining"]);
-        SplitAheadLosing = SettingsHelper.ParseString(element["SplitAheadLosing"]);
-        SplitBehindGaining = SettingsHelper.ParseString(element["SplitBehindGaining"]);
-        SplitBehindLosing = SettingsHelper.ParseString(element["SplitBehindLosing"]);
-        BestSegment = SettingsHelper.ParseString(element["BestSegment"]);
-        UndoSplit = SettingsHelper.ParseString(element["UndoSplit"]);
-        SkipSplit = SettingsHelper.ParseString(element["SkipSplit"]);
-        PersonalBest = SettingsHelper.ParseString(element["PersonalBest"]);
-        NotAPersonalBest = SettingsHelper.ParseString(element["NotAPersonalBest"]);
-        Reset = SettingsHelper.ParseString(element["Reset"]);
-        Pause = SettingsHelper.ParseString(element["Pause"]);
-        Resume = SettingsHelper.ParseString(element["Resume"]);
-        StartTimer = SettingsHelper.ParseString(element["StartTimer"]);
+        Split = ParsePathListSetting(element, "Split");
+        SplitAheadGaining = ParsePathListSetting(element, "SplitAheadGaining");
+        SplitAheadLosing = ParsePathListSetting(element, "SplitAheadLosing");
+        SplitBehindGaining = ParsePathListSetting(element, "SplitBehindGaining");
+        SplitBehindLosing = ParsePathListSetting(element, "SplitBehindLosing");
+        BestSegment = ParsePathListSetting(element, "BestSegment");
+        UndoSplit = ParsePathListSetting(element, "UndoSplit");
+        SkipSplit = ParsePathListSetting(element, "SkipSplit");
+        PersonalBest = ParsePathListSetting(element, "PersonalBest");
+        NotAPersonalBest = ParsePathListSetting(element, "NotAPersonalBest");
+        Reset = ParsePathListSetting(element, "Reset");
+        Pause = ParsePathListSetting(element, "Pause");
+        Resume = ParsePathListSetting(element, "Resume");
+        StartTimer = ParsePathListSetting(element, "StartTimer");
 
         OutputDevice = SettingsHelper.ParseInt(element["OutputDevice"]);
 
@@ -155,6 +173,37 @@ public partial class SoundSettings : UserControl
         GeneralVolume = SettingsHelper.ParseInt(element["GeneralVolume"], 100);
     }
 
+    private IList<string> ParsePathListSetting(XmlElement element, string settingName)
+    {
+        XmlElement settingElement = element[settingName];
+        if (settingElement == null)
+        {
+            return [];
+        }
+
+        IList<string> paths = [];
+
+        XmlNodeList pathTexts = settingElement.SelectNodes("./path/text()");
+        foreach (XmlCharacterData pathData in pathTexts)
+        {
+            if (pathData is XmlText pathText)
+            {
+                paths.Add(pathData.Data);
+            }
+        }
+
+        // Support old, single-path setting format
+        if (paths.Count == 0)
+        {
+            if (settingElement.SelectSingleNode("./text()") is XmlText oldSettingValue)
+            {
+                paths.Add(oldSettingValue.Data);
+            }
+        }
+
+        return paths;
+    }
+
     public XmlNode GetSettings(XmlDocument document)
     {
         XmlElement parent = document.CreateElement("Settings");
@@ -170,20 +219,20 @@ public partial class SoundSettings : UserControl
     private int CreateSettingsNode(XmlDocument document, XmlElement parent)
     {
         return SettingsHelper.CreateSetting(document, parent, "Version", "1.6") ^
-        SettingsHelper.CreateSetting(document, parent, "Split", Split) ^
-        SettingsHelper.CreateSetting(document, parent, "SplitAheadGaining", SplitAheadGaining) ^
-        SettingsHelper.CreateSetting(document, parent, "SplitAheadLosing", SplitAheadLosing) ^
-        SettingsHelper.CreateSetting(document, parent, "SplitBehindGaining", SplitBehindGaining) ^
-        SettingsHelper.CreateSetting(document, parent, "SplitBehindLosing", SplitBehindLosing) ^
-        SettingsHelper.CreateSetting(document, parent, "BestSegment", BestSegment) ^
-        SettingsHelper.CreateSetting(document, parent, "UndoSplit", UndoSplit) ^
-        SettingsHelper.CreateSetting(document, parent, "SkipSplit", SkipSplit) ^
-        SettingsHelper.CreateSetting(document, parent, "PersonalBest", PersonalBest) ^
-        SettingsHelper.CreateSetting(document, parent, "NotAPersonalBest", NotAPersonalBest) ^
-        SettingsHelper.CreateSetting(document, parent, "Reset", Reset) ^
-        SettingsHelper.CreateSetting(document, parent, "Pause", Pause) ^
-        SettingsHelper.CreateSetting(document, parent, "Resume", Resume) ^
-        SettingsHelper.CreateSetting(document, parent, "StartTimer", StartTimer) ^
+        CreatePathListSetting(document, parent, "Split", Split) ^
+        CreatePathListSetting(document, parent, "SplitAheadGaining", SplitAheadGaining) ^
+        CreatePathListSetting(document, parent, "SplitAheadLosing", SplitAheadLosing) ^
+        CreatePathListSetting(document, parent, "SplitBehindGaining", SplitBehindGaining) ^
+        CreatePathListSetting(document, parent, "SplitBehindLosing", SplitBehindLosing) ^
+        CreatePathListSetting(document, parent, "BestSegment", BestSegment) ^
+        CreatePathListSetting(document, parent, "UndoSplit", UndoSplit) ^
+        CreatePathListSetting(document, parent, "SkipSplit", SkipSplit) ^
+        CreatePathListSetting(document, parent, "PersonalBest", PersonalBest) ^
+        CreatePathListSetting(document, parent, "NotAPersonalBest", NotAPersonalBest) ^
+        CreatePathListSetting(document, parent, "Reset", Reset) ^
+        CreatePathListSetting(document, parent, "Pause", Pause) ^
+        CreatePathListSetting(document, parent, "Resume", Resume) ^
+        CreatePathListSetting(document, parent, "StartTimer", StartTimer) ^
         SettingsHelper.CreateSetting(document, parent, "OutputDevice", OutputDevice) ^
         SettingsHelper.CreateSetting(document, parent, "SplitVolume", SplitVolume) ^
         SettingsHelper.CreateSetting(document, parent, "SplitAheadGainingVolume", SplitAheadGainingVolume) ^
@@ -202,97 +251,110 @@ public partial class SoundSettings : UserControl
         SettingsHelper.CreateSetting(document, parent, "GeneralVolume", GeneralVolume);
     }
 
-    protected string BrowseForPath(TextBox textBox, Action<string> callback)
+    private static int CreatePathListSetting(XmlDocument document, XmlElement parent, string name, IList<string> paths)
     {
-        string path = textBox.Text;
+        if (document != null)
+        {
+            XmlElement pathListElement = document.CreateElement(name);
+            foreach (string path in paths)
+            {
+                SettingsHelper.CreateSetting(document, pathListElement, "path", path);
+            }
+
+            parent.AppendChild(pathListElement);
+        }
+
+        return paths.Aggregate(0, (hash, next) => hash ^= next.GetHashCode());
+    }
+
+    private void BrowseForPaths(TextBox textBox, IList<string> paths, Action<IList<string>> callback)
+    {
+        string path = paths.FirstOrDefault() ?? string.Empty;
         var fileDialog = new OpenFileDialog()
         {
             Multiselect = true,
-            FileName = path.Split(';')[0],
+            FileName = path,
             Filter = "Audio Files|*.mp3;*.wav;*.aiff;*.wma|All Files|*.*"
         };
 
         DialogResult result = fileDialog.ShowDialog();
-
         if (result == DialogResult.OK)
         {
-            path = string.Join(";", fileDialog.FileNames);
+            paths = fileDialog.FileNames;
         }
 
-        textBox.Text = path;
-        callback(path);
-
-        return path;
+        textBox.Text = string.Join(", ", paths);
+        callback(paths);
     }
 
     private void btnSplit_Click(object sender, EventArgs e)
     {
-        BrowseForPath(txtSplitPath, (x) => Split = x);
+        BrowseForPaths(txtSplitPath, Split, paths => Split = paths);
     }
 
     private void btnAheadGaining_Click(object sender, EventArgs e)
     {
-        BrowseForPath(txtSplitAheadGaining, (x) => SplitAheadGaining = x);
+        BrowseForPaths(txtSplitAheadGaining, SplitAheadGaining, paths => SplitAheadGaining = paths);
     }
 
     private void btnAheadLosing_Click(object sender, EventArgs e)
     {
-        BrowseForPath(txtSplitAheadLosing, (x) => SplitAheadLosing = x);
+        BrowseForPaths(txtSplitAheadLosing, SplitAheadLosing, paths => SplitAheadLosing = paths);
     }
 
     private void btnBehindGaining_Click(object sender, EventArgs e)
     {
-        BrowseForPath(txtSplitBehindGaining, (x) => SplitBehindGaining = x);
+        BrowseForPaths(txtSplitBehindGaining, SplitBehindGaining, paths => SplitBehindGaining = paths);
     }
 
     private void btnBehindLosing_Click(object sender, EventArgs e)
     {
-        BrowseForPath(txtSplitBehindLosing, (x) => SplitBehindLosing = x);
+        BrowseForPaths(txtSplitBehindLosing, SplitBehindLosing, paths => SplitBehindLosing = paths);
     }
 
     private void btnBestSegment_Click(object sender, EventArgs e)
     {
-        BrowseForPath(txtBestSegment, (x) => BestSegment = x);
+        BrowseForPaths(txtBestSegment, BestSegment, paths => BestSegment = paths);
     }
 
     private void btnUndo_Click(object sender, EventArgs e)
     {
-        BrowseForPath(txtUndo, (x) => UndoSplit = x);
+        BrowseForPaths(txtUndo, UndoSplit, paths => UndoSplit = paths);
     }
 
     private void btnSkipSplit_Click(object sender, EventArgs e)
     {
-        BrowseForPath(txtSkip, (x) => SkipSplit = x);
+        BrowseForPaths(txtSkip, SkipSplit, paths => SkipSplit = paths);
     }
 
     private void btnPersonalBest_Click(object sender, EventArgs e)
     {
-        BrowseForPath(txtPersonalBest, (x) => PersonalBest = x);
+        BrowseForPaths(txtPersonalBest, PersonalBest, paths => PersonalBest = paths);
     }
 
     private void btnNotAPersonalBest_Click(object sender, EventArgs e)
     {
-        BrowseForPath(txtNotAPersonalBest, (x) => NotAPersonalBest = x);
+        BrowseForPaths(txtNotAPersonalBest, NotAPersonalBest, paths => NotAPersonalBest = paths);
     }
 
     private void btnReset_Click(object sender, EventArgs e)
     {
-        BrowseForPath(txtReset, (x) => Reset = x);
+        BrowseForPaths(txtReset, Reset, paths => Reset = paths);
     }
 
     private void btnPause_Click(object sender, EventArgs e)
     {
-        BrowseForPath(txtPause, (x) => Pause = x);
+        BrowseForPaths(txtPause, Pause, paths => Pause = paths);
     }
 
     private void btnResume_Click(object sender, EventArgs e)
     {
-        BrowseForPath(txtResume, (x) => Resume = x);
+        BrowseForPaths(txtResume, Resume, paths => Resume = paths);
     }
 
     private void btnStartTimer_Click(object sender, EventArgs e)
     {
-        BrowseForPath(txtStartTimer, (x) => StartTimer = x);
+        BrowseForPaths(txtStartTimer, StartTimer, paths => StartTimer = paths);
     }
 
     private void VolumeTrackBarScrollHandler(object sender, EventArgs e)

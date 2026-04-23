@@ -229,6 +229,7 @@
             this.txtStartTimer.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.txtStartTimer.Location = new System.Drawing.Point(149, 381);
             this.txtStartTimer.Name = "txtStartTimer";
+            this.txtStartTimer.ReadOnly = true;
             this.txtStartTimer.Size = new System.Drawing.Size(215, 20);
             this.txtStartTimer.TabIndex = 40;
             // 
@@ -377,6 +378,7 @@
             this.txtResume.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.txtResume.Location = new System.Drawing.Point(149, 352);
             this.txtResume.Name = "txtResume";
+            this.txtResume.ReadOnly = true;
             this.txtResume.Size = new System.Drawing.Size(215, 20);
             this.txtResume.TabIndex = 37;
             // 
@@ -385,6 +387,7 @@
             this.txtPause.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.txtPause.Location = new System.Drawing.Point(149, 323);
             this.txtPause.Name = "txtPause";
+            this.txtPause.ReadOnly = true;
             this.txtPause.Size = new System.Drawing.Size(215, 20);
             this.txtPause.TabIndex = 34;
             // 
@@ -393,6 +396,7 @@
             this.txtReset.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.txtReset.Location = new System.Drawing.Point(149, 294);
             this.txtReset.Name = "txtReset";
+            this.txtReset.ReadOnly = true;
             this.txtReset.Size = new System.Drawing.Size(215, 20);
             this.txtReset.TabIndex = 31;
             // 
@@ -401,6 +405,7 @@
             this.txtNotAPersonalBest.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.txtNotAPersonalBest.Location = new System.Drawing.Point(149, 265);
             this.txtNotAPersonalBest.Name = "txtNotAPersonalBest";
+            this.txtNotAPersonalBest.ReadOnly = true;
             this.txtNotAPersonalBest.Size = new System.Drawing.Size(215, 20);
             this.txtNotAPersonalBest.TabIndex = 28;
             // 
@@ -409,6 +414,7 @@
             this.txtPersonalBest.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.txtPersonalBest.Location = new System.Drawing.Point(149, 236);
             this.txtPersonalBest.Name = "txtPersonalBest";
+            this.txtPersonalBest.ReadOnly = true;
             this.txtPersonalBest.Size = new System.Drawing.Size(215, 20);
             this.txtPersonalBest.TabIndex = 25;
             // 
@@ -417,6 +423,7 @@
             this.txtSkip.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.txtSkip.Location = new System.Drawing.Point(149, 207);
             this.txtSkip.Name = "txtSkip";
+            this.txtSkip.ReadOnly = true;
             this.txtSkip.Size = new System.Drawing.Size(215, 20);
             this.txtSkip.TabIndex = 22;
             // 
@@ -425,6 +432,7 @@
             this.txtUndo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.txtUndo.Location = new System.Drawing.Point(149, 178);
             this.txtUndo.Name = "txtUndo";
+            this.txtUndo.ReadOnly = true;
             this.txtUndo.Size = new System.Drawing.Size(215, 20);
             this.txtUndo.TabIndex = 19;
             // 
@@ -433,6 +441,7 @@
             this.txtBestSegment.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.txtBestSegment.Location = new System.Drawing.Point(149, 149);
             this.txtBestSegment.Name = "txtBestSegment";
+            this.txtBestSegment.ReadOnly = true;
             this.txtBestSegment.Size = new System.Drawing.Size(215, 20);
             this.txtBestSegment.TabIndex = 16;
             // 
@@ -441,6 +450,7 @@
             this.txtSplitBehindLosing.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.txtSplitBehindLosing.Location = new System.Drawing.Point(149, 120);
             this.txtSplitBehindLosing.Name = "txtSplitBehindLosing";
+            this.txtSplitBehindLosing.ReadOnly = true;
             this.txtSplitBehindLosing.Size = new System.Drawing.Size(215, 20);
             this.txtSplitBehindLosing.TabIndex = 13;
             // 
@@ -449,6 +459,7 @@
             this.txtSplitBehindGaining.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.txtSplitBehindGaining.Location = new System.Drawing.Point(149, 91);
             this.txtSplitBehindGaining.Name = "txtSplitBehindGaining";
+            this.txtSplitBehindGaining.ReadOnly = true;
             this.txtSplitBehindGaining.Size = new System.Drawing.Size(215, 20);
             this.txtSplitBehindGaining.TabIndex = 10;
             // 
@@ -457,6 +468,7 @@
             this.txtSplitAheadLosing.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.txtSplitAheadLosing.Location = new System.Drawing.Point(149, 62);
             this.txtSplitAheadLosing.Name = "txtSplitAheadLosing";
+            this.txtSplitAheadLosing.ReadOnly = true;
             this.txtSplitAheadLosing.Size = new System.Drawing.Size(215, 20);
             this.txtSplitAheadLosing.TabIndex = 7;
             // 
@@ -465,6 +477,7 @@
             this.txtSplitAheadGaining.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.txtSplitAheadGaining.Location = new System.Drawing.Point(149, 33);
             this.txtSplitAheadGaining.Name = "txtSplitAheadGaining";
+            this.txtSplitAheadGaining.ReadOnly = true;
             this.txtSplitAheadGaining.Size = new System.Drawing.Size(215, 20);
             this.txtSplitAheadGaining.TabIndex = 4;
             // 
@@ -473,6 +486,7 @@
             this.txtSplitPath.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.txtSplitPath.Location = new System.Drawing.Point(149, 4);
             this.txtSplitPath.Name = "txtSplitPath";
+            this.txtSplitPath.ReadOnly = true;
             this.txtSplitPath.Size = new System.Drawing.Size(215, 20);
             this.txtSplitPath.TabIndex = 1;
             // 

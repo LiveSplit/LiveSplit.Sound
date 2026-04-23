@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
@@ -92,7 +93,7 @@ public class SoundComponent : LogicComponent, IDeactivatableComponent
         }
         else
         {
-            string path = string.Empty;
+            IList<string> paths = [];
             int volume = Settings.SplitVolume;
 
             int splitIndex = State.CurrentSplitIndex - 1;
@@ -102,23 +103,23 @@ public class SoundComponent : LogicComponent, IDeactivatableComponent
             {
                 if (timeDifference < TimeSpan.Zero)
                 {
-                    path = Settings.SplitAheadGaining;
+                    paths = Settings.SplitAheadGaining;
                     volume = Settings.SplitAheadGainingVolume;
 
                     if (LiveSplitStateHelper.GetPreviousSegmentDelta(State, splitIndex, State.CurrentComparison, State.CurrentTimingMethod) > TimeSpan.Zero)
                     {
-                        path = Settings.SplitAheadLosing;
+                        paths = Settings.SplitAheadLosing;
                         volume = Settings.SplitAheadLosingVolume;
                     }
                 }
                 else
                 {
-                    path = Settings.SplitBehindLosing;
+                    paths = Settings.SplitBehindLosing;
                     volume = Settings.SplitBehindLosingVolume;
 
                     if (LiveSplitStateHelper.GetPreviousSegmentDelta(State, splitIndex, State.CurrentComparison, State.CurrentTimingMethod) < TimeSpan.Zero)
                     {
-                        path = Settings.SplitBehindGaining;
+                        paths = Settings.SplitBehindGaining;
                         volume = Settings.SplitBehindGainingVolume;
                     }
                 }
@@ -131,17 +132,17 @@ public class SoundComponent : LogicComponent, IDeactivatableComponent
             {
                 if (State.Run[splitIndex].BestSegmentTime[State.CurrentTimingMethod] == null || curSegment < State.Run[splitIndex].BestSegmentTime[State.CurrentTimingMethod])
                 {
-                    path = Settings.BestSegment;
+                    paths = Settings.BestSegment;
                     volume = Settings.BestSegmentVolume;
                 }
             }
 
-            if (string.IsNullOrEmpty(path))
+            if (paths.Count == 0)
             {
-                path = Settings.Split;
+                paths = Settings.Split;
             }
 
-            PlaySound(path, volume);
+            PlaySound(paths, volume);
         }
     }
 
@@ -173,26 +174,24 @@ public class SoundComponent : LogicComponent, IDeactivatableComponent
         }
     }
 
-    private void PlaySound(string locations, int volume)
+    private void PlaySound(IList<string> paths, int volume)
     {
         Player.Stop();
 
-        int index = 0;
-        string[] locationsArray = locations.Split(';');
-        if (locationsArray.Length > 1)
+        if (paths.Count == 0)
         {
-            index = Rnd.Next(0, locations.Length);
+            return;
         }
 
-        string location = locationsArray[index];
-
-        if (Activated && File.Exists(location))
+        int index = Rnd.Next(0, paths.Count);
+        string path = paths[index];
+        if (Activated && File.Exists(path))
         {
             Task.Factory.StartNew(() =>
             {
                 try
                 {
-                    var audioFileReader = new AudioFileReader(location)
+                    var audioFileReader = new AudioFileReader(path)
                     {
                         Volume = volume / 100f * (Settings.GeneralVolume / 100f)
                     };
