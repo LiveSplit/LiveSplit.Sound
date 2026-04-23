@@ -357,6 +357,90 @@ public partial class SoundSettings : UserControl
         BrowseForPaths(txtStartTimer, StartTimer, paths => StartTimer = paths);
     }
 
+    private void btnClearSplit_Click(object sender, EventArgs e)
+    {
+        Split = [];
+        txtSplitPath.Clear();
+    }
+
+    private void btnClearAheadGaining_Click(object sender, EventArgs e)
+    {
+        SplitAheadGaining = [];
+        txtSplitAheadGaining.Clear();
+    }
+
+    private void btnClearAheadLosing_Click(object sender, EventArgs e)
+    {
+        SplitAheadLosing = [];
+        txtSplitAheadLosing.Clear();
+    }
+
+    private void btnClearBehindGaining_Click(object sender, EventArgs e)
+    {
+        SplitBehindGaining = [];
+        txtSplitBehindGaining.Clear();
+    }
+
+    private void btnClearBehindLosing_Click(object sender, EventArgs e)
+    {
+        SplitBehindLosing = [];
+        txtSplitBehindLosing.Clear();
+    }
+
+    private void btnClearBestSegment_Click(object sender, EventArgs e)
+    {
+        BestSegment = [];
+        txtBestSegment.Clear();
+    }
+
+    private void btnClearUndo_Click(object sender, EventArgs e)
+    {
+        UndoSplit = [];
+        txtUndo.Clear();
+    }
+
+    private void btnClearSkipSplit_Click(object sender, EventArgs e)
+    {
+        SkipSplit = [];
+        txtSkip.Clear();
+    }
+
+    private void btnClearPersonalBest_Click(object sender, EventArgs e)
+    {
+        PersonalBest = [];
+        txtPersonalBest.Clear();
+    }
+
+    private void btnClearNotAPersonalBest_Click(object sender, EventArgs e)
+    {
+        NotAPersonalBest = [];
+        txtNotAPersonalBest.Clear();
+    }
+
+    private void btnClearReset_Click(object sender, EventArgs e)
+    {
+        Reset = [];
+        txtReset.Clear();
+    }
+
+    private void btnClearPause_Click(object sender, EventArgs e)
+    {
+        Pause = [];
+        txtPause.Clear();
+    }
+
+    private void btnClearResume_Click(object sender, EventArgs e)
+    {
+        Resume = [];
+        txtResume.Clear();
+    }
+
+    private void btnClearStartTimer_Click(object sender, EventArgs e)
+    {
+        StartTimer = [];
+        txtStartTimer.Clear();
+    }
+
     private void VolumeTrackBarScrollHandler(object sender, EventArgs e)
     {
         var trackBar = (TrackBar)sender;
