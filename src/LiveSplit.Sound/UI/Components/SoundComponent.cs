@@ -178,15 +178,16 @@ public class SoundComponent : LogicComponent, IDeactivatableComponent
     {
         Player.Stop();
 
-        if (paths.Count == 0)
+        if (Activated)
         {
-            return;
-        }
+            string[] existingPaths = [.. paths.Where(File.Exists)];
+            if (existingPaths.Length == 0)
+            {
+                return;
+            }
 
-        int index = Rnd.Next(0, paths.Count);
-        string path = paths[index];
-        if (Activated && File.Exists(path))
-        {
+            int index = Rnd.Next(0, existingPaths.Length);
+            string path = existingPaths[index];
             Task.Factory.StartNew(() =>
             {
                 try
