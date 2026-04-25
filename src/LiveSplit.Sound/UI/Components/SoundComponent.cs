@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
@@ -21,6 +22,7 @@ public class SoundComponent : LogicComponent, IDeactivatableComponent
     private LiveSplitState State { get; set; }
     private SoundSettings Settings { get; set; }
     private WaveOut Player { get; set; }
+    private Random Rnd { get; set; }
 
     public SoundComponent(LiveSplitState state)
     {
@@ -37,6 +39,8 @@ public class SoundComponent : LogicComponent, IDeactivatableComponent
         State.OnPause += State_OnPause;
         State.OnResume += State_OnResume;
         State.OnReset += State_OnReset;
+
+        Rnd = new Random();
     }
 
     public override void Dispose()
@@ -89,7 +93,7 @@ public class SoundComponent : LogicComponent, IDeactivatableComponent
         }
         else
         {
-            string path = string.Empty;
+            IList<string> paths = [];
             int volume = Settings.SplitVolume;
 
             int splitIndex = State.CurrentSplitIndex - 1;
@@ -99,23 +103,23 @@ public class SoundComponent : LogicComponent, IDeactivatableComponent
             {
                 if (timeDifference < TimeSpan.Zero)
                 {
-                    path = Settings.SplitAheadGaining;
+                    paths = Settings.SplitAheadGaining;
                     volume = Settings.SplitAheadGainingVolume;
 
                     if (LiveSplitStateHelper.GetPreviousSegmentDelta(State, splitIndex, State.CurrentComparison, State.CurrentTimingMethod) > TimeSpan.Zero)
                     {
-                        path = Settings.SplitAheadLosing;
+                        paths = Settings.SplitAheadLosing;
                         volume = Settings.SplitAheadLosingVolume;
                     }
                 }
                 else
                 {
-                    path = Settings.SplitBehindLosing;
+                    paths = Settings.SplitBehindLosing;
                     volume = Settings.SplitBehindLosingVolume;
 
                     if (LiveSplitStateHelper.GetPreviousSegmentDelta(State, splitIndex, State.CurrentComparison, State.CurrentTimingMethod) < TimeSpan.Zero)
                     {
-                        path = Settings.SplitBehindGaining;
+                        paths = Settings.SplitBehindGaining;
                         volume = Settings.SplitBehindGainingVolume;
                     }
                 }
@@ -128,17 +132,17 @@ public class SoundComponent : LogicComponent, IDeactivatableComponent
             {
                 if (State.Run[splitIndex].BestSegmentTime[State.CurrentTimingMethod] == null || curSegment < State.Run[splitIndex].BestSegmentTime[State.CurrentTimingMethod])
                 {
-                    path = Settings.BestSegment;
+                    paths = Settings.BestSegment;
                     volume = Settings.BestSegmentVolume;
                 }
             }
 
-            if (string.IsNullOrEmpty(path))
+            if (paths.Count == 0)
             {
-                path = Settings.Split;
+                paths = Settings.Split;
             }
 
-            PlaySound(path, volume);
+            PlaySound(paths, volume);
         }
     }
 
@@ -170,17 +174,25 @@ public class SoundComponent : LogicComponent, IDeactivatableComponent
         }
     }
 
-    private void PlaySound(string location, int volume)
+    private void PlaySound(IList<string> paths, int volume)
     {
         Player.Stop();
 
-        if (Activated && File.Exists(location))
+        if (Activated)
         {
+            string[] existingPaths = [.. paths.Where(File.Exists)];
+            if (existingPaths.Length == 0)
+            {
+                return;
+            }
+
+            int index = Rnd.Next(0, existingPaths.Length);
+            string path = existingPaths[index];
             Task.Factory.StartNew(() =>
             {
                 try
                 {
-                    var audioFileReader = new AudioFileReader(location)
+                    var audioFileReader = new AudioFileReader(path)
                     {
                         Volume = volume / 100f * (Settings.GeneralVolume / 100f)
                     };
