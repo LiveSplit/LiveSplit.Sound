@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
@@ -75,7 +74,7 @@ public class SoundComponent : LogicComponent, IDeactivatableComponent
 
     private void State_OnStart(object sender, EventArgs e)
     {
-        PlaySound(Settings.StartTimer, Settings.StartTimerVolume);
+        PlaySound(EventType.StartTimer);
     }
 
     private void State_OnSplit(object sender, EventArgs e)
@@ -84,129 +83,128 @@ public class SoundComponent : LogicComponent, IDeactivatableComponent
         {
             if (State.Run.Last().PersonalBestSplitTime[State.CurrentTimingMethod] == null || State.Run.Last().SplitTime[State.CurrentTimingMethod] < State.Run.Last().PersonalBestSplitTime[State.CurrentTimingMethod])
             {
-                PlaySound(Settings.PersonalBest, Settings.PersonalBestVolume);
+                PlaySound(EventType.PersonalBest);
             }
             else
             {
-                PlaySound(Settings.NotAPersonalBest, Settings.NotAPersonalBestVolume);
+                PlaySound(EventType.NotAPersonalBest);
             }
+
+            return;
         }
-        else
+
+        EventType type = EventType.Split;
+
+        int splitIndex = State.CurrentSplitIndex - 1;
+        TimeSpan? timeDifference = State.Run[splitIndex].SplitTime[State.CurrentTimingMethod] - State.Run[splitIndex].Comparisons[State.CurrentComparison][State.CurrentTimingMethod];
+
+        if (timeDifference != null)
         {
-            IList<string> paths = [];
-            int volume = Settings.SplitVolume;
-
-            int splitIndex = State.CurrentSplitIndex - 1;
-            TimeSpan? timeDifference = State.Run[splitIndex].SplitTime[State.CurrentTimingMethod] - State.Run[splitIndex].Comparisons[State.CurrentComparison][State.CurrentTimingMethod];
-
-            if (timeDifference != null)
+            if (timeDifference < TimeSpan.Zero)
             {
-                if (timeDifference < TimeSpan.Zero)
-                {
-                    paths = Settings.SplitAheadGaining;
-                    volume = Settings.SplitAheadGainingVolume;
+                type = EventType.SplitAheadGaining;
 
-                    if (LiveSplitStateHelper.GetPreviousSegmentDelta(State, splitIndex, State.CurrentComparison, State.CurrentTimingMethod) > TimeSpan.Zero)
-                    {
-                        paths = Settings.SplitAheadLosing;
-                        volume = Settings.SplitAheadLosingVolume;
-                    }
-                }
-                else
+                if (LiveSplitStateHelper.GetPreviousSegmentDelta(State, splitIndex, State.CurrentComparison, State.CurrentTimingMethod) > TimeSpan.Zero)
                 {
-                    paths = Settings.SplitBehindLosing;
-                    volume = Settings.SplitBehindLosingVolume;
-
-                    if (LiveSplitStateHelper.GetPreviousSegmentDelta(State, splitIndex, State.CurrentComparison, State.CurrentTimingMethod) < TimeSpan.Zero)
-                    {
-                        paths = Settings.SplitBehindGaining;
-                        volume = Settings.SplitBehindGainingVolume;
-                    }
+                    type = EventType.SplitAheadLosing;
                 }
             }
-
-            //Check for best segment
-            TimeSpan? curSegment = LiveSplitStateHelper.GetPreviousSegmentTime(State, splitIndex, State.CurrentTimingMethod);
-
-            if (curSegment != null)
+            else
             {
-                if (State.Run[splitIndex].BestSegmentTime[State.CurrentTimingMethod] == null || curSegment < State.Run[splitIndex].BestSegmentTime[State.CurrentTimingMethod])
+                type = EventType.SplitBehindLosing;
+
+                if (LiveSplitStateHelper.GetPreviousSegmentDelta(State, splitIndex, State.CurrentComparison, State.CurrentTimingMethod) < TimeSpan.Zero)
                 {
-                    paths = Settings.BestSegment;
-                    volume = Settings.BestSegmentVolume;
+                    type = EventType.SplitBehindGaining;
                 }
             }
-
-            if (paths.Count == 0)
-            {
-                paths = Settings.Split;
-            }
-
-            PlaySound(paths, volume);
         }
+
+        //Check for best segment
+        TimeSpan? curSegment = LiveSplitStateHelper.GetPreviousSegmentTime(State, splitIndex, State.CurrentTimingMethod);
+
+        if (curSegment != null)
+        {
+            if (State.Run[splitIndex].BestSegmentTime[State.CurrentTimingMethod] == null || curSegment < State.Run[splitIndex].BestSegmentTime[State.CurrentTimingMethod])
+            {
+                type = EventType.BestSegment;
+            }
+        }
+
+        if (Settings.SoundDataDictionary[type].FilePaths.Count == 0)
+        {
+            type = EventType.Split;
+        }
+
+        PlaySound(type);
     }
 
     private void State_OnSkipSplit(object sender, EventArgs e)
     {
-        PlaySound(Settings.SkipSplit, Settings.SkipSplitVolume);
+        PlaySound(EventType.SkipSplit);
     }
 
     private void State_OnUndoSplit(object sender, EventArgs e)
     {
-        PlaySound(Settings.UndoSplit, Settings.UndoSplitVolume);
+        PlaySound(EventType.UndoSplit);
     }
 
     private void State_OnPause(object sender, EventArgs e)
     {
-        PlaySound(Settings.Pause, Settings.PauseVolume);
+        PlaySound(EventType.Pause);
     }
 
     private void State_OnResume(object sender, EventArgs e)
     {
-        PlaySound(Settings.Resume, Settings.ResumeVolume);
+        PlaySound(EventType.Resume);
     }
 
     private void State_OnReset(object sender, TimerPhase e)
     {
         if (e != TimerPhase.Ended)
         {
-            PlaySound(Settings.Reset, Settings.ResetVolume);
+            PlaySound(EventType.Reset);
         }
     }
 
-    private void PlaySound(IList<string> paths, int volume)
+    private void PlaySound(EventType type)
     {
         Player.Stop();
 
-        if (Activated)
+        if (!Activated)
         {
-            string[] existingPaths = [.. paths.Where(File.Exists)];
-            if (existingPaths.Length == 0)
-            {
-                return;
-            }
-
-            int index = Rnd.Next(0, existingPaths.Length);
-            string path = existingPaths[index];
-            Task.Factory.StartNew(() =>
-            {
-                try
-                {
-                    var audioFileReader = new AudioFileReader(path)
-                    {
-                        Volume = volume / 100f * (Settings.GeneralVolume / 100f)
-                    };
-
-                    Player.DeviceNumber = Settings.OutputDevice;
-                    Player.Init(audioFileReader);
-                    Player.Play();
-                }
-                catch (Exception e)
-                {
-                    Log.Error(e);
-                }
-            });
+            return;
         }
+
+        string[] existingPaths = [.. Settings.SoundDataDictionary[type].FilePaths.Where(File.Exists)];
+        if (existingPaths.Length == 0)
+        {
+            return;
+        }
+
+        int index = Rnd.Next(0, existingPaths.Length);
+        string path = existingPaths[index];
+
+        int volume = Settings.SoundDataDictionary[type].Volume;
+
+        Task.Factory.StartNew(() =>
+        {
+            try
+            {
+                var audioFileReader = new AudioFileReader(path)
+                {
+                    Volume = volume / 100f * (Settings.GeneralVolume / 100f)
+                };
+
+                Player.DeviceNumber = Settings.OutputDevice;
+                Player.Init(audioFileReader);
+                Player.Play();
+            }
+            catch (Exception e)
+            {
+                Log.Error(e);
+            }
+        });
     }
 
     public int GetSettingsHashCode()
