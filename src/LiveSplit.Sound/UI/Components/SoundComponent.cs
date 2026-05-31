@@ -1,14 +1,12 @@
-﻿using System;
+﻿using LiveSplit.Model;
+using LiveSplit.Options;
+using NAudio.Wave;
+using System;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Xml;
-
-using LiveSplit.Model;
-using LiveSplit.Options;
-
-using NAudio.Wave;
 
 namespace LiveSplit.UI.Components;
 
@@ -81,7 +79,8 @@ public class SoundComponent : LogicComponent, IDeactivatableComponent
     {
         if (State.CurrentPhase == TimerPhase.Ended)
         {
-            if (State.Run.Last().PersonalBestSplitTime[State.CurrentTimingMethod] == null || State.Run.Last().SplitTime[State.CurrentTimingMethod] < State.Run.Last().PersonalBestSplitTime[State.CurrentTimingMethod])
+            if (State.Run[^1].PersonalBestSplitTime[State.CurrentTimingMethod] == null
+                || State.Run[^1].SplitTime[State.CurrentTimingMethod] < State.Run[^1].PersonalBestSplitTime[State.CurrentTimingMethod])
             {
                 PlaySound(EventType.PersonalBest);
             }

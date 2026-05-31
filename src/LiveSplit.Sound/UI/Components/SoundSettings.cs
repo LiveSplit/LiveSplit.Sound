@@ -1,10 +1,9 @@
-﻿using System;
+﻿using NAudio.Wave;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
 using System.Xml;
-
-using NAudio.Wave;
 
 namespace LiveSplit.UI.Components;
 
@@ -77,14 +76,7 @@ public partial class SoundSettings : UserControl
 
     private void rdoAddDragDrop_CheckedChanged(object sender, EventArgs e)
     {
-        if (rdoClearAddDragDrop.Checked)
-        {
-            IsClearAddDragDrop = true;
-        }
-        else
-        {
-            IsClearAddDragDrop = false;
-        }
+        IsClearAddDragDrop = rdoClearAddDragDrop.Checked;
 
         foreach (EventType type in Enum.GetValues(typeof(EventType)))
         {
@@ -152,15 +144,15 @@ public partial class SoundSettings : UserControl
 
     private int CreateSettingsNode(XmlDocument document, XmlElement parent)
     {
-        int hash = SettingsHelper.CreateSetting(document, parent, "Version", "1.6") ^
-                   SettingsHelper.CreateSetting(document, parent, nameof(OutputDevice), OutputDevice) ^
-                   SettingsHelper.CreateSetting(document, parent, nameof(GeneralVolume), GeneralVolume) ^
-                   SettingsHelper.CreateSetting(document, parent, nameof(IsClearAddDragDrop), IsClearAddDragDrop);
+        int hash = SettingsHelper.CreateSetting(document, parent, "Version", "1.6")
+            ^ SettingsHelper.CreateSetting(document, parent, nameof(OutputDevice), OutputDevice)
+            ^ SettingsHelper.CreateSetting(document, parent, nameof(GeneralVolume), GeneralVolume)
+            ^ SettingsHelper.CreateSetting(document, parent, nameof(IsClearAddDragDrop), IsClearAddDragDrop);
 
         foreach (EventType type in Enum.GetValues(typeof(EventType)))
         {
-            hash ^= CreatePathListSetting(document, parent, type.ToString(), SoundDataDictionary[type].FilePaths) ^
-                    SettingsHelper.CreateSetting(document, parent, $"{type}Volume", SoundDataDictionary[type].Volume);
+            hash ^= CreatePathListSetting(document, parent, type.ToString(), SoundDataDictionary[type].FilePaths)
+                ^ SettingsHelper.CreateSetting(document, parent, $"{type}Volume", SoundDataDictionary[type].Volume);
         }
 
         return hash;
@@ -179,7 +171,7 @@ public partial class SoundSettings : UserControl
             parent.AppendChild(pathListElement);
         }
 
-        return paths.Aggregate(0, (hash, next) => hash ^= next.GetHashCode());
+        return paths.Aggregate(0, (hash, next) => hash ^ next.GetHashCode());
     }
 
     private void VolumeTrackBarScrollHandler(object sender, EventArgs e)
