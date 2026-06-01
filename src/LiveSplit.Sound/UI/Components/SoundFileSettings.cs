@@ -61,28 +61,14 @@ public partial class SoundFileSettings : UserControl
     private void txtFilePath_DragDrop(object sender, DragEventArgs e)
     {
         string[] files = (string[])e.Data.GetData(DataFormats.FileDrop, false);
-        if (IsClearAddDragDrop)
-        {
-            FilePaths = files;
-        }
-        else
-        {
-            FilePaths = [.. FilePaths.Concat(files).Distinct()];
-        }
+        FilePaths = IsClearAddDragDrop ? files : [.. FilePaths.Concat(files).Distinct()];
 
         txtFilePath.Text = string.Join(PathSeparator, FilePaths);
     }
 
     private void txtFilePath_DragEnter(object sender, DragEventArgs e)
     {
-        if (e.Data.GetDataPresent(DataFormats.FileDrop))
-        {
-            e.Effect = DragDropEffects.Copy;
-        }
-        else
-        {
-            e.Effect = DragDropEffects.None;
-        }
+        e.Effect = e.Data.GetDataPresent(DataFormats.FileDrop) ? DragDropEffects.Copy : DragDropEffects.None;
     }
 
     private void btnClear_Click(object sender, EventArgs e)

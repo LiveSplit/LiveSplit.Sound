@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 
 namespace LiveSplit.UI.Components;
+
 public class SoundData
 {
     public IList<string> FilePaths { get; set; }

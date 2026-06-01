@@ -1,4 +1,5 @@
 ﻿namespace LiveSplit.UI.Components;
+
 public enum EventType
 {
     Split,
